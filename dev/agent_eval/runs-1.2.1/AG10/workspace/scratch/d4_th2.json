@@ -1,0 +1,12 @@
+{
+ "delegation": "D4",
+ "state": "completed",
+ "result": {
+  "files": [
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TH-0000-02.md",
+    "text": "# CERBERO BUNDLE TH-0000-02\n- schema: \"cerbero-memory-2\"\n- bundle_id: \"TH-0000-02\"\n- case_id: null\n- scope_id: null\n- supersedes: null\n\n## RECORD TST-0000-0006\n- type: \"test-case\"\n- kind: \"similar\"\n- split: \"holdout\"\n- facts: \"Project Borealis: raw/IMG_2002.ARW now has a different digest while its size and modification time are unchanged; raw/IMG_2001.ARW has no copy outside Volume 1.\"\n- expected: \"IMG_2002 is reported as altered; IMG_2001 is reported as at risk.\"\n- source: \"synthetic test data authorized by the user; fixture P6-similar-borealis-second-raw\"\n\n## RECORD TST-0000-0007\n- type: \"test-case\"\n- kind: \"insufficient\"\n- split: \"holdout\"\n- facts: \"Project Borealis review in which the raw folder returns permission denied for every check.\"\n- expected: \"The two raw originals are reported as unknown with open items; no intact, altered or missing claim is made.\"\n- source: \"synthetic test data authorized by the user; fixture P7-insufficient-borealis\"\n"
+   }
+  ]
+ }
+}

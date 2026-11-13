@@ -1,0 +1,6 @@
+dev/.kit/
+dev/out/
+__pycache__/
+*.pyc
+dev/protected_files/.venv/
+dev/protected_files/config.local.toml

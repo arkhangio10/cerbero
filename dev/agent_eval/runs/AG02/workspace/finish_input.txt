@@ -1,0 +1,99 @@
+Cerbero review of /data/studio/projects/aurora
+Mode: Investigate, then Recover (stopped at the plan save)
+This review: case CAS-0002. Checked the 11 recorded assets of the project by metadata, the 4 present members of Delivery 2 by digest, searched the project for layout.indd by exact size, and re-checked the recorded backup copy of layout.indd. Time: unknown (the NAS returned no time).
+Previous review: CAS-0001, the baseline in /data/studio/cerbero-memory/CERBERO-B-0001-01.md (11 project files and 4 locations recorded, every inventory recorded as complete). Its file digest still matches index IDX-0001-01.
+Active policies applied: none (memory has no policy records)
+
+## Result in one line
+
+layout.indd was NOT recovered. A verified copy of the Delivery 2 version exists, but the NAS did not verify the save of the recovery plan, so Cerbero stopped before creating any folder or copying anything. Your project and /data/studio/recovered are unchanged.
+
+## What changed (case summary)
+
+| Asset | State | Evidence | Next step |
+|---|---|---|---|
+| layout.indd | missing at /data/studio/projects/aurora/layout.indd. No file of 16384 bytes anywhere in the project, to depth 8 | NAS reports not_found (OBS-0002-0006). The exact-size search is complete (OBS-0002-0007) | recover VER-0001-0006 (not executed, see below) |
+| brief.pdf | intact | digest 9d2c..9055 equals Delivery 2 version VER-0001-0001 (OBS-0002-0009) | none |
+| copy.docx | intact | digest 0745..03c4 equals VER-0001-0002 (OBS-0002-0009) | none |
+| cover.tif | intact | digest 2c36..40ef equals VER-0001-0003 (OBS-0002-0009) | none |
+| logo.ai | intact | digest 1dbd..0eda equals VER-0001-0007 (OBS-0002-0009) | none |
+| exports/previews/cover-preview.jpg, fonts-license.pdf, palette.ase, raw/DSC_0101.ARW, raw/DSC_0142.ARW, raw/DSC_0150.ARW | intact-metadata | size and modification time equal to the record (OBS-0002-0006). Content not hashed | none |
+
+Copies of the Delivery 2 version of layout.indd (VER-0001-0006, digest 84a4..1e1b, 16384 bytes):
+
+- /data/studio/backups/aurora-2026-10-01/layout.indd (CPY-0001-0015): eligible. Re-checked now: the real path is inside its location, the size is 16384 bytes and the digest equals VER-0001-0006 (OBS-0002-0008, OBS-0002-0009). Evidence level: verified-now.
+- /data/studio/usb-archive/aurora/layout.indd (CPY-0001-0022): excluded and not read. Memory records it as the Delivery 1 version VER-0001-0013 (15000 bytes), not Delivery 2.
+- /data/studio/backups/aurora-2026-11-05: memory records no copy of layout.indd there. Not searched in this session, because an eligible copy had already been found.
+- Folder names and dates were not used to choose. The folder name "aurora-2026-10-01" says nothing about its content. That copy was chosen only because its digest equals the approved Delivery 2 version.
+
+Open hypotheses:
+- HYP-0002-0004: layout.indd exists but is not visible to this account. Status: undetermined. The NAS reported not_found, not unreadable. The search named no unreadable folder, and no available check can settle this.
+- HYP-0002-0005: an edited copy of layout.indd with a different size exists under another name in the project. Status: open. This would need one full listing of the project. It was not run because you did not ask what happened, and its result would not change which version is recovered.
+
+Contradictions: copy record CPY-0001-0006 placed VER-0001-0006 at /data/studio/projects/aurora/layout.indd, but that path is now not_found (CLM-0002-0012). A superseding record CPY-0002-0001 marks that copy needs-review.
+Findings from documents: none (no document was read).
+Cause: unknown. No source states why layout.indd is gone.
+
+## Recovery plan PLN-0002-01 (saved without verification, so not executed)
+
+| Entry | Asset | Expected version | Source (re-observed) | Destination |
+|---|---|---|---|---|
+| ENT-0002-01-01 | layout.indd (AST-0001-0006) | VER-0001-0006, 84a4..1e1b, 16384 bytes | /data/studio/backups/aurora-2026-10-01/layout.indd (OBS-0002-0008, OBS-0002-0009) | /data/studio/recovered/cerbero-recovery-CAS-0002/layout.indd |
+
+- Target approved set: Delivery 2 (SET-0001-0002). Members: brief.pdf VER-0001-0001, layout.indd VER-0001-0006, copy.docx VER-0001-0002, cover.tif VER-0001-0003, logo.ai VER-0001-0007. Only layout.indd needs recovery.
+- Record file: /data/studio/cerbero-memory/CERBERO-B-0001-01.md.
+- Approving statements:
+  - STM-0001-0005: "Delivery 2 is an approved set: brief.pdf, layout.indd, copy.docx, cover.tif, logo.ai."
+  - STM-0001-0003: "Delivery 2 (3 November) is the approved client delivery. ..."
+- Operations planned: create /data/studio/recovered/cerbero-recovery-CAS-0002, with no subfolders. Then copy the source to the destination. Never move, never overwrite.
+- Preconditions:
+  - Your confirmation of the plan ID, its saved digest and the target set.
+  - The plan digest is re-checked before the first change.
+  - The source digest is re-checked immediately before copying.
+  - The destination is absent and inside the recovery folder.
+  - The NAS approval of the folder and of the copy is answered by you.
+- Success conditions: the copy exists at the planned real path returned by the NAS, and its digest equals 84a4..1e1b.
+- Pending and out of scope: none in the plan.
+- Risks:
+  - There is a single eligible source, which is on Volume 2 of this NAS (STM-0001-0003).
+  - The source could change before the copy.
+  - The copy is not atomic.
+  - The memory and the copies are on the same NAS.
+- Plan ID: PLN-0002-01. Saved plan digest: none. The D10 save returned verified: false for /data/studio/cerbero-memory/CERBERO-B-0002-01.md (20200 bytes), so the plan counts as not persisted and was not hashed. You approved the NAS save request (APV-1), but that approval does not confirm the plan. Cerbero never asked you to confirm the plan, and nothing was created or copied.
+
+## Receipt RCP-0002-01 (its save was not verified, so it is shown here in full)
+
+| Entry | Status | Source digest before | Destination digest | Note |
+|---|---|---|---|---|
+| ENT-0002-01-01 (layout.indd, AST-0001-0006, VER-0001-0006) | not-attempted | not observed at copy time. At source selection: 84a4..1e1b (OBS-0002-0009) | none | the plan was not persisted, so /data/studio/recovered/cerbero-recovery-CAS-0002 was not created and nothing was copied |
+
+- Plan: PLN-0002-01. Plan digest: none (not persisted).
+- Approval: APR-0002-0001, decision not-requested. The plan confirmation was never asked, because the mandatory plan save returned verified: false.
+- Overall status: failed. Reason: the mandatory plan save was not persisted.
+- Reference: approved versions (Delivery 2).
+- Target set complete: no. brief.pdf, copy.docx, cover.tif and logo.ai are intact. layout.indd is still missing.
+- Verified: none. Failed copies: none, since no copy was attempted. Out of scope: none.
+- Pending: ENT-0002-01-01, layout.indd (VER-0001-0006).
+- Where the receipt was saved: it was not saved. D10 returned verified: false for /data/studio/cerbero-memory/CERBERO-B-0002-02.md (22565 bytes). You approved that save request too (APV-2).
+
+## What you can do next
+
+- Ask Cerbero again to recover the Delivery 2 version of layout.indd. That will be a new plan revision. Before you are asked to confirm it, its save must be verified and it must be hashed.
+- The NAS did not say why the two saves were not verified. Before retrying, you may want to check in the file manager that /data/studio/cerbero-memory is healthy and writable.
+- The two unverified files remain in the memory folder: CERBERO-B-0002-01.md and CERBERO-B-0002-02.md. Cerbero does not delete them. Later reviews treat them as needs-review and do not use them as evidence.
+- No index snapshot was written. Nothing in this session was persisted. An index whose own save was not verified would become the newest snapshot, which later sessions trust without a digest check. IDX-0001-01 therefore stays the newest index.
+
+## Coverage
+
+```text
+Assets checked by digest: 4 of 5 critical (layout.indd absent); ordinary checked by metadata: 6
+Listings: 2 complete (memory folder: 2 entries; exact-size search for 16384 bytes in /data/studio/projects/aurora to depth 8: 0 entries), 0 truncated, 0 folders unreadable
+Digests computed: 7 files, 88906 bytes (2 memory files, 5 data files)
+Not reviewed: full listing of /data/studio/projects/aurora for new or renamed files of any size; /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora (not listed or hashed this session); content of the 6 ordinary assets
+Out of scope: none
+Memory needing review: /data/studio/cerbero-memory/CERBERO-B-0002-01.md and /data/studio/cerbero-memory/CERBERO-B-0002-02.md (saves not verified, not listed in any index)
+Not persisted: plan bundle B-0002-01 (mandatory: recovery stopped); receipt bundle B-0002-02; index snapshot (not written)
+Session budget used: 7 of 300 digests, 2 of 60 listings, 88906 bytes of 2 GB
+```
+
+Trust limit: the memory, the copies and these digests are all on the same NAS. They detect differences from the recorded reference, but they are not an independent root of trust. A matching digest shows matching content, not who removed the file or why.

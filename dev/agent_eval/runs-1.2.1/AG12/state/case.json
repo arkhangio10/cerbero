@@ -1,0 +1,28 @@
+{
+  "id": "AG12",
+  "scenario": "S00-demo-aurora",
+  "authorized": [
+    "/data/studio/projects/aurora",
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/backups/aurora-2026-11-05",
+    "/data/studio/usb-archive/aurora",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "from_run": "AG11",
+  "title": "The user retires the policy the agent learned; memory comes from AG11",
+  "covers": [
+    "policy-retirement"
+  ],
+  "request": "Retire the active policy you learned from case CAS-0002. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora.",
+  "user": {
+    "approve_plan": false,
+    "retire_decision": "Yes. Retire it; do not apply it in later reviews."
+  },
+  "expect": {
+    "no_changes": true,
+    "policy_retired": true
+  },
+  "prefix": "/data/studio"
+}

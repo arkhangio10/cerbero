@@ -1,0 +1,46 @@
+{
+  "id": "AG06",
+  "scenario": "S03-recent-wrong-copy",
+  "title": "Experts omit real paths for the only good backup, and the raw folder is unreadable",
+  "covers": [
+    "incomplete-response",
+    "permission-denied",
+    "unknown-containment"
+  ],
+  "request": "layout.indd is missing from project Aurora. Recover the Delivery 2 version. Project folder: /volume1/studio/projects/aurora. Cerbero memory folder: /volume1/studio/cerbero-memory. Copy locations: /volume1/studio/backups/aurora-2026-10-01, /volume1/studio/backups/aurora-2026-11-05 and /volume1/studio/usb-archive/aurora. Create the recovery folder under /volume1/studio/recovered.",
+  "user": {
+    "approve_plan": true
+  },
+  "faults": [
+    {
+      "kind": "omit_realpath",
+      "op": "stat",
+      "prefix": "backups/aurora-2026-10-01"
+    },
+    {
+      "kind": "omit_realpath",
+      "op": "sha256",
+      "prefix": "backups/aurora-2026-10-01"
+    },
+    {
+      "kind": "permission_denied",
+      "prefix": "projects/aurora/raw"
+    }
+  ],
+  "authorized": [
+    "/volume1/studio/projects/aurora",
+    "/volume1/studio/backups/aurora-2026-10-01",
+    "/volume1/studio/backups/aurora-2026-11-05",
+    "/volume1/studio/usb-archive/aurora",
+    "/volume1/studio/cerbero-memory",
+    "/volume1/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "expect": {
+    "no_changes": true,
+    "report_mentions": [
+      "layout.indd"
+    ]
+  },
+  "prefix": "/volume1/studio"
+}

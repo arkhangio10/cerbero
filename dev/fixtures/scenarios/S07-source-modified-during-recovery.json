@@ -1,0 +1,22 @@
+{
+  "extends": "aurora.json",
+  "id": "S07",
+  "title": "The only eligible source changes while it is being copied",
+  "covers": ["source-modified-during-recovery"],
+  "before": {"backups/aurora-2026-11-05/cover.tif": null},
+  "incident": [
+    {"op": "replace", "path": "projects/aurora/cover.tif", "blob": "cover-tampered", "keep_mtime": true}
+  ],
+  "faults": [
+    {"kind": "mutate_on_copy", "src": "backups/aurora-2026-10-01/cover.tif", "blob": "cover-v1"}
+  ],
+  "expected": {
+    "states": {"A-cover": "altered"},
+    "recovery": {
+      "entries": {"A-cover": "invalidated-source-changed"},
+      "blobs": {},
+      "overall": "failed",
+      "set_complete": false
+    }
+  }
+}

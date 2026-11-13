@@ -1,0 +1,52 @@
+{
+  "extends": "aurora.json",
+  "id": "S15",
+  "title": "A copy location with no recorded volume or device",
+  "covers": ["unknown-failure-domain", "evidence-levels"],
+  "locations": {
+    "L-bk-old": null,
+    "L-bk-new": null,
+    "L-usb": null,
+    "L-unk": {"root": "shared/aurora-copy", "memberships": {}, "unknown_kinds": ["volume", "storage-pool", "device", "site"]}
+  },
+  "before": {
+    "backups/aurora-2026-10-01/brief.pdf": null,
+    "backups/aurora-2026-10-01/layout.indd": null,
+    "backups/aurora-2026-10-01/copy.docx": null,
+    "backups/aurora-2026-10-01/cover.tif": null,
+    "backups/aurora-2026-10-01/logo.ai": null,
+    "backups/aurora-2026-11-05/layout.indd": null,
+    "backups/aurora-2026-11-05/copy.docx": null,
+    "backups/aurora-2026-11-05/cover.tif": null,
+    "usb-archive/aurora/brief.pdf": null,
+    "usb-archive/aurora/layout.indd": null,
+    "usb-archive/aurora/copy.docx": null,
+    "usb-archive/aurora/cover.tif": null,
+    "usb-archive/aurora/logo.ai": null,
+    "shared/aurora-copy/brief.pdf": {"blob": "brief-v2", "mtime": 1300},
+    "shared/aurora-copy/layout.indd": {"blob": "layout-v2", "mtime": 1300},
+    "shared/aurora-copy/copy.docx": {"blob": "copy-v2", "mtime": 1300},
+    "shared/aurora-copy/cover.tif": {"blob": "cover-v2", "mtime": 1300},
+    "shared/aurora-copy/logo.ai": {"blob": "logo-v1", "mtime": 1300}
+  },
+  "request": {
+    "intent": "what-if",
+    "set": "SET-D2",
+    "verify": true,
+    "copy_locations": ["L-unk"],
+    "member_names": ["brief.pdf", "layout.indd", "copy.docx", "cover.tif", "logo.ai"],
+    "scenarios": [
+      {"id": "project-folder-unavailable", "type": "location", "location": "L-proj"},
+      {"id": "volume-1-failure", "type": "domain", "domain": "DOM-vol1", "named_location": "L-proj"}
+    ]
+  },
+  "expected": {
+    "whatif": [
+      {"scenario": "project-folder-unavailable", "verdict": "recoverable", "level": "verified-now",
+       "eligible": {"A-brief": 1, "A-layout": 1, "A-copy": 1, "A-cover": 1, "A-logo": 1}},
+      {"scenario": "volume-1-failure", "verdict": "undetermined",
+       "eligible": {"A-brief": 0, "A-layout": 0, "A-copy": 0, "A-cover": 0, "A-logo": 0}}
+    ],
+    "acknowledged": ["domain-unknown"]
+  }
+}

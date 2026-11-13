@@ -1,0 +1,5 @@
+Thank you. I recorded your confirmation of the CAS-0002 outcome. Your "Yes" does not say which question it answers, and I must not answer for you, so please reply to each one separately:
+
+(a) Do you confirm CERBERO-TD-0000-01.md (digest 2721...bcb3) as the synthetic test data you authorized? (yes / no)
+
+(b) Do you declare that /data/studio/projects/aurora/exports/previews holds only regenerable files, so a change there may be reported as informational instead of an incident? (yes / no)

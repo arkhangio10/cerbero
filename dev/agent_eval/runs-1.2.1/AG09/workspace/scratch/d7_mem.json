@@ -1,0 +1,98 @@
+{
+ "delegation": "D7",
+ "state": "completed",
+ "result": {
+  "digests": [
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0001-01.md",
+    "sha256": "dc616afa8ebc5a303d71bbaff7420d19c8ed646b512a29bf7c635962889bd85b",
+    "size_bytes": 16678,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0001-01.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0001-02.md",
+    "sha256": "6cde1fb8957f6539a2c7d346f0280df34cad4d3d8467d4555352bc0c377e2a1e",
+    "size_bytes": 4403,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0001-02.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0002-01.md",
+    "sha256": "de48e7098e5890f79d442ca39128296e30b026231e83be54bc080ab87ca27edf",
+    "size_bytes": 16317,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0002-01.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0002-02.md",
+    "sha256": "6e49138c3ebde1506a6b49ed5e7a9d6c323727514dbc7801dcaeee40a721e121",
+    "size_bytes": 2329,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0002-02.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0002-03.md",
+    "sha256": "d55e0770e8b14aea2f4b510d3982dac4ae4db134fe7aa3233e6f088ae8086ccf",
+    "size_bytes": 3006,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0002-03.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0003-01.md",
+    "sha256": "509afe91768ed7b73cee07a5ce555f9abe0c7f91268843644699c0eba14fa775",
+    "size_bytes": 16073,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0003-01.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0003-02.md",
+    "sha256": "b63cb19f09669bb066ef1b1395af5ed5a84a59ec2499934152332c160331afc5",
+    "size_bytes": 3108,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0003-02.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0003-03.md",
+    "sha256": "f01961985bc52ac567c6a4d536cae973d8a459a1127100c9753bea590d889799",
+    "size_bytes": 6421,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0003-03.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0004-01.md",
+    "sha256": "c6e31f6703aecaa8f1aaba1624ee73a7194c073a9c8f594c048728fa9d158219",
+    "size_bytes": 1574,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0004-01.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0004-02.md",
+    "sha256": "0b9450f7fd3972115392422508c7f8516f98e1292c7e50051413e96fee6ab806",
+    "size_bytes": 1084,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0004-02.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TD-0000-01.md",
+    "sha256": "27215cd7c4d914c58cc34d3b2800189c6301de54349a56718983451d4068bcb3",
+    "size_bytes": 1157,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-TD-0000-01.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md",
+    "sha256": "da4f37783be68d2831d0e810b9289c15afb4fa2a75736094759360b9e71f11dd",
+    "size_bytes": 1390,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-IDX-0004-01.md",
+    "sha256": "7cea48dc1578c32066840d602cba182c5f6fe37820e975fa2902ab43cbd25296",
+    "size_bytes": 3639,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-IDX-0004-01.md"
+   }
+  ]
+ }
+}

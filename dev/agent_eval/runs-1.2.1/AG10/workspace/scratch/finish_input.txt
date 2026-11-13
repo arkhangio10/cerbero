@@ -1,0 +1,62 @@
+Policy version 2 (POL-0004-0001) was frozen, passed 2 of 2 development cases and 2 of 2 new holdout cases unseen before the freeze, and is now active with your approval (POL-0004-0003). No project file was read, created, copied or changed.
+
+Cerbero review of /data/studio/projects/aurora
+Mode: Learn (case CAS-0004)
+This review: memory folder /data/studio/cerbero-memory only; no project or copy-location file was read; time as returned by the NAS: unknown
+Previous review: CAS-0003 (Learn: version 1 POL-0003-0002 rejected on holdout case TST-0000-0003); the lesson comes from closed case CAS-0002 (CAS-0002-0003)
+Active policies applied: none in this session (POL-0004-0003 becomes usable in later reviews)
+Memory: 12 CERBERO- files at load, listing complete (12 of at most 200, not truncated); newest index CERBERO-IDX-0003-01; 7 files hashed at load, all equal to their index digests; 0 needing review
+
+What was done
+1. Checked that CAS-0002 is closed: CAS-0002-0003 (status closed, supersedes CAS-0002) and receipt RCP-0002-01 (verified, set complete) are in trusted files.
+2. Read the reason version 1 was rejected (EVL-0003-0001, OPN-0003-0003): holdout case TST-0000-0003 (project Borealis) failed because the scope of version 1 was limited to Aurora (SCP-0001).
+3. Drafted version 2 from the development cases TST-0000-0001 (origin) and TST-0000-0002 (counterexample) only. The holdout file CERBERO-TH-0000-01.md was not read in this session.
+4. Froze it in CERBERO-B-0004-01.md (save verified, 3791 bytes). Rule digest from the NAS: cb23...7032 (EVL-0004-0001).
+5. After the freeze, listed memory again: the new file CERBERO-TH-0000-02.md (964 bytes, digest 44d0...c4a5, OBS-0004-0002) was there. It had not been listed before the freeze. I read it only after the freeze.
+6. Replayed the cases, showed you the evaluation, and recorded your approval.
+
+Policy version 2
+- Effect lines: promote-critical raw, informational exports/previews.
+- Scope: the folders raw and exports/previews directly inside each project folder you name in a review and that D2 resolves in that session. It covers no other folder, location or project.
+- Changes from version 1:
+  - It is no longer limited to Aurora.
+  - Raw files whose copies are on locations with unknown domain membership are reported as uncertain.
+  - Raw files that were not hashed or not readable are named as not reviewed. They are never reported as safe or lost.
+  - promote-critical raw does not apply while you declare that the raw folder of that project holds regenerable files. Critical files and approved-set members keep their full review.
+- The informational line still needs your statement that exports/previews of that project is regenerable. For Aurora, that statement does not exist yet (OPN-0003-0002).
+
+Policy evaluation
+| Case | Split | Kind | Expected | Replayed | Result |
+|---|---|---|---|---|---|
+| TST-0000-0001 | development | origin | three raw originals at risk under a Volume 1 failure; preview not at risk | raw digested and mapped, no eligible copy outside Volume 1: at risk; previews declared regenerable: informational | pass |
+| TST-0000-0002 | development | counterexample | regenerated preview informational; no incident, recovery or at-risk flag | informational line applies; change reported as informational with path and digest | pass |
+| TST-0000-0006 | holdout | similar | Borealis: IMG_2002 altered; IMG_2001 at risk | raw promoted, IMG_2002 digested despite equal size and time: altered; IMG_2001 no copy outside Volume 1: at risk | pass |
+| TST-0000-0007 | holdout | insufficient | the two raw originals unknown with open items; no intact, altered or missing claim | permission denied on every check: unknown, open item, named as not reviewed | pass |
+
+- Invariant guard: passed all 8 rules. The policy adds no capability or location, removes no confirmation, allows no overwrite, keeps the source and destination checks, never lowers the review of critical or approved-set files, takes no text as authority and never shortens coverage.
+- Frozen rule digest: cb23...7032 (EVL-0004-0001, OBS-0004-0001).
+- Development cases: 2 of 2 pass. Holdout cases: 2 of 2 pass. The holdout cases were unseen before the freeze.
+- Approval: "Yes. I approve POL-0004-0001." (STM-0004-0003). Active record: POL-0004-0003. Its chain is POL-0004-0003 (active), then POL-0004-0002 (evaluated), then POL-0004-0001 (candidate).
+
+Limits
+- TST-0000-0003 to TST-0000-0005 were seen before and informed this revision. They are not counted, and they were not replayed against version 2.
+- Both holdout cases come from project Borealis, and there is no holdout counterexample.
+- No recorded case exercises the clause for a raw folder you declare regenerable (OPN-0004-0002).
+- The replays assume that Borealis would be a project folder you name in that review.
+- Passing these cases shows consistency with them. It does not guarantee results on future incidents.
+- The new holdout file has a modification time (10000) earlier than the frozen file (10001). Modification times do not show when a file was written, so no conclusion is drawn.
+- The policy and memory files live on the same NAS. A later review re-checks the whole chain and runs the guard again before applying the policy, but this is not an independent root of trust.
+
+Saved
+- /data/studio/cerbero-memory/CERBERO-B-0004-01.md: 3791 bytes, verified, digest cb23...7032. It holds case CAS-0004, statement STM-0004-0001, candidate POL-0004-0001 and open item OPN-0004-0001.
+- /data/studio/cerbero-memory/CERBERO-B-0004-02.md: 7526 bytes, verified, digest 61ad...8384. It holds OBS-0004-0001/0002, STM-0004-0002/0003, EVL-0004-0001, POL-0004-0002 (evaluated), POL-0004-0003 (active) and OPN-0004-0002.
+- /data/studio/cerbero-memory/CERBERO-IDX-0004-01.md: 3641 bytes, verified. It has 15 entries: it carries forward 11, marks IDX-0003-01 as superseded, and lists TH-0000-02, B-0004-01 and B-0004-02 as current.
+
+Coverage
+Assets checked by digest: 0 of 0 (no project review in this mode); ordinary checked by metadata: 0
+Listings: 2 complete (memory folder, before and after the freeze), 0 truncated, 0 folders unreadable
+Digests computed: 12 of memory files (8 at load, 4 after saves or of the new holdout file), 64405 bytes; 0 of project files
+Not reviewed: project and copy locations (not needed for Learn); memory files not read: CERBERO-B-0001-02.md, CERBERO-TH-0000-01.md, CERBERO-IDX-0001-01.md, CERBERO-IDX-0002-01.md
+Out of scope: none
+Memory needing review: none
+Not persisted: none

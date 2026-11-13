@@ -1,0 +1,24 @@
+{
+  "extends": "aurora.json",
+  "id": "S11",
+  "title": "A critical file is lost and no named location holds its version",
+  "covers": ["no-recoverable-copy"],
+  "before": {
+    "backups/aurora-2026-10-01/logo.ai": null,
+    "usb-archive/aurora/logo.ai": null
+  },
+  "incident": [
+    {"op": "delete", "path": "projects/aurora/logo.ai"}
+  ],
+  "expected": {
+    "states": {"A-logo": "missing", "A-brief": "intact"},
+    "recovery": {
+      "entries": {"A-logo": "no-source"},
+      "blobs": {},
+      "overall": "failed",
+      "set_complete": false
+    },
+    "no_source": ["A-logo"],
+    "no_files_created": true
+  }
+}

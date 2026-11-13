@@ -1,0 +1,31 @@
+{
+  "extends": "aurora.json",
+  "id": "P4-insufficient",
+  "title": "The raw folder cannot be read during the review",
+  "case": {
+    "split": "holdout",
+    "kind": "insufficient",
+    "facts": "Project Aurora review in which the raw folder returns permission denied for every check.",
+    "expected_text": "The three raw originals are reported as unknown with open items; no intact or missing claim is made."
+  },
+  "faults": [
+    {
+      "kind": "permission_denied",
+      "prefix": "projects/aurora/raw"
+    }
+  ],
+  "request": {
+    "intent": "review"
+  },
+  "expected": {
+    "states": {
+      "A-raw0101": "unknown",
+      "A-raw0142": "unknown",
+      "A-raw0150": "unknown"
+    },
+    "open_items_min": 3,
+    "acknowledged": [
+      "coverage-incomplete"
+    ]
+  }
+}

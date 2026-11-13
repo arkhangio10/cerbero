@@ -1,0 +1,139 @@
+{
+ "delegation": "D5",
+ "state": "completed",
+ "result": {
+  "paths": [
+   {
+    "path": "/data/studio/backups/aurora-2026-10-01/brief.pdf",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-10-01/brief.pdf",
+    "size_bytes": 736,
+    "modified": 1200
+   },
+   {
+    "path": "/data/studio/backups/aurora-2026-10-01/copy.docx",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-10-01/copy.docx",
+    "size_bytes": 968,
+    "modified": 1200
+   },
+   {
+    "path": "/data/studio/backups/aurora-2026-10-01/cover.tif",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-10-01/cover.tif",
+    "size_bytes": 9396,
+    "modified": 1200
+   },
+   {
+    "path": "/data/studio/backups/aurora-2026-10-01/layout.indd",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-10-01/layout.indd",
+    "size_bytes": 16384,
+    "modified": 1200
+   },
+   {
+    "path": "/data/studio/backups/aurora-2026-10-01/logo.ai",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-10-01/logo.ai",
+    "size_bytes": 8192,
+    "modified": 1200
+   },
+   {
+    "path": "/data/studio/backups/aurora-2026-11-05/copy.docx",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-11-05/copy.docx",
+    "size_bytes": 968,
+    "modified": 1500
+   },
+   {
+    "path": "/data/studio/backups/aurora-2026-11-05/cover.tif",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/backups/aurora-2026-11-05/cover.tif",
+    "size_bytes": 9396,
+    "modified": 1500
+   },
+   {
+    "path": "/data/studio/usb-archive/aurora/brief.pdf",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/usb-archive/aurora/brief.pdf",
+    "size_bytes": 4096,
+    "modified": 700
+   },
+   {
+    "path": "/data/studio/usb-archive/aurora/copy.docx",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/usb-archive/aurora/copy.docx",
+    "size_bytes": 6000,
+    "modified": 700
+   },
+   {
+    "path": "/data/studio/usb-archive/aurora/cover.tif",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/usb-archive/aurora/cover.tif",
+    "size_bytes": 32768,
+    "modified": 700
+   },
+   {
+    "path": "/data/studio/usb-archive/aurora/layout.indd",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/usb-archive/aurora/layout.indd",
+    "size_bytes": 15000,
+    "modified": 700
+   },
+   {
+    "path": "/data/studio/usb-archive/aurora/logo.ai",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/usb-archive/aurora/logo.ai",
+    "size_bytes": 8192,
+    "modified": 700
+   },
+   {
+    "path": "/data/studio/projects/aurora/raw/DSC_0101.ARW",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/raw/DSC_0101.ARW",
+    "size_bytes": 65536,
+    "modified": 800
+   },
+   {
+    "path": "/data/studio/projects/aurora/raw/DSC_0142.ARW",
+    "exists": false,
+    "reason": "not_found"
+   },
+   {
+    "path": "/data/studio/projects/aurora/raw/DSC_0150.ARW",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/raw/DSC_0150.ARW",
+    "size_bytes": 65536,
+    "modified": 802
+   }
+  ]
+ }
+}

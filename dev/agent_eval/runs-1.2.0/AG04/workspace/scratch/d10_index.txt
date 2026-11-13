@@ -1,0 +1,41 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-IDX-0002-01. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE IDX-0002-01
+- schema: "cerbero-memory-2"
+- bundle_id: "IDX-0002-01"
+- case_id: "CAS-0002"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD IDX-0002-01-0001
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0001-01.md"
+- bundle_id: "B-0001-01"
+- sha256: "8056343e9b83127a3cfa50579196f5d4787f2ac405c42be8b2a44bb186af1931"
+- status: "current"
+
+## RECORD IDX-0002-01-0002
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0001-02.md"
+- bundle_id: "B-0001-02"
+- sha256: "bd00bb36e319d96ffd5a0b49353544a3d74c09d8d7f9fe7706b8c0e14d99d758"
+- status: "current"
+
+## RECORD IDX-0002-01-0003
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-IDX-0001-01.md"
+- bundle_id: "IDX-0001-01"
+- sha256: "2f38a8093b55bc73033c33558d887da934b14073b413411e28469afb32ad35cc"
+- status: "superseded"
+
+## RECORD IDX-0002-01-0004
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0002-01.md"
+- bundle_id: "B-0002-01"
+- sha256: "7734e9642a958ae3b70b8629f59daebb92afd72a3621ad3b05da6add249f32f0"
+- status: "current"
+
+## RECORD IDX-0002-01-0005
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0002-02.md"
+- bundle_id: "B-0002-02"
+- sha256: "3cb3e0067755e652d9b5de6b5815ca99e5ece1c2a695e91bb8fa1ed22bccdbb9"
+- status: "current"

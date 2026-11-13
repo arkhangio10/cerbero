@@ -1,0 +1,21 @@
+{
+  "extends": "borealis.json",
+  "id": "P6-similar-borealis-second-raw",
+  "title": "Another raw original of Borealis altered keeping size and time",
+  "blobs": {
+    "raw-2002-tampered": {"text": "BOREALIS raw IMG_2002 synthetic sensor dataY", "size": 49152}
+  },
+  "case": {
+    "split": "holdout",
+    "kind": "similar",
+    "facts": "Project Borealis: raw/IMG_2002.ARW now has a different digest while its size and modification time are unchanged; raw/IMG_2001.ARW has no copy outside Volume 1.",
+    "expected_text": "IMG_2002 is reported as altered; IMG_2001 is reported as at risk."
+  },
+  "incident": [
+    {"op": "replace", "path": "projects/borealis/raw/IMG_2002.ARW", "blob": "raw-2002-tampered", "keep_mtime": true}
+  ],
+  "expected": {
+    "states": {"B-raw2001": "intact", "B-raw2002": "altered", "B-poster": "intact"},
+    "at_risk_includes": ["B-raw2001"]
+  }
+}

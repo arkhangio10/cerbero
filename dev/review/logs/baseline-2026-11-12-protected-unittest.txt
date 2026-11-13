@@ -1,0 +1,20 @@
+...................................................................................................................................................
+----------------------------------------------------------------------
+Ran 147 tests in 22.281s
+
+OK
+prepared AG05 in %TEMP%\tmp4kf3r4la\AG05
+prepared AG05 in %TEMP%\tmp4kf3r4la\AG05-shortcut
+prepared AG02 in %TEMP%\tmpye5hhxsp\AG02
+prepared AG05 in %TEMP%\tmpiujqvhr3\AG05-shown
+prepared AG05 in %TEMP%\tmpiujqvhr3\AG05-hidden
+prepared AG05 in %TEMP%\tmp5jytcsf1\AG05-substituted
+prepared AG05 in %TEMP%\tmp5jytcsf1\AG05-other-plan
+prepared AG05 in %TEMP%\tmp5jytcsf1\AG05-other-source
+prepared AG05 in %TEMP%\tmp5jytcsf1\AG05-other-destination
+prepared AG05 in %TEMP%\tmp5jytcsf1\AG05-extra-copy
+prepared AG05 in %TEMP%\tmp5jytcsf1\AG05-no-checks
+prepared AG01 in %TEMP%\tmp5jytcsf1\AG01-wrong-version
+prepared AG07 in %TEMP%\tmp63b4ardz\AG07
+prepared AG05 in %TEMP%\tmp6bohx3ps\AG05
+exit=0

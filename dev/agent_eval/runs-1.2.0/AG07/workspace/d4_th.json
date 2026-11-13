@@ -1,0 +1,12 @@
+{
+ "delegation": "D4",
+ "state": "completed",
+ "result": {
+  "files": [
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md",
+    "text": "# CERBERO BUNDLE TH-0000-01\n- schema: \"cerbero-memory-2\"\n- bundle_id: \"TH-0000-01\"\n- case_id: null\n- scope_id: null\n- supersedes: null\n\n## RECORD TST-0000-0003\n- type: \"test-case\"\n- kind: \"similar\"\n- split: \"holdout\"\n- facts: \"Project Borealis: raw/IMG_2001.ARW now has a different digest while its size and modification time are unchanged; raw/IMG_2002.ARW has no copy outside Volume 1.\"\n- expected: \"IMG_2001 is reported as altered; IMG_2002 is reported as at risk.\"\n- source: \"synthetic test data authorized by the user; fixture P3-similar-borealis\"\n\n## RECORD TST-0000-0004\n- type: \"test-case\"\n- kind: \"insufficient\"\n- split: \"holdout\"\n- facts: \"Project Aurora review in which the raw folder returns permission denied for every check.\"\n- expected: \"The three raw originals are reported as unknown with open items; no intact or missing claim is made.\"\n- source: \"synthetic test data authorized by the user; fixture P4-insufficient\"\n\n## RECORD TST-0000-0005\n- type: \"test-case\"\n- kind: \"similar\"\n- split: \"holdout\"\n- facts: \"Project Aurora: raw/DSC_0150.ARW is missing; an identical copy exists on the external USB archive (device usb-1); the other raw originals have no copy.\"\n- expected: \"DSC_0150 is reported missing but not at risk; DSC_0101 and DSC_0142 are at risk; the preview is not at risk.\"\n- source: \"synthetic test data authorized by the user; fixture P5-similar-copy-exists\"\n"
+   }
+  ]
+ }
+}

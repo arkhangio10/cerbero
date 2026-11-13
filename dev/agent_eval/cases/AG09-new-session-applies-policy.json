@@ -1,0 +1,37 @@
+{
+  "id": "AG09",
+  "scenario": "S00V-demo-valid-formats",
+  "title": "A new session reviews Aurora with the policy learned, frozen, tested and approved in an earlier session",
+  "covers": [
+    "cross-session-learning",
+    "policy-activation"
+  ],
+  "request": "Review project Aurora: which files could I lose if the volume that holds the project failed? Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora.",
+  "user": {
+    "approve_plan": false
+  },
+  "demo_steps": [
+    "baseline",
+    "incident",
+    "recover",
+    "rebuild",
+    "learn"
+  ],
+  "authorized": [
+    "/data/studio/projects/aurora",
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/backups/aurora-2026-11-05",
+    "/data/studio/usb-archive/aurora",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "expect": {
+    "no_changes": true,
+    "report_mentions": [
+      "DSC_0101",
+      "DSC_0150",
+      "POL-0004-0003"
+    ]
+  }
+}

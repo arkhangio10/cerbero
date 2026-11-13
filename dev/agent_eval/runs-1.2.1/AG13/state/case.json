@@ -1,0 +1,31 @@
+{
+  "id": "AG13",
+  "scenario": "S00-demo-aurora",
+  "authorized": [
+    "/data/studio/projects/aurora",
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/backups/aurora-2026-11-05",
+    "/data/studio/usb-archive/aurora",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "from_run": "AG12",
+  "title": "A new session after the retirement no longer applies the policy; memory comes from AG12",
+  "covers": [
+    "cross-session-learning",
+    "policy-retirement"
+  ],
+  "request": "Review project Aurora: which files could I lose if the volume that holds the project failed? Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora.",
+  "user": {
+    "approve_plan": false
+  },
+  "expect": {
+    "no_changes": true,
+    "reads_retired_policy": true,
+    "report_mentions": [
+      "retired"
+    ]
+  },
+  "prefix": "/data/studio"
+}

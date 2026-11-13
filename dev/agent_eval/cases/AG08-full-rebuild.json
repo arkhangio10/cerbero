@@ -1,0 +1,41 @@
+{
+  "id": "AG08",
+  "scenario": "S00V-demo-valid-formats",
+  "title": "Rebuild the whole of Delivery 2 in a new folder, intact members included, with provenance and checks",
+  "covers": [
+    "full-rebuild",
+    "format-check",
+    "manifest"
+  ],
+  "request": "Rebuild Delivery 2 of project Aurora in a new folder: all its files, also the ones that are still fine, and tell me where each file came from and what you could check. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the new folder under /data/studio/recovered.",
+  "user": {
+    "approve_plan": true
+  },
+  "demo_steps": [
+    "baseline",
+    "incident",
+    "recover"
+  ],
+  "authorized": [
+    "/data/studio/projects/aurora",
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/backups/aurora-2026-11-05",
+    "/data/studio/usb-archive/aurora",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "expect": {
+    "recovered": {
+      "brief.pdf": "brief-v2",
+      "layout.indd": "layout-v2",
+      "copy.docx": "copy-v2",
+      "cover.tif": "cover-v2",
+      "logo.ai": "logo-v1"
+    },
+    "report_mentions": [
+      "brief.pdf",
+      "logo.ai"
+    ]
+  }
+}

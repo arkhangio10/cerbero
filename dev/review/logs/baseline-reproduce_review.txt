@@ -1,0 +1,113 @@
+[
+  {
+    "id": "R01",
+    "property": "No recovery when the mandatory plan could not be persisted",
+    "status": "FAIL",
+    "evidence": {
+      "overall": "verified",
+      "copies": 1,
+      "mkdir": 1,
+      "persisted": []
+    }
+  },
+  {
+    "id": "R02",
+    "property": "An explicit plan refusal also stops recovery without a prior reference",
+    "status": "FAIL",
+    "evidence": {
+      "overall": "verified",
+      "copies": 1,
+      "plan": null
+    }
+  },
+  {
+    "id": "R03",
+    "property": "Memory paths cannot escape the approved recovery directory",
+    "status": "FAIL",
+    "evidence": {
+      "overall": "verified",
+      "copy_calls": [
+        {
+          "args": {
+            "src": "backups/aurora-2026-10-01/layout.indd",
+            "dst": "outside/escaped-layout.indd"
+          },
+          "success": true
+        }
+      ],
+      "escaped_exists": true
+    }
+  },
+  {
+    "id": "R04",
+    "property": "A location label cannot authorize an unrelated source path",
+    "status": "FAIL",
+    "evidence": {
+      "overall": "verified",
+      "out_of_scope_calls": [
+        {
+          "op": "sha256",
+          "args": {
+            "path": "private/other-client/layout.indd"
+          },
+          "success": true
+        },
+        {
+          "op": "sha256",
+          "args": {
+            "path": "private/other-client/layout.indd"
+          },
+          "success": true
+        },
+        {
+          "op": "copy",
+          "args": {
+            "src": "private/other-client/layout.indd",
+            "dst": "recovered/cerbero-recovery-CAS-0001/layout.indd"
+          },
+          "success": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "R05",
+    "property": "Memory serialization preserves file paths exactly",
+    "status": "FAIL",
+    "evidence": {
+      "original": "/nas/Cliente O'Neil/foto, final.tif",
+      "roundtrip": "/nas/Cliente ONeil/foto, final.tif"
+    }
+  },
+  {
+    "id": "R06",
+    "property": "A wrong-hash or denied copy is not eligible",
+    "status": "FAIL",
+    "evidence": {
+      "verdict": "recoverable",
+      "eligible": {
+        "A-brief": 1,
+        "A-layout": 1,
+        "A-copy": 2,
+        "A-cover": 2,
+        "A-logo": 2
+      }
+    }
+  },
+  {
+    "id": "R07",
+    "property": "Evaluation results do not depend on which variant ran first",
+    "status": "FAIL",
+    "evidence": {
+      "shared_calls": 37,
+      "fresh_calls": 38,
+      "shared_revalidated": [],
+      "fresh_revalidated": [
+        "CLM-0000-0001",
+        "CLM-0000-0002"
+      ]
+    }
+  }
+]
+Review probes: 0 passed, 7 failed.
+exit=1

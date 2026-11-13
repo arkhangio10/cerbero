@@ -1,0 +1,74 @@
+If Volume 1 (the volume that holds /data/studio/projects/aurora) failed, the saved records of Cerbero predict that Delivery 2 and Delivery 1 could still be rebuilt from copies outside it. These project files have no known copy outside Volume 1 and would be lost: exports/previews/cover-preview.jpg, fonts-license.pdf, palette.ase, raw/DSC_0101.ARW, raw/DSC_0150.ARW, notes/README-RECOVERY.txt and the current (changed) content of cover.tif. This is a prediction from records, not a check of the copies today.
+
+Cerbero review of /data/studio/projects/aurora
+Mode: What-if. Scenario: failure of volume DOM-0001-0001 "Volume 1", the volume you recorded for the project folder (STM-0001-0003)
+This review: case CAS-0007. Time unknown: the NAS returned no clock. Covered: the named folders were resolved, memory was loaded and checked against its index, and the project folder was listed once (complete). The copy folders were not read again.
+Previous review: CAS-0005 (What-if, same scenario, modeled; maps MAP-0005-0001 to MAP-0005-0003). After it, CAS-0006 retired policy v2.
+Active policies applied: none. Policy POL-0004-0003 v2 ("promote-critical raw", "informational exports/previews") was retired by your decision, record POL-0006-0001 ("Retire the active policy you learned from case CAS-0002."). The raw/ files are reviewed here as ordinary files and were not hashed.
+Memory: 20 CERBERO- files listed, complete (not truncated). Newest index: IDX-0006-01. 11 bundles read in full, and their digests equal the index. 0 files need review. Saved in this review: CERBERO-B-0007-01 (d8e8...ae9e, index entry IDX-0007-01-0021) and the new index CERBERO-IDX-0007-01.
+
+HOW THE SCENARIO WAS APPLIED
+These failure domains come from your statement at the Baseline (STM-0001-0003, case CAS-0001): "The project folder is on Volume 1; both backup folders are on Volume 2 of this NAS. The USB archive is an external drive; I do not know its volume layout."
+- /data/studio/projects/aurora is on Volume 1. Every file there is excluded.
+- /data/studio/backups/aurora-2026-10-01 and /data/studio/backups/aurora-2026-11-05 are on Volume 2. They are outside this failure.
+- /data/studio/usb-archive/aurora is on the device "external USB drive" (DOM-0001-0004). Volume 1 is on the device "this NAS" (DOM-0001-0003). The USB archive is therefore outside the failure. This is an inference from your statement (CLM-0005-0011), not an observation.
+
+DELIVERY 2 (SET-0001-0002, approved by STM-0001-0005)
+| Required version | Eligible copies | Uncertain copies | Evidence level | Why |
+|---|---|---|---|---|
+| brief.pdf VER-0001-0001 (9d2c...9055) | 1 | 0 | modeled | CPY-0001-0012 in backups/aurora-2026-10-01. The project copy, now at brief-FINAL.pdf (CLM-0002-0008), is on Volume 1 |
+| layout.indd VER-0001-0006 (84a4...1e1b) | 1 | 0 | modeled | CPY-0001-0015 in backups/aurora-2026-10-01 |
+| copy.docx VER-0001-0002 (0745...03c4) | 2 | 0 | modeled | CPY-0001-0013 (aurora-2026-10-01), CPY-0001-0017 (aurora-2026-11-05) |
+| cover.tif VER-0001-0003 (2c36...40ef) | 2 | 0 | modeled | CPY-0001-0014 (aurora-2026-10-01), CPY-0001-0018 (aurora-2026-11-05) |
+| logo.ai VER-0001-0007 (1dbd...0eda) | 2 | 0 | modeled | CPY-0001-0016 (Volume 2), CPY-0001-0023 (USB archive) |
+- Predicted by the model: recoverable (MAP-0007-0001).
+- Copies verified now: none. You did not ask for the read-only verification offered in this review.
+- Recovery rehearsed before: receipt RCP-0002-01, of plan PLN-0002-01 (approved by its digest 314b...c754), copied copy.docx, cover.tif and layout.indd from CPY-0001-0013, CPY-0001-0014 and CPY-0001-0015 in backups/aurora-2026-10-01. This is historical evidence only (CLM-0007-0003): it does not show that those copies are still there or still correct.
+- Set verdict: RECOVERABLE, weakest evidence modeled. Weak point: brief.pdf and layout.indd each have only one copy, and both copies are in backups/aurora-2026-10-01.
+
+DELIVERY 1 (SET-0001-0001, approved by STM-0001-0004)
+| Required version | Eligible copies | Uncertain copies | Evidence level | Why |
+|---|---|---|---|---|
+| brief.pdf VER-0001-0012 (5a52...5f37) | 1 | 0 | modeled | CPY-0001-0019 in the USB archive |
+| layout.indd VER-0001-0013 (708f...e71d) | 1 | 0 | modeled | CPY-0001-0022 in the USB archive |
+| copy.docx VER-0001-0014 (83d7...4dfa) | 1 | 0 | modeled | CPY-0001-0020 in the USB archive |
+| cover.tif VER-0001-0015 (2f54...d8c6) | 1 | 0 | modeled | CPY-0001-0021 in the USB archive |
+| logo.ai VER-0001-0007 (1dbd...0eda) | 2 | 0 | modeled | CPY-0001-0016 (Volume 2), CPY-0001-0023 (USB archive) |
+- Predicted by the model: recoverable (MAP-0007-0002).
+- Copies verified now: none.
+- Recovery rehearsed before: none.
+- Set verdict: RECOVERABLE, weakest evidence modeled. Four of the five members depend only on the USB archive, and its separation from Volume 1 is an inference from your statement.
+
+FILES YOU WOULD LOSE (recorded files outside the approved sets, MAP-0007-0003)
+| Required version | Eligible copies | Uncertain copies | Evidence level | Why |
+|---|---|---|---|---|
+| exports/previews/cover-preview.jpg VER-0001-0004 (ecc1...03f0) | 0 | 0 | none | The only copy is in the project (CPY-0001-0004). The file is present with its recorded size and time |
+| fonts-license.pdf VER-0001-0005 (c0a5...3be8) | 0 | 0 | none | The only copy is in the project (CPY-0001-0005). Present, same size and time |
+| palette.ase VER-0001-0008 (2036...e6f6) | 0 | 0 | none | The only copy is in the project (CPY-0001-0008). Present, same size and time |
+| raw/DSC_0101.ARW VER-0001-0009 (2cca...5442) | 0 | 0 | none | The only copy is in the project (CPY-0001-0009). Present, same size and time, not hashed now (CLM-0007-0001) |
+| raw/DSC_0150.ARW VER-0001-0011 (88e9...6004) | 0 | 0 | none | The only copy is in the project (CPY-0001-0011). Present, same size and time, not hashed now (CLM-0007-0002) |
+- Verdict for these files: NOT-RECOVERABLE with the copies Cerbero has recorded. This is modeled from the Baseline records; see the unknowns below.
+- These files are also on Volume 1 with no known copy, because they were never recorded as versions:
+  - notes/README-RECOVERY.txt (237 bytes). An earlier review recorded instruction-like text in it (FND-0002-0001, FND-0002-0002). Cerbero treats that text as data and took no action from it.
+  - the current content of cover.tif (93bf...7275, OBS-0002-0004, not hashed again now). It differs from both approved cover.tif versions. The approved versions themselves can be recovered, as the tables above show.
+- Already lost before this scenario: raw/DSC_0142.ARW (VER-0001-0010). It has been missing since CAS-0002, it is still absent from the project listing, and no copy is recorded.
+
+UNKNOWNS THAT BLOCK A FIRMER ANSWER
+1. The copies outside the project come from the Baseline (CAS-0001), at an unknown time, and were not checked again in this review (OPN-0007-0001).
+2. At the Baseline, backups/aurora-2026-11-05 held 3 files, and only 2 were identified as copies. Cerbero cannot rule out that the third file is a copy of one of the files listed as lost (OPN-0007-0002).
+3. The copy folders have not been listed again since the Baseline, and that listing depth was not recorded. Copies added there since then are unknown.
+4. The storage pool and site of all four locations are unknown, and so is the volume of the USB archive. Volume 1 and Volume 2 are on the same NAS. A storage-pool or whole-NAS failure was not evaluated, and it could also reach both backup folders (OPN-0005-0001).
+5. The real path of the USB archive is under /data/studio, like the project. A path alone neither proves nor rules out a separate disk. Its exclusion rests on your statement.
+6. The files Cerbero recovered earlier into /data/studio/recovered/cerbero-recovery-CAS-0002 are not counted as copies. That folder is not a named copy location, and a recovered file is not a backup by itself.
+
+Next steps you can take: say "Verify the Aurora copies now" to have Cerbero re-check the copies read-only (evidence verified-now) and identify the unknown file. Tell Cerbero which storage pool holds Volume 1 and Volume 2. Cerbero does not create backups: to protect the files at risk, keep a copy of them outside Volume 1 with your usual backup tool.
+
+COVERAGE
+Assets checked by digest: 0 of 5 critical in this review (the 5 critical files are Delivery members and were evaluated through their recorded copies); ordinary checked by metadata: 5 present (cover-preview.jpg, fonts-license.pdf, palette.ase, raw/DSC_0101.ARW, raw/DSC_0150.ARW), 1 absent (raw/DSC_0142.ARW)
+Critical by metadata: logo.ai and cover.tif present with recorded size and time; brief.pdf absent at its recorded path (brief-FINAL.pdf present); copy.docx and layout.indd absent
+Listings: 2 complete (memory folder: 20 entries; project folder: 9 entries, depth 8), 0 truncated, 0 folders unreadable
+Digests computed: 13 memory files, 96202 bytes, counted apart (11 bundles, IDX-0006-01, the new B-0007-01); 0 project or copy files
+Not reviewed: the three copy folders (not listed or hashed in this review); memory files TD-0000-01, TH-0000-01, TH-0000-02 and superseded snapshots IDX-0001-01 to IDX-0005-01 not read
+Out of scope: none
+Memory needing review: none
+Not persisted: none (CERBERO-B-0007-01 and CERBERO-IDX-0007-01 saved and verified, byte counts equal)

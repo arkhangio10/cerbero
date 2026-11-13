@@ -1,0 +1,39 @@
+import json,re,sys
+d=json.load(open('d4_bundles.json',encoding='utf-8'))
+texts=[f['text'] for f in d['result']['files']]
+new=open(sys.argv[1],encoding='utf-8').read()
+print('bytes',len(new.encode('utf-8')))
+def parse(t,recs,errs):
+    lines=t.split('\n');cur=None;hdr={}
+    for ln in lines[1:]:
+        if not ln: continue
+        m=re.match(r'^## RECORD (\S+)$',ln)
+        if m:
+            cur=m.group(1)
+            if cur in recs: errs.append('dup '+cur)
+            recs[cur]={};continue
+        m=re.match(r'^- ([a-z0-9_]+): (.*)$',ln)
+        if not m: errs.append('bad line '+ln);continue
+        try: v=json.loads(m.group(2))
+        except Exception as e: errs.append('json '+ln);continue
+        tgt=hdr if cur is None else recs[cur]
+        if m.group(1) in tgt: errs.append('dup field '+ln)
+        tgt[m.group(1)]=v
+    return hdr
+old={};e=[]
+for t in texts: parse(t,old,e)
+newr={};errs=[]
+hdr=parse(new,newr,errs)
+print(hdr,errs)
+req={'case':['scope_id','request','status','opened_in'],'statement':['text','given_in','class'],'observation':['check_card','agent','delegation','state','result','coverage','observed_at','class'],'check-card':['doubt','decision','operation','outcomes','cost','budget_left'],'claim':['kind','subject','statement','class','supports','contradicts','depends_on','status'],'copy':['version_id','real_path','location_id','sha256','observation','access','status'],'hypothesis':['subject','text','status','for','against','next_check'],'open-item':['subject','reason','needed_to_resolve'],'plan':['case_id','revision','reference','target_set','recovery_folder','goal','preconditions','success_conditions','risks','pending','previous_receipt','supersedes_plan'],'approval':['plan_id','plan_sha256','decision','statement'],'receipt':['plan_id','plan_sha256','overall','reference','set_complete','coverage','pending','reason'],'receipt-entry':['receipt_id','entry_id','asset_id','version_id','status','destination_path','source_sha256_before','destination_sha256','source_sha256_after','note'],'index-entry':['file','bundle_id','sha256','status']}
+ids=set(old)|set(newr)
+for k,r in newr.items():
+    if k in old: print('ID clash',k)
+    t=r.get('type'); miss=[x for x in req.get(t,['?']) if x not in r]
+    if miss: print('REQ',k,t,miss)
+    for fld,v in r.items():
+        vals=v if isinstance(v,list) else (list(v.keys())+list(v.values()) if isinstance(v,dict) else [v])
+        for x in vals:
+            if isinstance(x,str) and re.match(r'^(SCP|AST|VER|CPY|LOC|DOM|SET|STM|CAS|CHK|OBS|CLM|HYP|OPN|PLN|APR|RCP|REN|ENT|IDX)-\d{4}(-\d{2,4})*$',x) and x not in ids:
+                print('MISSING REF',k,fld,x)
+print(len(newr),'records')

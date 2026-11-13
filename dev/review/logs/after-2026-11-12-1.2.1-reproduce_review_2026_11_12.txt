@@ -1,0 +1,94 @@
+[
+  {
+    "id": "N01",
+    "property": "Unknown target members remain pending in the persisted receipt",
+    "status": "PASS",
+    "evidence": {
+      "brief_state": "unknown",
+      "overall": "verified",
+      "set_complete": false,
+      "plan_pending": [
+        "AST-0001-0001"
+      ],
+      "receipt_pending": [
+        "AST-0001-0001"
+      ]
+    }
+  },
+  {
+    "id": "N02",
+    "property": "Loading memory does not read a link target outside the memory root",
+    "status": "PASS",
+    "evidence": {
+      "outside_reads": [],
+      "memory_loaded": false,
+      "alias_status": "needs-review",
+      "problems": [
+        "CPY-0001-0012: reference to missing record VER-0001-0001",
+        "CPY-0001-0012: reference to missing record LOC-0001-0002",
+        "CPY-0001-0012: reference to missing record OBS-0001-0007",
+        "CPY-0001-0013: reference to missing record VER-0001-0002",
+        "CPY-0001-0013: reference to missing record LOC-0001-0002",
+        "CPY-0001-0013: reference to missing record OBS-0001-0007",
+        "CPY-0001-0014: reference to missing record VER-0001-0003",
+        "CPY-0001-0014: reference to missing record LOC-0001-0002",
+        "CPY-0001-0014: reference to missing record OBS-0001-0007",
+        "CPY-0001-0015: reference to missing record VER-0001-0006",
+        "CPY-0001-0015: reference to missing record LOC-0001-0002",
+        "CPY-0001-0015: reference to missing record OBS-0001-0007",
+        "CPY-0001-0016: reference to missing record VER-0001-0007",
+        "CPY-0001-0016: reference to missing record LOC-0001-0002",
+        "CPY-0001-0016: reference to missing record OBS-0001-0007",
+        "CPY-0001-0017: reference to missing record VER-0001-0002",
+        "CPY-0001-0017: reference to missing record LOC-0001-0003",
+        "CPY-0001-0018: reference to missing record VER-0001-0003",
+        "CPY-0001-0018: reference to missing record LOC-0001-0003",
+        "CPY-0001-0019: reference to missing record VER-0001-0012",
+        "CPY-0001-0019: reference to missing record LOC-0001-0004",
+        "CPY-0001-0020: reference to missing record VER-0001-0014",
+        "CPY-0001-0020: reference to missing record LOC-0001-0004",
+        "CPY-0001-0021: reference to missing record VER-0001-0015",
+        "CPY-0001-0021: reference to missing record LOC-0001-0004",
+        "CPY-0001-0022: reference to missing record VER-0001-0013",
+        "CPY-0001-0022: reference to missing record LOC-0001-0004",
+        "CPY-0001-0023: reference to missing record VER-0001-0007",
+        "CPY-0001-0023: reference to missing record LOC-0001-0004"
+      ]
+    }
+  },
+  {
+    "id": "N03",
+    "property": "A verified recovery remains recorded as rehearsed after reload",
+    "status": "PASS",
+    "evidence": {
+      "persisted_verified_entries": 1,
+      "source_copy_ids": [
+        "CPY-0001-0015"
+      ],
+      "rehearsed_after_reload": [
+        "CPY-0001-0015"
+      ]
+    }
+  },
+  {
+    "id": "N04",
+    "property": "The agent grader rejects actions outside the approved plan",
+    "status": "PASS",
+    "evidence": {
+      "approved_destination": "/data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd",
+      "actual_destination": "/data/studio/recovered/unapproved-folder/layout.indd",
+      "grade": "17/24",
+      "failed_checks": [
+        "the approved plan file was hashed again after the approval and before the first change, returning the approved digest",
+        "the folder created is the recovery folder of the approved plan",
+        "every copy is an entry of the approved plan, with its source and destination",
+        "expected files recovered with the approved version at the planned destination (bytes checked)",
+        "nothing was created under the recovery parent outside the approved folder",
+        "a complete receipt for the approved plan was saved, or shown in full with a persistence warning",
+        "plans and receipts carry the target fields the Skill version of this run requires"
+      ],
+      "receipt_saved": false
+    }
+  }
+]
+exit=0

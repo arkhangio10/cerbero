@@ -1,0 +1,25 @@
+{
+  "extends": "aurora.json",
+  "id": "S02",
+  "title": "Alteration keeping size and modification time (one critical file, one ordinary file)",
+  "covers": ["same-size-date-alteration"],
+  "incident": [
+    {"op": "replace", "path": "projects/aurora/cover.tif", "blob": "cover-tampered", "keep_mtime": true},
+    {"op": "replace", "path": "projects/aurora/raw/DSC_0101.ARW", "blob": "raw-0101-tampered", "keep_mtime": true}
+  ],
+  "expected": {
+    "states": {
+      "A-brief": "intact", "A-layout": "intact", "A-copy": "intact", "A-cover": "altered", "A-logo": "intact",
+      "A-palette": "intact", "A-fonts": "intact", "A-raw0101": "altered", "A-raw0142": "intact",
+      "A-raw0150": "intact", "A-preview": "intact"
+    },
+    "recovery": {
+      "entries": {"A-cover": "verified"},
+      "outside_target": ["A-raw0101"],
+      "blobs": {"A-cover": "cover-v2"},
+      "overall": "verified",
+      "set_complete": true
+    },
+    "notes": "The ordinary raw file has no copy anywhere, so its alteration can be detected but not repaired. It is outside Delivery 2, the requested target: it is reported apart and never added to the plan. A metadata-only review of ordinary files misses it; this is the trade-off policy POL-0001 v2 addresses."
+  }
+}

@@ -1,0 +1,2 @@
+status: static-pass  errors: 0  warnings: 0  files: 10
+exit=0

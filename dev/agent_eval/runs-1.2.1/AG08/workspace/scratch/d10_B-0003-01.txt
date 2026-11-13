@@ -1,0 +1,397 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0003-01. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0003-01
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0003-01"
+- case_id: "CAS-0003"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD CAS-0003
+- type: "case"
+- scope_id: "SCP-0001"
+- request: "investigate-rebuild"
+- status: "open"
+- opened_in: "this session"
+
+## RECORD STM-0003-0001
+- type: "statement"
+- text: "Rebuild Delivery 2 of project Aurora in a new folder: all its files, also the ones that are still fine, and tell me where each file came from and what you could check. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the new folder under /data/studio/recovered."
+- given_in: "this session"
+- class: "user-declared"
+
+## RECORD OBS-0003-0001
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D1"
+- state: "completed"
+- result: "user folder real path /data/studio"
+- coverage: "1 of 1"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0002
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D2"
+- state: "completed"
+- result: "exist, readable, real path equal to the name: /data/studio/projects/aurora, /data/studio/cerbero-memory, /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05, /data/studio/usb-archive/aurora, /data/studio/recovered, /data/studio"
+- coverage: "7 of 7 folders"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0003
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D3"
+- state: "completed"
+- result: "7 CERBERO- files in /data/studio/cerbero-memory: B-0001-01, B-0001-02, B-0002-01, B-0002-02, B-0002-03, IDX-0001-01, IDX-0002-01; truncated false"
+- coverage: "complete: 7 entries, limit 200"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0004
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D4"
+- state: "completed"
+- result: "full text of IDX-0002-01, B-0001-01, B-0001-02, B-0002-01, B-0002-02, B-0002-03; all parse as cerbero-memory-2, references resolve"
+- coverage: "6 of 6 files whole; IDX-0001-01 not read (superseded)"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0005
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "B-0001-01, B-0001-02, B-0002-01, B-0002-02, B-0002-03 match their IDX-0002-01 digests; IDX-0002-01 sha256 43bed17b4676e0165d7e51674d96e4e0aeb77b49d6aa57d2b5b5922efc9f594a, 1542 bytes"
+- coverage: "6 memory digests, counted apart"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0003-0001
+- type: "check-card"
+- doubt: "Are the 11 recorded assets of SCP-0001 at their recorded paths with recorded size and time?"
+- decision: "which assets need a digest, a search, or which source rebuilds each Delivery 2 member"
+- operation: "D5 file-agent, 11 recorded paths"
+- outcomes: "absent: exact-size search; same metadata: digest for set members; changed: digest"
+- cost: "metadata only, read-only"
+- budget_left: 300
+
+## RECORD OBS-0003-0006
+- type: "observation"
+- check_card: "CHK-0003-0001"
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "present with recorded size and mtime: cover.tif 9396/1103, logo.ai 8192/900, exports/previews/cover-preview.jpg 4096/1104, fonts-license.pdf 2048/900, palette.ase 512/900, raw/DSC_0101.ARW 65536/800, raw/DSC_0150.ARW 65536/802; not_found: brief.pdf, copy.docx, layout.indd, raw/DSC_0142.ARW"
+- coverage: "11 of 11 paths"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0003-0002
+- type: "check-card"
+- doubt: "Do cover.tif and logo.ai still hold VER-0001-0003 and VER-0001-0007?"
+- decision: "whether each is rebuilt from the project file or from a copy"
+- operation: "D7 file-agent, 2 files"
+- outcomes: "equal: intact, source in project; different: altered, source from a copy"
+- cost: "digest of 17588 bytes"
+- budget_left: 300
+
+## RECORD OBS-0003-0007
+- type: "observation"
+- check_card: "CHK-0003-0002"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/projects/aurora/cover.tif d85d08c3852b35a6fdbd2523446c8cf8c2c467c6f985f44890561760dbc75e59 9396 bytes, no match; /data/studio/projects/aurora/logo.ai 1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda 8192 bytes, match"
+- coverage: "2 of 2 hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0003-0003
+- type: "check-card"
+- doubt: "Was brief.pdf moved or renamed inside the project?"
+- decision: "source of the member, or whether the file is absent from the project"
+- operation: "D6 file-agent, size exactly 736, depth 8"
+- outcomes: "size match then digest match: moved; no match: absent from the project"
+- cost: "exact-size listing"
+- budget_left: 298
+
+## RECORD CHK-0003-0004
+- type: "check-card"
+- doubt: "Was copy.docx moved or renamed inside the project?"
+- decision: "source of the member, or whether the file is absent from the project"
+- operation: "D6 file-agent, size exactly 968, depth 8"
+- outcomes: "size match then digest match: moved; no match: absent from the project"
+- cost: "exact-size listing"
+- budget_left: 298
+
+## RECORD CHK-0003-0005
+- type: "check-card"
+- doubt: "Was layout.indd moved or renamed inside the project?"
+- decision: "source of the member, or whether the file is absent from the project"
+- operation: "D6 file-agent, size exactly 16384, depth 8"
+- outcomes: "size match then digest match: moved; no match: absent from the project"
+- cost: "exact-size listing"
+- budget_left: 298
+
+## RECORD CHK-0003-0006
+- type: "check-card"
+- doubt: "Was raw/DSC_0142.ARW moved or renamed inside the project?"
+- decision: "source of the member, or whether the file is absent from the project"
+- operation: "D6 file-agent, size exactly 65536, depth 8"
+- outcomes: "size match then digest match: moved; no match: absent from the project"
+- cost: "exact-size listing"
+- budget_left: 298
+
+## RECORD OBS-0003-0008
+- type: "observation"
+- check_card: "CHK-0003-0003"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "size 736: /data/studio/projects/aurora/brief-FINAL.pdf mtime 1100"
+- coverage: "complete: 1 entry, truncated false, no unreadable subfolder, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0009
+- type: "observation"
+- check_card: "CHK-0003-0004"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "size 968: empty"
+- coverage: "complete: 0 entries, truncated false, no unreadable subfolder, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0010
+- type: "observation"
+- check_card: "CHK-0003-0005"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "size 16384: empty"
+- coverage: "complete: 0 entries, truncated false, no unreadable subfolder, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0011
+- type: "observation"
+- check_card: "CHK-0003-0006"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "size 65536: raw/DSC_0101.ARW, raw/DSC_0150.ARW"
+- coverage: "complete: 2 entries, truncated false, no unreadable subfolder, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0003-0007
+- type: "check-card"
+- doubt: "Do brief-FINAL.pdf, DSC_0101.ARW or DSC_0150.ARW hold VER-0001-0001 or VER-0001-0010?"
+- decision: "whether brief.pdf is moved and DSC_0142.ARW renamed in scope"
+- operation: "D7 file-agent, 3 size-matched files"
+- outcomes: "digest equal: moved; different: not that version"
+- cost: "digest of 131808 bytes"
+- budget_left: 298
+
+## RECORD OBS-0003-0012
+- type: "observation"
+- check_card: "CHK-0003-0007"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/projects/aurora/brief-FINAL.pdf 83ba1a47e756a9d9b5642c173f1db1204a4bd6fe1fce1877e8914ad432339512 736 bytes, equal to VER-0001-0001; raw/DSC_0101.ARW 2cca9c67186306e2378e0aae5ef4c7b8306eee635c7343e3fd8a500679cb5442 (VER-0001-0009); raw/DSC_0150.ARW 88e99368f265eba2034cc29141ca1f3e738cf2c93abfd29e4404dc6ec07a6004 (VER-0001-0011); neither is VER-0001-0010"
+- coverage: "3 of 3 hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0003-0008
+- type: "check-card"
+- doubt: "Are the recorded copies CPY-0001-0013, CPY-0001-0014 and CPY-0001-0015 still inside backups/aurora-2026-10-01?"
+- decision: "whether they can serve as rebuild sources"
+- operation: "D5 file-agent, 3 recorded paths"
+- outcomes: "real path inside the root: hash; else: out of scope"
+- cost: "metadata only, read-only"
+- budget_left: 295
+
+## RECORD OBS-0003-0013
+- type: "observation"
+- check_card: "CHK-0003-0008"
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "/data/studio/backups/aurora-2026-10-01/copy.docx 968, /data/studio/backups/aurora-2026-10-01/cover.tif 9396, /data/studio/backups/aurora-2026-10-01/layout.indd 16384; real paths equal, mtime 1200"
+- coverage: "3 of 3 paths"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0003-0009
+- type: "check-card"
+- doubt: "Do those copies still hold VER-0001-0002, VER-0001-0003 and VER-0001-0006?"
+- decision: "rebuild source of copy.docx, cover.tif, layout.indd"
+- operation: "D7 file-agent, 3 files with expected digests"
+- outcomes: "equal: eligible source; different: contradiction, try 2026-11-05"
+- cost: "digest of 26748 bytes"
+- budget_left: 295
+
+## RECORD OBS-0003-0014
+- type: "observation"
+- check_card: "CHK-0003-0009"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "copy.docx 8abd843fb54d553068df3a71c5f4bd85a24207ee55730aaae2f2626724ca3495, cover.tif a9337b1da249a4f4815a2282959b6f5ce517903a89e4314d3ae819dd863c3911, layout.indd 84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b; all match"
+- coverage: "3 of 3 hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CLM-0003-0001
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0001"
+- asset_state: "moved"
+- located_at: "/data/studio/projects/aurora/brief-FINAL.pdf"
+- statement: "brief.pdf is absent at its recorded path; VER-0001-0001 is at brief-FINAL.pdf"
+- class: "observed"
+- supports: ["OBS-0003-0006", "OBS-0003-0008", "OBS-0003-0012"]
+- contradicts: []
+- depends_on: ["VER-0001-0001", "OBS-0003-0012"]
+- status: "current"
+
+## RECORD CLM-0003-0002
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0002"
+- asset_state: "missing"
+- located_at: null
+- statement: "copy.docx is absent from the project (exact-size search complete); VER-0001-0002 is at backups/aurora-2026-10-01"
+- class: "observed"
+- supports: ["OBS-0003-0006", "OBS-0003-0009", "OBS-0003-0014"]
+- contradicts: []
+- depends_on: ["VER-0001-0002", "OBS-0003-0009"]
+- status: "current"
+
+## RECORD CLM-0003-0003
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0003"
+- asset_state: "altered"
+- located_at: null
+- statement: "cover.tif at its recorded path has the same size and time but its digest differs from VER-0001-0003"
+- class: "observed"
+- supports: ["OBS-0003-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0003", "OBS-0003-0007"]
+- status: "current"
+
+## RECORD CLM-0003-0004
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0006"
+- asset_state: "missing"
+- located_at: null
+- statement: "layout.indd is absent from the project (exact-size search complete); VER-0001-0006 is at backups/aurora-2026-10-01"
+- class: "observed"
+- supports: ["OBS-0003-0006", "OBS-0003-0010", "OBS-0003-0014"]
+- contradicts: []
+- depends_on: ["VER-0001-0006", "OBS-0003-0010"]
+- status: "current"
+
+## RECORD CLM-0003-0005
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0007"
+- asset_state: "intact"
+- located_at: null
+- statement: "logo.ai at its recorded path equals VER-0001-0007"
+- class: "observed"
+- supports: ["OBS-0003-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0007", "OBS-0003-0007"]
+- status: "current"
+
+## RECORD CLM-0003-0006
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0010"
+- asset_state: "missing"
+- located_at: null
+- statement: "DSC_0142.ARW is absent from the project (exact-size search complete, no candidate holds VER-0001-0010)"
+- class: "observed"
+- supports: ["OBS-0003-0006", "OBS-0003-0011", "OBS-0003-0012"]
+- contradicts: []
+- depends_on: ["VER-0001-0010", "OBS-0003-0012"]
+- status: "current"
+
+## RECORD CLM-0003-0007
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0009"
+- asset_state: "intact"
+- located_at: null
+- statement: "DSC_0101.ARW equals VER-0001-0009"
+- class: "observed"
+- supports: ["OBS-0003-0012"]
+- contradicts: []
+- depends_on: ["VER-0001-0009", "OBS-0003-0012"]
+- status: "current"
+
+## RECORD CLM-0003-0008
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0011"
+- asset_state: "intact"
+- located_at: null
+- statement: "DSC_0150.ARW equals VER-0001-0011"
+- class: "observed"
+- supports: ["OBS-0003-0012"]
+- contradicts: []
+- depends_on: ["VER-0001-0011", "OBS-0003-0012"]
+- status: "current"
+
+## RECORD CLM-0003-0009
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0004"
+- asset_state: "intact-metadata"
+- located_at: null
+- statement: "exports/previews/cover-preview.jpg has its recorded size and time; content not hashed"
+- class: "observed"
+- supports: ["OBS-0003-0006"]
+- contradicts: []
+- depends_on: ["VER-0001-0004", "OBS-0003-0006"]
+- status: "current"
+
+## RECORD CLM-0003-0010
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0005"
+- asset_state: "intact-metadata"
+- located_at: null
+- statement: "fonts-license.pdf has its recorded size and time; content not hashed"
+- class: "observed"
+- supports: ["OBS-0003-0006"]
+- contradicts: []
+- depends_on: ["VER-0001-0005", "OBS-0003-0006"]
+- status: "current"
+
+## RECORD CLM-0003-0011
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0008"
+- asset_state: "intact-metadata"
+- located_at: null
+- statement: "palette.ase has its recorded size and time; content not hashed"
+- class: "observed"
+- supports: ["OBS-0003-0006"]
+- contradicts: []
+- depends_on: ["VER-0001-0008", "OBS-0003-0006"]
+- status: "current"

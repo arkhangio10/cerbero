@@ -1,0 +1,146 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0001-02. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0001-02
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0001-02"
+- case_id: "CAS-0001"
+- scope_id: null
+- supersedes: null
+
+## RECORD OBS-0001-0006
+- type: "observation"
+- check_card: null
+- agent: "knowledge-agent"
+- delegation: "D10"
+- state: "completed"
+- result: "plan bundle B-0001-01 saved at /data/studio/cerbero-memory/CERBERO-B-0001-01.md, verified true, 4639 bytes saved of 4639 sent; NAS approval APV-1 granted by the user"
+- coverage: "1 of 1 saves"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0007
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "/data/studio/cerbero-memory/CERBERO-B-0001-01.md exists, readable, real path /data/studio/cerbero-memory/CERBERO-B-0001-01.md, 4639 bytes, modification time 10001"
+- coverage: "1 of 1 paths checked"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0008
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/cerbero-memory/CERBERO-B-0001-01.md digest 0c8d5fbc6f4286c07f65a44327fed970b8c2983fe4ce7eee27b553775c020258, 4639 bytes"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD STM-0001-0002
+- type: "statement"
+- text: "Yes. I confirm the approved set you showed and I approve plan PLN-0001-01 with that digest."
+- given_in: "answer to the plan confirmation of PLN-0001-01 with digest 0c8d5fbc6f4286c07f65a44327fed970b8c2983fe4ce7eee27b553775c020258"
+- class: "user-declared"
+
+## RECORD APR-0001-01
+- type: "approval"
+- plan_id: "PLN-0001-01"
+- plan_sha256: "0c8d5fbc6f4286c07f65a44327fed970b8c2983fe4ce7eee27b553775c020258"
+- decision: "granted"
+- statement: "Yes. I confirm the approved set you showed and I approve plan PLN-0001-01 with that digest."
+
+## RECORD OBS-0001-0009
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "plan file re-check before the first change: /data/studio/cerbero-memory/CERBERO-B-0001-01.md digest 0c8d5fbc6f4286c07f65a44327fed970b8c2983fe4ce7eee27b553775c020258, 4639 bytes, matches the confirmed digest"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0010
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D11"
+- state: "completed"
+- result: "created /data/studio/recovered/cerbero-recovery-CAS-0001, equal to the planned path; no subfolders requested; NAS approval APV-2 granted by the user"
+- coverage: "1 of 1 folders created"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0011
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "/data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd does not exist, reason not_found"
+- coverage: "1 of 1 paths checked"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0012
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "source before copy: /data/studio/backups/aurora-2026-10-01/layout.indd digest 84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b, 16384 bytes, matches the expected digest"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0013
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D12"
+- state: "completed"
+- result: "copied /data/studio/backups/aurora-2026-10-01/layout.indd; real destination path /data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd, equal to the planned one; NAS result copied; NAS approval APV-3 granted by the user"
+- coverage: "1 of 1 copies"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0014
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "destination /data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd digest 84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b, 16384 bytes, matches the expected digest"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD RCP-0001-01
+- type: "receipt"
+- plan_id: "PLN-0001-01"
+- plan_sha256: "0c8d5fbc6f4286c07f65a44327fed970b8c2983fe4ce7eee27b553775c020258"
+- overall: "fidelity-only"
+- reference: "source-fidelity"
+- set_complete: null
+- coverage: "target chosen-files: 1 of 1 member planned and copied; source hashed twice and destination once; memory listing complete and empty, so no prior reference exists; no project folder, copy location or approved set was named, none was reviewed"
+- pending: []
+- reason: null
+- outside_target: []
+
+## RECORD REN-0001-01-01
+- type: "receipt-entry"
+- receipt_id: "RCP-0001-01"
+- entry_id: "ENT-0001-01-01"
+- asset_id: null
+- version_id: null
+- status: "fidelity-only"
+- destination_path: "/data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd"
+- source_sha256_before: "84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b"
+- destination_sha256: "84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b"
+- source_sha256_after: null
+- note: "destination equal to the source read just before copying; not checked against any approved version because none was recorded; source not hashed after the copy because the destination matched"
+- name: "layout.indd"
+- source_path: "/data/studio/backups/aurora-2026-10-01/layout.indd"
+- checks: {"bytes": "equal to source", "version": "not available: no prior reference", "format": "not run: format check is part of Rebuild only, and no registered expert opens .indd", "provenance": "file chosen by the user in /data/studio/backups/aurora-2026-10-01"}

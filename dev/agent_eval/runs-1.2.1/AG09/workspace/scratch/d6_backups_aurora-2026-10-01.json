@@ -1,0 +1,36 @@
+{
+ "delegation": "D6",
+ "state": "completed",
+ "result": {
+  "files": [
+   {
+    "real_path": "/data/studio/backups/aurora-2026-10-01/brief.pdf",
+    "size_bytes": 736,
+    "modified": 1200
+   },
+   {
+    "real_path": "/data/studio/backups/aurora-2026-10-01/copy.docx",
+    "size_bytes": 968,
+    "modified": 1200
+   },
+   {
+    "real_path": "/data/studio/backups/aurora-2026-10-01/cover.tif",
+    "size_bytes": 9396,
+    "modified": 1200
+   },
+   {
+    "real_path": "/data/studio/backups/aurora-2026-10-01/layout.indd",
+    "size_bytes": 16384,
+    "modified": 1200
+   },
+   {
+    "real_path": "/data/studio/backups/aurora-2026-10-01/logo.ai",
+    "size_bytes": 8192,
+    "modified": 1200
+   }
+  ],
+  "truncated": false,
+  "unreadable_subfolders": [],
+  "empty": false
+ }
+}

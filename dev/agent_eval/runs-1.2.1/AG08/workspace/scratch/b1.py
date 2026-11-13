@@ -1,0 +1,69 @@
+import sys; sys.path.insert(0,'scratch')
+from bundle import bundle
+V={'0001':'83ba1a47e756a9d9b5642c173f1db1204a4bd6fe1fce1877e8914ad432339512','0002':'8abd843fb54d553068df3a71c5f4bd85a24207ee55730aaae2f2626724ca3495','0003':'a9337b1da249a4f4815a2282959b6f5ce517903a89e4314d3ae819dd863c3911','0006':'84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b','0007':'1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda'}
+P='/data/studio/projects/aurora/'; B='/data/studio/backups/aurora-2026-10-01/'; R='/data/studio/recovered/cerbero-rebuild-CAS-0003/'
+REQ="Rebuild Delivery 2 of project Aurora in a new folder: all its files, also the ones that are still fine, and tell me where each file came from and what you could check. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the new folder under /data/studio/recovered."
+def obs(i,chk,agent,dlg,res,cov):
+    return (f"OBS-0003-{i:04d}",[("type","observation"),("check_card",chk),("agent",agent),("delegation",dlg),("state","completed"),("result",res),("coverage",cov),("observed_at","unknown"),("class","observed")])
+def chk(i,doubt,dec,op,outc,cost,left):
+    return (f"CHK-0003-{i:04d}",[("type","check-card"),("doubt",doubt),("decision",dec),("operation",op),("outcomes",outc),("cost",cost),("budget_left",left)])
+def st(i,ast,state,loc,text,sup,dep):
+    return (f"CLM-0003-{i:04d}",[("type","claim"),("kind","asset-state"),("subject",ast),("asset_state",state),("located_at",loc),("statement",text),("class","observed"),("supports",sup),("contradicts",[]),("depends_on",dep),("status","current")])
+recs=[]
+recs.append(("CAS-0003",[("type","case"),("scope_id","SCP-0001"),("request","investigate-rebuild"),("status","open"),("opened_in","this session")]))
+recs.append(("STM-0003-0001",[("type","statement"),("text",REQ),("given_in","this session"),("class","user-declared")]))
+recs.append(obs(1,None,"file-agent","D1","user folder real path /data/studio","1 of 1"))
+recs.append(obs(2,None,"file-agent","D2","exist, readable, real path equal to the name: /data/studio/projects/aurora, /data/studio/cerbero-memory, /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05, /data/studio/usb-archive/aurora, /data/studio/recovered, /data/studio","7 of 7 folders"))
+recs.append(obs(3,None,"file-agent","D3","7 CERBERO- files in /data/studio/cerbero-memory: B-0001-01, B-0001-02, B-0002-01, B-0002-02, B-0002-03, IDX-0001-01, IDX-0002-01; truncated false","complete: 7 entries, limit 200"))
+recs.append(obs(4,None,"file-agent","D4","full text of IDX-0002-01, B-0001-01, B-0001-02, B-0002-01, B-0002-02, B-0002-03; all parse as cerbero-memory-2, references resolve","6 of 6 files whole; IDX-0001-01 not read (superseded)"))
+recs.append(obs(5,None,"file-agent","D7","B-0001-01, B-0001-02, B-0002-01, B-0002-02, B-0002-03 match their IDX-0002-01 digests; IDX-0002-01 sha256 43bed17b4676e0165d7e51674d96e4e0aeb77b49d6aa57d2b5b5922efc9f594a, 1542 bytes","6 memory digests, counted apart"))
+recs.append(chk(1,"Are the 11 recorded assets of SCP-0001 at their recorded paths with recorded size and time?","which assets need a digest, a search, or which source rebuilds each Delivery 2 member","D5 file-agent, 11 recorded paths","absent: exact-size search; same metadata: digest for set members; changed: digest","metadata only, read-only",300))
+recs.append(obs(6,"CHK-0003-0001","file-agent","D5","present with recorded size and mtime: cover.tif 9396/1103, logo.ai 8192/900, exports/previews/cover-preview.jpg 4096/1104, fonts-license.pdf 2048/900, palette.ase 512/900, raw/DSC_0101.ARW 65536/800, raw/DSC_0150.ARW 65536/802; not_found: brief.pdf, copy.docx, layout.indd, raw/DSC_0142.ARW","11 of 11 paths"))
+recs.append(chk(2,"Do cover.tif and logo.ai still hold VER-0001-0003 and VER-0001-0007?","whether each is rebuilt from the project file or from a copy","D7 file-agent, 2 files","equal: intact, source in project; different: altered, source from a copy","digest of 17588 bytes",300))
+recs.append(obs(7,"CHK-0003-0002","file-agent","D7","/data/studio/projects/aurora/cover.tif d85d08c3852b35a6fdbd2523446c8cf8c2c467c6f985f44890561760dbc75e59 9396 bytes, no match; /data/studio/projects/aurora/logo.ai "+V['0007']+" 8192 bytes, match","2 of 2 hashed"))
+for i,(n,sz) in enumerate([("brief.pdf",736),("copy.docx",968),("layout.indd",16384),("raw/DSC_0142.ARW",65536)]):
+    recs.append(chk(3+i,f"Was {n} moved or renamed inside the project?","source of the member, or whether the file is absent from the project",f"D6 file-agent, size exactly {sz}, depth 8","size match then digest match: moved; no match: absent from the project","exact-size listing",298))
+recs.append(obs(8,"CHK-0003-0003","file-agent","D6","size 736: /data/studio/projects/aurora/brief-FINAL.pdf mtime 1100","complete: 1 entry, truncated false, no unreadable subfolder, depth 8"))
+recs.append(obs(9,"CHK-0003-0004","file-agent","D6","size 968: empty","complete: 0 entries, truncated false, no unreadable subfolder, depth 8"))
+recs.append(obs(10,"CHK-0003-0005","file-agent","D6","size 16384: empty","complete: 0 entries, truncated false, no unreadable subfolder, depth 8"))
+recs.append(obs(11,"CHK-0003-0006","file-agent","D6","size 65536: raw/DSC_0101.ARW, raw/DSC_0150.ARW","complete: 2 entries, truncated false, no unreadable subfolder, depth 8"))
+recs.append(chk(7,"Do brief-FINAL.pdf, DSC_0101.ARW or DSC_0150.ARW hold VER-0001-0001 or VER-0001-0010?","whether brief.pdf is moved and DSC_0142.ARW renamed in scope","D7 file-agent, 3 size-matched files","digest equal: moved; different: not that version","digest of 131808 bytes",298))
+recs.append(obs(12,"CHK-0003-0007","file-agent","D7","/data/studio/projects/aurora/brief-FINAL.pdf "+V['0001']+" 736 bytes, equal to VER-0001-0001; raw/DSC_0101.ARW 2cca9c67186306e2378e0aae5ef4c7b8306eee635c7343e3fd8a500679cb5442 (VER-0001-0009); raw/DSC_0150.ARW 88e99368f265eba2034cc29141ca1f3e738cf2c93abfd29e4404dc6ec07a6004 (VER-0001-0011); neither is VER-0001-0010","3 of 3 hashed"))
+recs.append(chk(8,"Are the recorded copies CPY-0001-0013, CPY-0001-0014 and CPY-0001-0015 still inside backups/aurora-2026-10-01?","whether they can serve as rebuild sources","D5 file-agent, 3 recorded paths","real path inside the root: hash; else: out of scope","metadata only, read-only",295))
+recs.append(obs(13,"CHK-0003-0008","file-agent","D5",B+"copy.docx 968, "+B+"cover.tif 9396, "+B+"layout.indd 16384; real paths equal, mtime 1200","3 of 3 paths"))
+recs.append(chk(9,"Do those copies still hold VER-0001-0002, VER-0001-0003 and VER-0001-0006?","rebuild source of copy.docx, cover.tif, layout.indd","D7 file-agent, 3 files with expected digests","equal: eligible source; different: contradiction, try 2026-11-05","digest of 26748 bytes",295))
+recs.append(obs(14,"CHK-0003-0009","file-agent","D7","copy.docx "+V['0002']+", cover.tif "+V['0003']+", layout.indd "+V['0006']+"; all match","3 of 3 hashed"))
+recs.append(st(1,"AST-0001-0001","moved",P+"brief-FINAL.pdf","brief.pdf is absent at its recorded path; VER-0001-0001 is at brief-FINAL.pdf",["OBS-0003-0006","OBS-0003-0008","OBS-0003-0012"],["VER-0001-0001","OBS-0003-0012"]))
+recs.append(st(2,"AST-0001-0002","missing",None,"copy.docx is absent from the project (exact-size search complete); VER-0001-0002 is at backups/aurora-2026-10-01",["OBS-0003-0006","OBS-0003-0009","OBS-0003-0014"],["VER-0001-0002","OBS-0003-0009"]))
+recs.append(st(3,"AST-0001-0003","altered",None,"cover.tif at its recorded path has the same size and time but its digest differs from VER-0001-0003",["OBS-0003-0007"],["VER-0001-0003","OBS-0003-0007"]))
+recs.append(st(4,"AST-0001-0006","missing",None,"layout.indd is absent from the project (exact-size search complete); VER-0001-0006 is at backups/aurora-2026-10-01",["OBS-0003-0006","OBS-0003-0010","OBS-0003-0014"],["VER-0001-0006","OBS-0003-0010"]))
+recs.append(st(5,"AST-0001-0007","intact",None,"logo.ai at its recorded path equals VER-0001-0007",["OBS-0003-0007"],["VER-0001-0007","OBS-0003-0007"]))
+recs.append(st(6,"AST-0001-0010","missing",None,"DSC_0142.ARW is absent from the project (exact-size search complete, no candidate holds VER-0001-0010)",["OBS-0003-0006","OBS-0003-0011","OBS-0003-0012"],["VER-0001-0010","OBS-0003-0012"]))
+recs.append(st(7,"AST-0001-0009","intact",None,"DSC_0101.ARW equals VER-0001-0009",["OBS-0003-0012"],["VER-0001-0009","OBS-0003-0012"]))
+recs.append(st(8,"AST-0001-0011","intact",None,"DSC_0150.ARW equals VER-0001-0011",["OBS-0003-0012"],["VER-0001-0011","OBS-0003-0012"]))
+for i,(a,n,v) in enumerate([("AST-0001-0004","exports/previews/cover-preview.jpg","VER-0001-0004"),("AST-0001-0005","fonts-license.pdf","VER-0001-0005"),("AST-0001-0008","palette.ase","VER-0001-0008")]):
+    recs.append(st(9+i,a,"intact-metadata",None,f"{n} has its recorded size and time; content not hashed",["OBS-0003-0006"],[v,"OBS-0003-0006"]))
+con=[("CPY-0001-0001",P+"brief.pdf","absent","OBS-0003-0006"),("CPY-0001-0002",P+"copy.docx","absent","OBS-0003-0006"),("CPY-0001-0003",P+"cover.tif","digest d85d08c3852b35a6fdbd2523446c8cf8c2c467c6f985f44890561760dbc75e59","OBS-0003-0007"),("CPY-0001-0006",P+"layout.indd","absent","OBS-0003-0006"),("CPY-0001-0010",P+"raw/DSC_0142.ARW","absent","OBS-0003-0006")]
+cpyver={"CPY-0001-0001":"VER-0001-0001","CPY-0001-0002":"VER-0001-0002","CPY-0001-0003":"VER-0001-0003","CPY-0001-0006":"VER-0001-0006","CPY-0001-0010":"VER-0001-0010"}
+for i,(c,path,now,o) in enumerate(con):
+    recs.append((f"CLM-0003-{12+i:04d}",[("type","claim"),("kind","contradiction"),("subject",c),("statement",f"recorded copy {c} of {cpyver[c]} at {path} is {now} now ({o}), unlike OBS-0001-0006"),("class","contradicted"),("supports",[o]),("contradicts",[c,"OBS-0001-0006"]),("depends_on",[c,o]),("status","current")]))
+for i,(c,path,now,o) in enumerate(con):
+    recs.append((f"CPY-0003-{i+1:04d}",[("type","copy"),("version_id",cpyver[c]),("real_path",path),("location_id","LOC-0001-0001"),("sha256",None),("observation",o),("access","unknown" if now=="absent" else "readable"),("status","needs-review"),("supersedes",c)]))
+recs.append(("CLM-0003-0017",[("type","claim"),("kind","cause"),("subject","CAS-0003"),("statement","cause unknown: no source states one"),("class","unknown"),("supports",[]),("contradicts",[]),("depends_on",[]),("status","current")]))
+recs.append(("OPN-0003-0001",[("type","open-item"),("subject","AST-0001-0010"),("reason","outside the requested target: missing; no copy of VER-0001-0010 recorded in any named location (baseline inventories complete); copy locations not re-searched this session"),("needed_to_resolve","a request that names this file")]))
+recs.append(("OPN-0003-0002",[("type","open-item"),("subject","AST-0001-0002, AST-0001-0006, AST-0001-0003"),("reason","how copy.docx and layout.indd left the project and how cover.tif changed is unknown; project not listed in full this session"),("needed_to_resolve","a user statement or a full listing of the project")]))
+recs.append(("PLN-0003-01",[("type","plan"),("case_id","CAS-0003"),("revision",1),("reference","approved-version"),("target_set","SET-0001-0002"),("recovery_folder","/data/studio/recovered/cerbero-rebuild-CAS-0003"),
+ ("goal","full rebuild of approved set SET-0001-0002 (Delivery 2): all 5 members, intact and moved ones included, into /data/studio/recovered/cerbero-rebuild-CAS-0003, with a manifest"),
+ ("preconditions","the user confirmed this plan ID and digest and reconfirmed SET-0001-0002; the plan file digest is unchanged immediately before the first change; per entry: source real path inside its authorized root and its digest, observed again immediately before copying, equals expected_sha256; destination absent and inside the rebuild folder; only mkdir and cpmv in copy mode without overwrite, each with the NAS approval answered by the user"),
+ ("success_conditions","per entry: the destination exists at the planned real path returned by the NAS and its digest equals expected_sha256; then brief.pdf and copy.docx are read completely by document-agent as a format check; the rebuild is complete only when all 5 members are verified in the rebuild folder"),
+ ("risks","no atomic copy or rollback; sources may change between check and copy; a NAS approval may be declined; format check not available for cover.tif, layout.indd and logo.ai; equal digests do not show that malware is absent; the rebuilt files are on the same NAS and are not new backup copies; memory and copies on this NAS are not an independent root of trust"),
+ ("pending",[]),("previous_receipt",None),("supersedes_plan",None),("target_kind","full-rebuild"),
+ ("target_members",["AST-0001-0001","AST-0001-0006","AST-0001-0002","AST-0001-0003","AST-0001-0007"]),("outside_target",["AST-0001-0010"])]))
+ents=[("AST-0001-0001","brief.pdf","VER-0001-0001",V['0001'],736,P+"brief-FINAL.pdf"),("AST-0001-0006","layout.indd","VER-0001-0006",V['0006'],16384,B+"layout.indd"),("AST-0001-0002","copy.docx","VER-0001-0002",V['0002'],968,B+"copy.docx"),("AST-0001-0003","cover.tif","VER-0001-0003",V['0003'],9396,B+"cover.tif"),("AST-0001-0007","logo.ai","VER-0001-0007",V['0007'],8192,P+"logo.ai")]
+for i,(a,n,v,d,sz,src) in enumerate(ents):
+    recs.append((f"ENT-0003-01-{i+1:02d}",[("type","plan-entry"),("plan_id","PLN-0003-01"),("asset_id",a),("name",n),("version_id",v),("expected_sha256",d),("size_bytes",sz),("source_path",src),("destination_path",R+n)]))
+k=[r[0] for r in recs].index("CLM-0003-0012")
+for bid,part in (("B-0003-01",recs[:k]),("B-0003-02",recs[k:])):
+    txt=bundle(bid,"CAS-0003","SCP-0001",part)
+    open(f'scratch/{bid}.md','w',encoding='utf-8',newline='\n').write(txt)
+    print(bid, len(txt.encode('utf-8')), "bytes; records", len(part), "; single quotes:", txt.count(chr(39)))

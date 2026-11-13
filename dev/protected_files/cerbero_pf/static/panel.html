@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cerbero: panel de documentos</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/panel.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <h1 class="brand">Cerbero <span>archivos protegidos, prototipo local</span></h1>
+    <nav>
+      <a href="/panel" aria-current="page">Panel</a>
+      <a href="/visor">Visor</a>
+      <span id="who" class="hidden"></span>
+      <button id="logout" class="secondary hidden" type="button">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login-view" class="narrow hidden" aria-labelledby="login-title">
+      <h2 id="login-title">Inicia sesión</h2>
+      <p class="lede">Usa una cuenta creada en este servicio. Las cuentas de la demo son sintéticas.</p>
+      <form id="login-form">
+        <div class="field"><label for="login-user">Usuario</label><input id="login-user" type="text" autocomplete="username" required></div>
+        <div class="field"><label for="login-pass">Contraseña</label><input id="login-pass" type="password" autocomplete="current-password" required></div>
+        <button type="submit">Iniciar sesión</button>
+        <p id="login-msg" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <div id="app-view" class="layout hidden">
+      <div class="stack">
+        <section aria-labelledby="export-title">
+          <h2 id="export-title">Exportar un archivo</h2>
+          <p class="lede">Crea una copia cifrada <code>.cerbero</code> del archivo que elijas. El original no cambia. Sólo protege lo que exportas aquí; no vigila otras copias.</p>
+          <form id="export-form" class="inline">
+            <div class="field"><label for="export-file">Archivo (máx. <span id="limit">1 MiB</span>)</label><input id="export-file" type="file" required></div>
+            <button type="submit">Exportar y descargar</button>
+          </form>
+          <p id="export-msg" class="message" role="status"></p>
+        </section>
+
+        <section aria-labelledby="docs-title">
+          <h2 id="docs-title">Tus documentos</h2>
+          <ul id="docs" class="docs"></ul>
+        </section>
+      </div>
+
+      <div class="stack">
+        <section aria-labelledby="alerts-title">
+          <h2 id="alerts-title">Avisos</h2>
+          <ul id="alerts" class="alerts"></ul>
+        </section>
+      </div>
+
+      <section class="wide" aria-labelledby="activity-title">
+        <h2 id="activity-title">Actividad</h2>
+        <p class="lede">Hora del servidor en UTC. «Contenido entregado» significa que el servidor envió el contenido al visor, no que alguien lo leyó. La ubicación por IP es aproximada y puede ser la de una VPN.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Hora</th><th>Evento</th><th>Documento</th><th>Cuenta</th><th>Motivo</th><th>IP</th><th>Ubicación por IP</th><th>Ubicación del navegador</th></tr></thead>
+            <tbody id="events"></tbody>
+          </table>
+        </div>
+        <details>
+          <summary>Telemetría no verificada</summary>
+          <p class="lede">Archivos que decían ser uno de tus documentos pero no coinciden con la exportación registrada. No prueban que se trate de tu documento.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Hora</th><th>ID declarado</th><th>Motivo</th><th>Cuenta</th><th>IP</th></tr></thead>
+              <tbody id="telemetry"></tbody>
+            </table>
+          </div>
+        </details>
+        <div class="actions"><button id="refresh" class="secondary" type="button">Actualizar</button></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

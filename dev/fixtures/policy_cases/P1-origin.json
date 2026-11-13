@@ -1,0 +1,24 @@
+{
+  "extends": "aurora.json",
+  "id": "P1-origin",
+  "title": "Review of Aurora before the incident: raw originals had no copy outside Volume 1",
+  "case": {
+    "split": "development",
+    "kind": "origin",
+    "facts": "Review of project Aurora before the incident. raw/DSC_0101, raw/DSC_0142 and raw/DSC_0150 are ordinary assets with no recorded copy outside Volume 1. exports/previews/cover-preview.jpg has no copy and the user declared that folder regenerable.",
+    "expected_text": "The review reports the three raw originals as at risk under a Volume 1 failure and does not report the preview as at risk."
+  },
+  "request": {
+    "intent": "review"
+  },
+  "expected": {
+    "at_risk_includes": [
+      "A-raw0101",
+      "A-raw0142",
+      "A-raw0150"
+    ],
+    "at_risk_excludes": [
+      "A-preview"
+    ]
+  }
+}

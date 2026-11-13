@@ -1,0 +1,59 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0002-02. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0002-02
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0002-02"
+- case_id: "CAS-0002"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD PLN-0002-01
+- type: "plan"
+- case_id: "CAS-0002"
+- revision: 1
+- reference: "approved-version"
+- target_set: "SET-0001-0002"
+- recovery_folder: "/data/studio/recovered/cerbero-recovery-CAS-0002"
+- goal: "partial recovery of approved set SET-0001-0002 (Delivery 2), chosen by the user (STM-0002-0001): copy the members that are missing or altered and have an eligible source; none has one, so this revision has no entries and the recovery folder is not created"
+- preconditions: "none executed: no entry could be planned"
+- success_conditions: "not applicable: no entries"
+- risks: "layout.indd stays missing; relocation into raw not ruled out; copy in /data/studio/backups/aurora-2026-10-01 not verifiable"
+- pending: ["layout.indd"]
+- previous_receipt: null
+- supersedes_plan: null
+- target_kind: "approved-set"
+- target_members: ["AST-0001-0001", "AST-0001-0006", "AST-0001-0002", "AST-0001-0003", "AST-0001-0007"]
+- outside_target: ["AST-0001-0009", "AST-0001-0010", "AST-0001-0011"]
+
+## RECORD APR-0002-01
+- type: "approval"
+- plan_id: "PLN-0002-01"
+- plan_sha256: null
+- decision: "not-requested"
+- statement: "no entry could be executed, so no plan confirmation was asked; the user chose: Recover the available members of the target set as a partial recovery."
+
+## RECORD RCP-0002-01
+- type: "receipt"
+- plan_id: "PLN-0002-01"
+- plan_sha256: null
+- overall: "failed"
+- reference: "approved-version"
+- set_complete: false
+- coverage: "4 of 5 members hashed (intact); layout.indd missing; size searches complete in the project outside raw, in /data/studio/backups/aurora-2026-11-05 and in /data/studio/usb-archive/aurora; raw unreadable; /data/studio/backups/aurora-2026-10-01 out of scope (no real path)"
+- pending: ["layout.indd"]
+- reason: "the target needed a copy of layout.indd VER-0001-0006 and no eligible source could be planned; nothing created or copied"
+- outside_target: ["AST-0001-0009", "AST-0001-0010", "AST-0001-0011"]
+
+## RECORD REN-0002-01-01
+- type: "receipt-entry"
+- receipt_id: "RCP-0002-01"
+- entry_id: null
+- asset_id: "AST-0001-0006"
+- version_id: "VER-0001-0006"
+- status: "no-source"
+- destination_path: null
+- source_sha256_before: null
+- destination_sha256: null
+- source_sha256_after: null
+- note: "missing at its path; in-scope search incomplete (raw unreadable); recorded copy CPY-0001-0015 out of scope"
+- name: "layout.indd"
+- source_path: null
+- checks: {"bytes": "not-run", "version": "not-run", "format": "not-run"}

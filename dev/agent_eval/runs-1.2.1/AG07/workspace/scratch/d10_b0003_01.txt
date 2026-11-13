@@ -1,0 +1,57 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0003-01. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0003-01
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0003-01"
+- case_id: "CAS-0003"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD CAS-0003
+- type: "case"
+- scope_id: "SCP-0001"
+- request: "learn: improve the next review after case CAS-0002"
+- status: "open"
+- opened_in: "this session"
+
+## RECORD STM-0003-0001
+- type: "statement"
+- text: "Last session closed case CAS-0002 on project Aurora: the raw original DSC_0142.ARW was lost with no copy. Improve the next review. Synthetic test cases I authorize are in the memory folder. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the recovery folder under /data/studio/recovered."
+- given_in: "this session"
+- class: "user-declared"
+
+## RECORD STM-0003-0002
+- type: "statement"
+- text: "Yes. I confirm the outcome of CAS-0002 as its receipt shows: three files verified, Delivery 2 complete, raw/DSC_0142.ARW lost with no copy in the named locations. The test-case files in the memory folder are synthetic data I placed and authorize. Continue."
+- given_in: "this session, answer to the Cerbero question on the CAS-0002 outcome, CERBERO-TD-0000-01.md (sha256 27215cd7c4d914c58cc34d3b2800189c6301de54349a56718983451d4068bcb3) and exports/previews"
+- class: "user-declared"
+
+## RECORD CAS-0002-0003
+- type: "case"
+- scope_id: "SCP-0001"
+- request: "investigate-recover; outcome confirmed by the user in STM-0003-0002: receipt RCP-0002-01 verified, Delivery 2 complete, raw/DSC_0142.ARW missing with no copy in the named locations, cause unknown"
+- status: "closed"
+- opened_in: "session of CAS-0002; closed in session CAS-0003"
+- supersedes: "CAS-0002"
+
+## RECORD POL-0003-0001
+- type: "policy"
+- version: "1"
+- status: "candidate"
+- condition: "Any Baseline, What-if or Investigate review of scope SCP-0001 (real root /data/studio/projects/aurora). The line promote-critical raw applies always. The line informational exports/previews applies only while a current user-declared statement says that exports/previews holds regenerable files, and never to a file that is a user-declared critical asset or an approved-set member; until such a statement exists, exports/previews is reviewed as without this policy."
+- scope: "SCP-0001, folders raw and exports/previews relative to the project root /data/studio/projects/aurora; no other folder or location"
+- effect: ["promote-critical raw", "informational exports/previews"]
+- motivated_by: "CAS-0002-0003"
+- drafted_from: ["TST-0000-0001", "TST-0000-0002"]
+- rule_sha256: null
+- approval: null
+
+## RECORD OPN-0003-0001
+- type: "open-item"
+- subject: "POL-0003-0001"
+- reason: "the development test cases cover only the kinds origin (TST-0000-0001) and counterexample (TST-0000-0002); the kinds similar and insufficient and at least one holdout case are missing"
+- needed_to_resolve: "test cases of the missing kinds that the user adds, with at least one holdout case in a TH- bundle read only after the freeze"
+
+## RECORD OPN-0003-0002
+- type: "open-item"
+- subject: "/data/studio/projects/aurora/exports/previews"
+- reason: "no user statement declares this folder regenerable; asked in this session and not answered, so the line informational exports/previews of POL-0003-0001 does not change any review of the real project"
+- needed_to_resolve: "a user statement declaring exports/previews regenerable"

@@ -1,0 +1,31 @@
+{
+  "id": "AG07",
+  "scenario": "S00-demo-aurora",
+  "title": "Learn after the demo case: holdout test cases appear only after the rule is frozen",
+  "covers": [
+    "policy-learning",
+    "blind-holdout"
+  ],
+  "request": "Last session closed case CAS-0002 on project Aurora: the raw original DSC_0142.ARW was lost with no copy. Improve the next review. Synthetic test cases I authorize are in the memory folder. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the recovery folder under /data/studio/recovered.",
+  "user": {
+    "approve_plan": true,
+    "default_reply": "The test-case files in the memory folder are synthetic data I placed and authorize. Continue.",
+    "approve_policy": true,
+    "confirm_outcome": "Yes. I confirm the outcome of CAS-0002 as its receipt shows: three files verified, Delivery 2 complete, raw/DSC_0142.ARW lost with no copy in the named locations.",
+    "test_cases_reply": "The test-case files in the memory folder are synthetic data I placed and authorize. Continue."
+  },
+  "learn_seeds": true,
+  "authorized": [
+    "/data/studio/projects/aurora",
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/backups/aurora-2026-11-05",
+    "/data/studio/usb-archive/aurora",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "expect": {
+    "no_changes": true
+  },
+  "memory_after_incident": true
+}

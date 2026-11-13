@@ -1,0 +1,19 @@
+{
+  "extends": "aurora.json",
+  "id": "S01",
+  "title": "Legitimate renames with intact content",
+  "covers": ["legit-rename"],
+  "incident": [
+    {"op": "rename", "path": "projects/aurora/brief.pdf", "to": "projects/aurora/brief-FINAL.pdf"},
+    {"op": "rename", "path": "projects/aurora/logo.ai", "to": "projects/aurora/brand/logo-2026.ai"}
+  ],
+  "expected": {
+    "states": {
+      "A-brief": "moved", "A-layout": "intact", "A-copy": "intact", "A-cover": "intact", "A-logo": "moved",
+      "A-palette": "intact", "A-fonts": "intact", "A-raw0101": "intact", "A-raw0142": "intact",
+      "A-raw0150": "intact", "A-preview": "intact"
+    },
+    "located_at": {"A-brief": "projects/aurora/brief-FINAL.pdf", "A-logo": "projects/aurora/brand/logo-2026.ai"},
+    "recovery": {"entries": {}, "blobs": {}, "overall": "not-needed", "set_complete": true}
+  }
+}

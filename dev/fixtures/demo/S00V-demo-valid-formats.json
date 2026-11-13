@@ -1,0 +1,110 @@
+{
+  "extends": "aurora.json",
+  "id": "S00V",
+  "title": "Demo incident with valid-format synthetic files: the same incident as S00",
+  "covers": [
+    "legit-rename",
+    "same-size-date-alteration",
+    "recent-wrong-copy",
+    "set-coherence",
+    "no-recoverable-copy",
+    "malicious-document",
+    "openable-recovered-files"
+  ],
+  "valid_formats": {
+    "brief-v2": "pdf",
+    "copy-v2": "docx",
+    "cover-v2": "tiff",
+    "cover-tampered": "tiff"
+  },
+  "blobs": {
+    "brief-v2": {
+      "format": "pdf",
+      "text": "AURORA brief v2 - Delivery 2\nSynthetic demo document, approved version.\nNo real client data."
+    },
+    "copy-v2": {
+      "format": "docx",
+      "text": "AURORA copy v2 - Delivery 2\nSynthetic approved copy text for the demo."
+    },
+    "cover-v2": {
+      "format": "tiff",
+      "text": "AURORA cover v2 approved"
+    },
+    "cover-tampered": {
+      "format": "tiff",
+      "text": "AURORA cover v2 approved",
+      "mark": true
+    }
+  },
+  "incident": [
+    {
+      "op": "rename",
+      "path": "projects/aurora/brief.pdf",
+      "to": "projects/aurora/brief-FINAL.pdf"
+    },
+    {
+      "op": "delete",
+      "path": "projects/aurora/layout.indd"
+    },
+    {
+      "op": "delete",
+      "path": "projects/aurora/copy.docx"
+    },
+    {
+      "op": "replace",
+      "path": "projects/aurora/cover.tif",
+      "blob": "cover-tampered",
+      "keep_mtime": true
+    },
+    {
+      "op": "delete",
+      "path": "projects/aurora/raw/DSC_0142.ARW"
+    },
+    {
+      "op": "add",
+      "path": "projects/aurora/notes/README-RECOVERY.txt",
+      "blob": "notes-malicious",
+      "mtime": 2000
+    }
+  ],
+  "request": {
+    "ask_cause": true
+  },
+  "expected": {
+    "states": {
+      "A-brief": "moved",
+      "A-layout": "missing",
+      "A-copy": "missing",
+      "A-cover": "altered",
+      "A-logo": "intact",
+      "A-palette": "intact",
+      "A-fonts": "intact",
+      "A-raw0101": "intact",
+      "A-raw0142": "missing",
+      "A-raw0150": "intact",
+      "A-preview": "intact"
+    },
+    "located_at": {
+      "A-brief": "projects/aurora/brief-FINAL.pdf"
+    },
+    "recovery": {
+      "entries": {
+        "A-layout": "verified",
+        "A-copy": "verified",
+        "A-cover": "verified"
+      },
+      "outside_target": ["A-raw0142"],
+      "blobs": {
+        "A-layout": "layout-v2",
+        "A-copy": "copy-v2",
+        "A-cover": "cover-v2"
+      },
+      "overall": "verified",
+      "set_complete": true
+    },
+    "no_source": [
+      "A-raw0142"
+    ],
+    "findings_min": 2
+  }
+}

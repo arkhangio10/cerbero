@@ -1,0 +1,19 @@
+Recovery plan PLN-0002-01 (case CAS-0002) is saved at /data/studio/cerbero-memory/CERBERO-B-0002-01.md (15888 bytes, verified). Saved plan digest: 7734e9642a958ae3b70b8629f59daebb92afd72a3621ad3b05da6add249f32f0 (7734...32f0).
+
+| Entry | Asset | Expected version | Source (re-observed now) | Destination |
+|---|---|---|---|---|
+| ENT-0002-01-01 | layout.indd | VER-0001-0006, 84a4...1e1b | /data/studio/backups/aurora-2026-10-01/layout.indd (D5 + D7 now: equal) | /data/studio/recovered/cerbero-recovery-CAS-0002/layout.indd |
+
+Target: approved set SET-0001-0002 "Delivery 2", record file /data/studio/cerbero-memory/CERBERO-B-0001-01.md, approved by your statement STM-0001-0005: "Delivery 2 is an approved set: brief.pdf, layout.indd, copy.docx, cover.tif, logo.ai." (STM-0001-0003: "Delivery 2 (3 November) is the approved client delivery.")
+- brief.pdf VER-0001-0001 (9d2c...9055): moved, now at /data/studio/projects/aurora/old/2026/brief-final.pdf with equal digest. Not copied.
+- layout.indd VER-0001-0006 (84a4...1e1b): missing. Copied by ENT-0002-01-01.
+- copy.docx VER-0001-0002 (0745...03c4): intact. Not copied.
+- cover.tif VER-0001-0003 (2c36...40ef): intact. Not copied.
+- logo.ai VER-0001-0007 (1dbd...0eda): intact. Not copied.
+Reference: approved versions. Operations: create the new folder /data/studio/recovered/cerbero-recovery-CAS-0002; copy (never move, never overwrite) the one entry.
+Preconditions: the plan file digest is unchanged right before the first change; the source digest re-observed right before copying equals the expected digest; the destination does not exist; the NAS approvals are answered by you.
+Success: the destination exists at the planned real path and its digest equals 84a4...1e1b.
+Pending target members: none. Changed files outside the target: raw/DSC_0101.ARW, raw/DSC_0142.ARW, raw/DSC_0150.ARW (permission denied, state unknown; memory records no copy of them in the named locations). They are not part of this plan.
+Risks: raw/ is unreadable and the full project listing was truncated, so layout.indd may still exist in an unreviewed part of the project; the source may change between check and copy; no atomic copy; the recovered file is on the same NAS and is not a new backup.
+
+Do you confirm approved set Delivery 2 and approve plan PLN-0002-01 with digest 7734...32f0?

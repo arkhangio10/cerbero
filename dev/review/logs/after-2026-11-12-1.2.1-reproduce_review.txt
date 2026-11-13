@@ -1,0 +1,85 @@
+[
+  {
+    "id": "R01",
+    "property": "No recovery when the mandatory plan could not be persisted",
+    "status": "PASS",
+    "evidence": {
+      "overall": "cancelled",
+      "copies": 0,
+      "mkdir": 0,
+      "persisted": []
+    }
+  },
+  {
+    "id": "R02",
+    "property": "An explicit plan refusal also stops recovery without a prior reference",
+    "status": "PASS",
+    "evidence": {
+      "overall": "cancelled",
+      "copies": 0,
+      "plan": "PLN-0001-01"
+    }
+  },
+  {
+    "id": "R03",
+    "property": "Memory paths cannot escape the approved recovery directory",
+    "status": "PASS",
+    "evidence": {
+      "overall": "failed",
+      "copy_calls": [],
+      "escaped_exists": false
+    }
+  },
+  {
+    "id": "R04",
+    "property": "A location label cannot authorize an unrelated source path",
+    "status": "PASS",
+    "evidence": {
+      "overall": "verified",
+      "out_of_scope_calls": []
+    }
+  },
+  {
+    "id": "R05",
+    "property": "Memory serialization preserves file paths exactly",
+    "status": "PASS",
+    "evidence": {
+      "original": "/nas/Cliente O'Neil/foto, final.tif",
+      "roundtrip": "/nas/Cliente O'Neil/foto, final.tif"
+    }
+  },
+  {
+    "id": "R06",
+    "property": "A wrong-hash or denied copy is not eligible",
+    "status": "PASS",
+    "evidence": {
+      "verdict": "not-recoverable",
+      "eligible": {
+        "A-brief": 0,
+        "A-layout": 0,
+        "A-copy": 0,
+        "A-cover": 0,
+        "A-logo": 0
+      }
+    }
+  },
+  {
+    "id": "R07",
+    "property": "Evaluation results do not depend on which variant ran first",
+    "status": "PASS",
+    "evidence": {
+      "shared_calls": 51,
+      "fresh_calls": 51,
+      "shared_revalidated": [
+        "CLM-0000-0001",
+        "CLM-0000-0002"
+      ],
+      "fresh_revalidated": [
+        "CLM-0000-0001",
+        "CLM-0000-0002"
+      ]
+    }
+  }
+]
+Review probes: 7 passed, 0 failed.
+exit=0

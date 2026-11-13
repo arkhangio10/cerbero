@@ -1,0 +1,20 @@
+{
+  "extends": "aurora.json",
+  "id": "S12",
+  "title": "The NAS approval for creating the recovery folder is declined",
+  "covers": ["approval-declined"],
+  "incident": [
+    {"op": "delete", "path": "projects/aurora/layout.indd"}
+  ],
+  "declined_approvals": [{"op": "mkdir"}],
+  "expected": {
+    "states": {"A-layout": "missing"},
+    "recovery": {
+      "entries": {"A-layout": "cancelled"},
+      "blobs": {},
+      "overall": "cancelled",
+      "set_complete": false
+    },
+    "no_files_created": true
+  }
+}

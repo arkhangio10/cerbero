@@ -1,0 +1,29 @@
+{
+  "extends": "borealis.json",
+  "id": "P3-similar-borealis",
+  "title": "Another project: a raw original altered keeping size and time",
+  "case": {
+    "split": "holdout",
+    "kind": "similar",
+    "facts": "Project Borealis: raw/IMG_2001.ARW now has a different digest while its size and modification time are unchanged; raw/IMG_2002.ARW has no copy outside Volume 1.",
+    "expected_text": "IMG_2001 is reported as altered; IMG_2002 is reported as at risk."
+  },
+  "incident": [
+    {
+      "op": "replace",
+      "path": "projects/borealis/raw/IMG_2001.ARW",
+      "blob": "raw-2001-tampered",
+      "keep_mtime": true
+    }
+  ],
+  "expected": {
+    "states": {
+      "B-raw2001": "altered",
+      "B-raw2002": "intact",
+      "B-poster": "intact"
+    },
+    "at_risk_includes": [
+      "B-raw2002"
+    ]
+  }
+}

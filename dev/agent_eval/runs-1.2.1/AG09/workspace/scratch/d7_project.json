@@ -1,0 +1,29 @@
+{
+ "delegation": "D7",
+ "state": "completed",
+ "result": {
+  "digests": [
+   {
+    "path": "/data/studio/projects/aurora/brief-FINAL.pdf",
+    "sha256": "83ba1a47e756a9d9b5642c173f1db1204a4bd6fe1fce1877e8914ad432339512",
+    "size_bytes": 736,
+    "real_path": "/data/studio/projects/aurora/brief-FINAL.pdf",
+    "matches_expected": true
+   },
+   {
+    "path": "/data/studio/projects/aurora/cover.tif",
+    "sha256": "d85d08c3852b35a6fdbd2523446c8cf8c2c467c6f985f44890561760dbc75e59",
+    "size_bytes": 9396,
+    "real_path": "/data/studio/projects/aurora/cover.tif",
+    "matches_expected": false
+   },
+   {
+    "path": "/data/studio/projects/aurora/logo.ai",
+    "sha256": "1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda",
+    "size_bytes": 8192,
+    "real_path": "/data/studio/projects/aurora/logo.ai",
+    "matches_expected": true
+   }
+  ]
+ }
+}

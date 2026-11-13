@@ -1,0 +1,83 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-IDX-0003-01. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE IDX-0003-01
+- schema: "cerbero-memory-2"
+- bundle_id: "IDX-0003-01"
+- case_id: "CAS-0003"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD IDX-0003-01-0001
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0001-01.md"
+- bundle_id: "B-0001-01"
+- sha256: "8056343e9b83127a3cfa50579196f5d4787f2ac405c42be8b2a44bb186af1931"
+- status: "current"
+
+## RECORD IDX-0003-01-0002
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0001-02.md"
+- bundle_id: "B-0001-02"
+- sha256: "bd00bb36e319d96ffd5a0b49353544a3d74c09d8d7f9fe7706b8c0e14d99d758"
+- status: "current"
+
+## RECORD IDX-0003-01-0003
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-IDX-0001-01.md"
+- bundle_id: "IDX-0001-01"
+- sha256: "2f38a8093b55bc73033c33558d887da934b14073b413411e28469afb32ad35cc"
+- status: "superseded"
+
+## RECORD IDX-0003-01-0004
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0002-01.md"
+- bundle_id: "B-0002-01"
+- sha256: "ed52bcc309e5dd66dc4e52563af6bc0a6983df90cc1fe3f74446eaa0145bd985"
+- status: "current"
+
+## RECORD IDX-0003-01-0005
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0002-02.md"
+- bundle_id: "B-0002-02"
+- sha256: "314b262e1dc95aa3fea53a37bb2a8f266278c7e9b4a39c0f8e968281bf04c754"
+- status: "current"
+
+## RECORD IDX-0003-01-0006
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0002-03.md"
+- bundle_id: "B-0002-03"
+- sha256: "034a1711539896f3d043311fde69716a0a6c3cbfe4150e68414a38437cd379fc"
+- status: "current"
+
+## RECORD IDX-0003-01-0007
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-IDX-0002-01.md"
+- bundle_id: "IDX-0002-01"
+- sha256: "f3c4d618480b3fb4bea47ba48c9eaab401014c47a61fac3b96678a959a9ca9b1"
+- status: "superseded"
+
+## RECORD IDX-0003-01-0008
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-TD-0000-01.md"
+- bundle_id: "TD-0000-01"
+- sha256: "27215cd7c4d914c58cc34d3b2800189c6301de54349a56718983451d4068bcb3"
+- status: "current"
+
+## RECORD IDX-0003-01-0009
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md"
+- bundle_id: "TH-0000-01"
+- sha256: "da4f37783be68d2831d0e810b9289c15afb4fa2a75736094759360b9e71f11dd"
+- status: "current"
+
+## RECORD IDX-0003-01-0010
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0003-01.md"
+- bundle_id: "B-0003-01"
+- sha256: "7e02691d1b9417bd8e4720039e9021440f82386262b072f0f7701a09465db80d"
+- status: "current"
+
+## RECORD IDX-0003-01-0011
+- type: "index-entry"
+- file: "/data/studio/cerbero-memory/CERBERO-B-0003-02.md"
+- bundle_id: "B-0003-02"
+- sha256: "f4338078177bbe4a68bb7fe4b88a18066c09131d1bc947784b91d4eb5751e2b1"
+- status: "current"

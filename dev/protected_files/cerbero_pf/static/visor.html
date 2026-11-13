@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cerbero: visor de archivos protegidos</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/visor.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <h1 class="brand">Cerbero <span>visor de archivos protegidos</span></h1>
+    <nav>
+      <a href="/panel">Panel</a>
+      <a href="/visor" aria-current="page">Visor</a>
+      <span id="who" class="hidden"></span>
+      <button id="logout" class="secondary hidden" type="button">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="narrow">
+    <section class="notice" aria-labelledby="notice-title">
+      <h2 id="notice-title">Cada acceso queda registrado</h2>
+      <p>Al abrir un archivo <code>.cerbero</code>, el servicio guarda y muestra a su propietario:</p>
+      <ul>
+        <li>la hora del servidor (UTC) y el resultado;</li>
+        <li>la cuenta con la que inicias sesión, o que no la iniciaste;</li>
+        <li>la IP de tu conexión y, si existe una base local, una ubicación aproximada por IP.</li>
+      </ul>
+      <p>El archivo se descifra en el servidor sólo si tu cuenta tiene permiso y el documento sigue activo. Sin conexión con el servicio no se puede abrir.</p>
+    </section>
+
+    <section aria-labelledby="open-title">
+      <h2 id="open-title">Abrir un archivo protegido</h2>
+      <form id="open-form" class="inline">
+        <div class="field"><label for="container">Archivo .cerbero</label><input id="container" type="file" accept=".cerbero" required></div>
+        <button type="submit">Abrir</button>
+        <button id="clear" type="button" class="secondary">Cerrar contenido</button>
+      </form>
+
+      <details id="location">
+        <summary>Compartir la ubicación del navegador (opcional)</summary>
+        <p>Si pulsas el botón, el navegador te pedirá permiso. Si lo das, la posición que informe se enviará con cada apertura desde esta página, hasta que pulses «No compartir», y la verá el propietario del documento. Es un dato declarado por tu navegador: no prueba tu identidad ni cambia tus permisos. Si no la compartes, el acceso se decide igual.</p>
+        <div class="actions">
+          <button id="share-location" type="button" class="secondary">Compartir mi ubicación</button>
+          <button id="forget-location" type="button" class="quiet">No compartir</button>
+        </div>
+        <p id="location-msg" class="message" role="status">No se compartirá ninguna ubicación.</p>
+      </details>
+
+      <div id="status" class="status hidden" role="status" aria-live="polite">
+        <p id="status-title" class="status-title"></p>
+        <p id="status-text"></p>
+      </div>
+
+      <form id="login-form" class="hidden">
+        <div class="field"><label for="login-user">Usuario</label><input id="login-user" type="text" autocomplete="username" required></div>
+        <div class="field"><label for="login-pass">Contraseña</label><input id="login-pass" type="password" autocomplete="current-password" required></div>
+        <button type="submit">Iniciar sesión y abrir</button>
+        <p id="login-msg" class="message" role="status"></p>
+      </form>
+
+      <div id="content" class="content"></div>
+    </section>
+  </main>
+</body>
+</html>

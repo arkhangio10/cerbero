@@ -1,0 +1,93 @@
+Cerbero review of /volume1/studio/projects/aurora
+Mode: Investigate, then Recover (partial recovery of Delivery 2, as you chose)
+This review: case CAS-0002. Read-only checks of the 11 recorded project assets, an exact-size search (16384 bytes) for layout.indd in the project and in the copy locations whose real path the NAS returned, and a check of the memory files against the index. Time of the review: unknown (the NAS returned no time).
+Previous review: CAS-0001 (baseline, record file CERBERO-B-0001-01.md, still open). It recorded 11 project files hashed and complete listings of the 4 locations.
+Active policies applied: none (no policy found in memory).
+
+## Result in short
+
+- layout.indd is missing from /volume1/studio/projects/aurora. Cause: unknown.
+- The Delivery 2 version of layout.indd (VER-0001-0006, sha256 84a4...e1b, 16384 bytes) was not recovered. No source the NAS let Cerbero check holds it.
+- No plan was written, no folder was created under /volume1/studio/recovered and no file was copied. Nothing in your folders was changed. The only writes were the two memory notes you approved (APV-1, APV-2).
+- The other four Delivery 2 members in the project (brief.pdf, copy.docx, cover.tif, logo.ai) match their Delivery 2 digests now.
+
+## Case summary
+
+| Asset | State | Evidence | Next step |
+|---|---|---|---|
+| layout.indd | missing at /volume1/studio/projects/aurora/layout.indd; the in-scope search is incomplete | D5 not_found (OBS-0002-0006); no 16384-byte file in the project or exports/ (OBS-0002-0008, OBS-0002-0011); raw/ could not be searched (OBS-0002-0010) | see "What would let Cerbero recover it" |
+| brief.pdf | intact | digest equals VER-0001-0001, 9d2c...9055 (OBS-0002-0007) | none |
+| copy.docx | intact | digest equals VER-0001-0002, 0745...03c4 (OBS-0002-0007) | none |
+| cover.tif | intact | digest equals VER-0001-0003, 2c36...40ef (OBS-0002-0007) | none |
+| logo.ai | intact | digest equals VER-0001-0007, 1dbd...0eda (OBS-0002-0007) | none |
+| exports/previews/cover-preview.jpg | intact-metadata (not hashed) | same size and time as recorded (OBS-0002-0006) | none |
+| fonts-license.pdf | intact-metadata (not hashed) | same size and time as recorded (OBS-0002-0006) | none |
+| palette.ase | intact-metadata (not hashed) | same size and time as recorded (OBS-0002-0006) | none |
+| raw/DSC_0101.ARW, raw/DSC_0142.ARW, raw/DSC_0150.ARW | unknown | D5 permission_denied (OBS-0002-0006) | read access to raw/ is needed (OPN-0002-0002) |
+
+Target approved set: Delivery 2 (SET-0001-0002). Record file: /volume1/studio/cerbero-memory/CERBERO-B-0001-01.md, whose digest matches the index (0589...4c0d, IDX-0001-01-0001). Approving statement STM-0001-0005: "Delivery 2 is an approved set: brief.pdf, layout.indd, copy.docx, cover.tif, logo.ai." Members and versions: brief.pdf VER-0001-0001, layout.indd VER-0001-0006, copy.docx VER-0001-0002, cover.tif VER-0001-0003, logo.ai VER-0001-0007.
+
+### Where Cerbero looked for layout.indd version VER-0001-0006
+
+| Location | Result |
+|---|---|
+| /volume1/studio/projects/aurora (outside raw/) | no file of 16384 bytes (OBS-0002-0008, OBS-0002-0011) |
+| /volume1/studio/projects/aurora/raw | not reviewed: permission_denied (OBS-0002-0010) |
+| /volume1/studio/backups/aurora-2026-11-05 | no file of 16384 bytes; listing complete to depth 8 (OBS-0002-0013) |
+| /volume1/studio/usb-archive/aurora | no file of 16384 bytes; listing complete to depth 8 (OBS-0002-0014) |
+| /volume1/studio/backups/aurora-2026-10-01 | not read. Memory records a copy of VER-0001-0006 there (CPY-0001-0015, /volume1/studio/backups/aurora-2026-10-01/layout.indd). The NAS confirms the folder exists and is readable, but it returned no real path for it, in two separate requests (OBS-0002-0002, OBS-0002-0012). Without a real path Cerbero cannot show that the copy lies inside a folder you authorized, so it did not read, hash or copy it (OPN-0002-0001). |
+
+A file of a different size cannot be the Delivery 2 version, so the three complete searches exclude those places exactly. Delivery 2 cannot be completed with the sources available. The Delivery 1 layout (VER-0001-0013, 15000 bytes) recorded on the USB archive was not used: Cerbero never fills a gap with a version from another set.
+
+### Open hypotheses for layout.indd
+
+- HYP-0002-0001, moved or renamed inside the project: open. Only raw/, which could not be read, is left. Check: a 16384-byte search in raw/ once it is readable, then digests of the candidates.
+- HYP-0002-0002, absent with a copy elsewhere: undetermined. It depends on CPY-0001-0015 in backups/aurora-2026-10-01. Check: a NAS real path for that folder, then metadata and a digest of that copy.
+- HYP-0002-0003, absent with no copy in any named location: open. Same check as HYP-0002-0002.
+- HYP-0002-0004, present but not visible to the expert: open. Cerbero has no check for it (D5 reported not_found, not permission_denied).
+
+### Contradictions
+
+- CLM-0002-0012: memory copy record CPY-0001-0006 places VER-0001-0006 at /volume1/studio/projects/aurora/layout.indd; the NAS now reports that path not_found. CPY-0001-0006 is superseded by CPY-0002-0001 (status needs-review). The raw/ copy records CPY-0001-0009..0011 are superseded by CPY-0002-0002..0004 (access denied, needs-review).
+- CLM-0002-0013: D1 returned /volume1/studio as your user folder, but D2 in the same session reported /volume1/studio as not found. Nothing depended on it: every folder you named was resolved on its own.
+- CLM-0002-0014: the subfolder listing of the project (D13) named no unreadable subfolder, but the size search named raw/ unreadable, and a search inside raw/ failed with permission_denied. raw/ is treated as not reviewed.
+
+Findings from documents: none (no document was read).
+Cause: unknown. No source states why layout.indd is missing or why raw/ is not readable.
+
+## Recovery
+
+No recovery plan was written. Your choice (STM-0002-0002): "Recover the available members of the target set as a partial recovery." The only Delivery 2 member that needs recovery is layout.indd, and it has no eligible source, so the partial recovery had no entry to execute. A plan entry needs a re-checked source, and there was none. The recovery folder under /volume1/studio/recovered was therefore not created.
+
+### Receipt
+
+| Entry | Status | Source digest before | Destination digest | Note |
+|---|---|---|---|---|
+| none (no plan entry) - layout.indd, VER-0001-0006 | no-source | not observed | none | only recorded copy CPY-0001-0015 is in a folder whose real path the NAS did not return; not read |
+
+- Overall status: failed. No entry succeeded, and no plan was saved or executed.
+- Reference: approved versions (Delivery 2, SET-0001-0002).
+- Target set complete: no. layout.indd (Delivery 2) is not present in the project and not in any recovery folder.
+- Verified: none. Failed: none copied. Out of scope: none. Pending: layout.indd VER-0001-0006 (OPN-0002-0003).
+- Saved: this receipt is not a separate memory record, because a receipt record must name a plan and no plan exists. The outcome is saved as OPN-0002-0003 in /volume1/studio/cerbero-memory/CERBERO-B-0002-01.md.
+
+### What would let Cerbero recover it
+
+1. Find out with your administrator why the NAS returns no real path for /volume1/studio/backups/aurora-2026-10-01. Or, if that backup can be reached under another folder path, name that path. Cerbero will then resolve the folder, check CPY-0001-0015 by metadata and digest against 84a4...e1b, and show you a plan to confirm before anything is created or copied.
+2. Restore read access to /volume1/studio/projects/aurora/raw so that the relocation hypothesis and the three raw files can be checked.
+3. Name any other folder the NAS can read that may hold a copy of layout.indd.
+
+## Coverage
+
+```text
+Assets checked by digest: 4 of 5 critical (brief.pdf, copy.docx, cover.tif, logo.ai); layout.indd missing. Ordinary assets checked by metadata: 3 (cover-preview.jpg, fonts-license.pdf, palette.ase); 3 ordinary assets unknown (raw/*.ARW, permission_denied)
+Listings: 5 complete (project subfolders D13; exports/; backups/aurora-2026-11-05; usb-archive/aurora; memory folder D3); 1 possibly incomplete (project root size search: raw/ unreadable); 1 failed (raw/ search, permission_denied); 0 truncated. Size searches used depth 8 and limit 200
+Folders unreadable: /volume1/studio/projects/aurora/raw
+Digests computed: 7 files, 92643 bytes (4 project files, 51200 bytes; 3 memory files). Session budget left: 293 digests, 53 listings
+Not reviewed: /volume1/studio/projects/aurora/raw; /volume1/studio/backups/aurora-2026-10-01 (no real path returned, so not read); ordinary asset contents (metadata only)
+Out of scope: CPY-0001-0015 /volume1/studio/backups/aurora-2026-10-01/layout.indd. Containment unknown: the NAS returned no real path for its location
+Memory needing review: none. CERBERO-B-0001-01.md matches the index digest. Copy records CPY-0001-0006 and CPY-0001-0009..0011 are superseded by needs-review records
+Not persisted: none. Saved with your approval: /volume1/studio/cerbero-memory/CERBERO-B-0002-01.md (verified, 20097 bytes, sha256 a1b6...c168, APV-1) and /volume1/studio/cerbero-memory/CERBERO-IDX-0002-01.md (verified, 858 bytes, APV-2)
+```
+
+Limits: this review ran only when you asked and is not continuous protection. The memory notes and digests live on the same NAS as the data. A digest match shows content equality with the recorded reference, not who changed what or that the system is safe.

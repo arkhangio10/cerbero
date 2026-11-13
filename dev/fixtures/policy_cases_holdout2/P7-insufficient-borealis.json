@@ -1,0 +1,20 @@
+{
+  "extends": "borealis.json",
+  "id": "P7-insufficient-borealis",
+  "title": "The raw folder of Borealis cannot be read during the review",
+  "case": {
+    "split": "holdout",
+    "kind": "insufficient",
+    "facts": "Project Borealis review in which the raw folder returns permission denied for every check.",
+    "expected_text": "The two raw originals are reported as unknown with open items; no intact, altered or missing claim is made."
+  },
+  "faults": [
+    {"kind": "permission_denied", "prefix": "projects/borealis/raw"}
+  ],
+  "request": {"intent": "review"},
+  "expected": {
+    "states": {"B-raw2001": "unknown", "B-raw2002": "unknown"},
+    "open_items_min": 2,
+    "acknowledged": ["coverage-incomplete"]
+  }
+}

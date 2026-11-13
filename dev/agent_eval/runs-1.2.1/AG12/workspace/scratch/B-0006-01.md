@@ -1,0 +1,54 @@
+# CERBERO BUNDLE B-0006-01
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0006-01"
+- case_id: "CAS-0006"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD CAS-0006
+- type: "case"
+- scope_id: "SCP-0001"
+- request: "learn: retire the active policy learned from case CAS-0002 (POL-0004-0003 version 2, motivated by CAS-0002-0003)"
+- status: "open"
+- opened_in: "this session"
+
+## RECORD STM-0006-0001
+- type: "statement"
+- text: "Retire the active policy you learned from case CAS-0002. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora."
+- given_in: "this session, the request"
+- class: "user-declared"
+
+## RECORD OBS-0006-0001
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D1, D2"
+- state: "completed"
+- result: "user folder /data/studio; /data/studio/projects/aurora and /data/studio/cerbero-memory exist, are readable and have real paths equal to the names given"
+- coverage: "2 of 2 folders this request needs resolved; the three copy locations were not resolved because retiring a policy does not need them"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0006-0002
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D3, D4, D7"
+- state: "completed"
+- result: "D3 listed 18 CERBERO- files, not truncated; newest index IDX-0005-01 read in full (4110 bytes, digest 8b2bfbf61efe1aaa7db1f43ba6bb2ddb715a6ad4942da5f0308dcf27427268f0); B-0002-02, B-0002-03, B-0003-01, B-0003-02, B-0004-01, B-0004-02, B-0005-01 and TD-0000-01 read in full with byte counts equal to the listing, and their 8 digests equal the index digests; POL-0004-0003 (version 2, status active, in B-0004-02) is the newest record of its chain and the only active policy motivated by CAS-0002-0003; POL-0003-0002 (version 1) is rejected"
+- coverage: "9 of 18 memory files read and hashed; B-0001-01, B-0001-02, B-0002-01, TH-0000-01, TH-0000-02 and the superseded snapshots IDX-0001-01 to IDX-0004-01 not read or hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD POL-0006-0001
+- type: "policy"
+- version: "2"
+- status: "retired"
+- condition: "Any Baseline, What-if or Investigate review of a project folder that the user names in that review and that D2 resolves in that session. The folders below are relative to that real project root, and this policy never authorizes, adds or searches any folder, location or project by itself. The line promote-critical raw applies to the folder raw directly inside that project root whenever it exists: its files are digested in every review within the session budget and included in the recoverability map, and a raw file with no eligible copy outside a failed location or domain is reported as at risk in that scenario. A copy at a location whose domain membership is unknown is reported as uncertain, and a raw file left unhashed or seen only in a possibly incomplete listing is reported by name as not reviewed; neither is ever reported as safe or as lost. The line promote-critical raw does not apply while a current user-declared statement says that the raw folder of that same project holds regenerable files, except to a file that is a user-declared critical asset or an approved-set member, which keeps its full review. The line informational exports/previews applies only while a current user-declared statement says that exports/previews of that same project holds regenerable files, and never to a file that is a user-declared critical asset or an approved-set member; until such a statement exists, exports/previews of that project is reviewed as without this policy. An informational change is still reported with its path and digest."
+- scope: "The folders raw and exports/previews directly inside the real root of each project folder that the user names in a review and D2 resolves in that session; no other folder, location or project, and nothing outside that real root."
+- effect: ["promote-critical raw", "informational exports/previews"]
+- motivated_by: "CAS-0002-0003"
+- drafted_from: ["TST-0000-0001", "TST-0000-0002"]
+- rule_sha256: "cb236cf7ff4380c8fa2933ce885eed9c083123c479bb4bb688b2dcc650aa7032"
+- approval: "Retire the active policy you learned from case CAS-0002."
+- supersedes: "POL-0004-0003"

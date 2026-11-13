@@ -1,0 +1,4 @@
+cover-v2 TIFF opened by Pillow: TIFF (64, 48) RGB pixel(10,10) (229, 33, 103)
+cover-tampered TIFF opened by Pillow: TIFF (64, 48) pixel(10,10) (255, 0, 255) same size bytes: True
+copy-v2 DOCX opened by python-docx: ['AURORA copy v2 - Delivery 2', 'Synthetic approved copy text for the demo.']
+brief-v2 PDF opened by pypdf: 1 page(s)

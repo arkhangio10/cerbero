@@ -1,0 +1,80 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0004-02. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0004-02
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0004-02"
+- case_id: "CAS-0004"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD OBS-0004-0001
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/cerbero-memory/CERBERO-B-0004-01.md digest cb236cf7ff4380c8fa2933ce885eed9c083123c479bb4bb688b2dcc650aa7032, 3791 bytes, after a D10 save reported verified with 3791 bytes"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0004-0002
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D3, D7, D4"
+- state: "completed"
+- result: "after the freeze, D3 listed 14 CERBERO- files, not truncated, including the new /data/studio/cerbero-memory/CERBERO-TH-0000-02.md (964 bytes, modified 10000), absent from the D3 listing before the freeze; D7 digest 44d0bb6db0c781df0226a3139665667a32ef89b7a75a84d9a423b3b137b0c4a5; D4 returned 964 bytes with test cases TST-0000-0006 (similar, holdout) and TST-0000-0007 (insufficient, holdout)"
+- coverage: "1 new holdout file hashed and read completely; CERBERO-TH-0000-01.md not read in this session"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD STM-0004-0002
+- type: "statement"
+- text: "The test-case files in the memory folder, including any new holdout file, are synthetic data I placed and authorize. Continue."
+- given_in: "this session, answer to the Cerbero question asking to add new holdout cases after the freeze of POL-0004-0001; covers CERBERO-TH-0000-02.md (sha256 44d0bb6db0c781df0226a3139665667a32ef89b7a75a84d9a423b3b137b0c4a5), hashed after this answer"
+- class: "user-declared"
+
+## RECORD EVL-0004-0001
+- type: "evaluation"
+- policy_id: "POL-0004-0001"
+- rule_sha256: "cb236cf7ff4380c8fa2933ce885eed9c083123c479bb4bb688b2dcc650aa7032"
+- cases: ["TST-0000-0001 development origin pass", "TST-0000-0002 development counterexample pass", "TST-0000-0006 holdout similar pass", "TST-0000-0007 holdout insufficient pass"]
+- verdict: "evaluated"
+
+## RECORD POL-0004-0002
+- type: "policy"
+- version: "2"
+- status: "evaluated"
+- condition: "Any Baseline, What-if or Investigate review of a project folder that the user names in that review and that D2 resolves in that session. The folders below are relative to that real project root, and this policy never authorizes, adds or searches any folder, location or project by itself. The line promote-critical raw applies to the folder raw directly inside that project root whenever it exists: its files are digested in every review within the session budget and included in the recoverability map, and a raw file with no eligible copy outside a failed location or domain is reported as at risk in that scenario. A copy at a location whose domain membership is unknown is reported as uncertain, and a raw file left unhashed or seen only in a possibly incomplete listing is reported by name as not reviewed; neither is ever reported as safe or as lost. The line promote-critical raw does not apply while a current user-declared statement says that the raw folder of that same project holds regenerable files, except to a file that is a user-declared critical asset or an approved-set member, which keeps its full review. The line informational exports/previews applies only while a current user-declared statement says that exports/previews of that same project holds regenerable files, and never to a file that is a user-declared critical asset or an approved-set member; until such a statement exists, exports/previews of that project is reviewed as without this policy. An informational change is still reported with its path and digest."
+- scope: "The folders raw and exports/previews directly inside the real root of each project folder that the user names in a review and D2 resolves in that session; no other folder, location or project, and nothing outside that real root."
+- effect: ["promote-critical raw", "informational exports/previews"]
+- motivated_by: "CAS-0002-0003"
+- drafted_from: ["TST-0000-0001", "TST-0000-0002"]
+- rule_sha256: "cb236cf7ff4380c8fa2933ce885eed9c083123c479bb4bb688b2dcc650aa7032"
+- approval: null
+- supersedes: "POL-0004-0001"
+
+## RECORD STM-0004-0003
+- type: "statement"
+- text: "Yes. I approve POL-0004-0001."
+- given_in: "this session, answer to the Cerbero question: Do you approve policy POL-0004-0001 version 2? asked after showing evaluation EVL-0004-0001 with rule digest cb236cf7ff4380c8fa2933ce885eed9c083123c479bb4bb688b2dcc650aa7032"
+- class: "user-declared"
+
+## RECORD POL-0004-0003
+- type: "policy"
+- version: "2"
+- status: "active"
+- condition: "Any Baseline, What-if or Investigate review of a project folder that the user names in that review and that D2 resolves in that session. The folders below are relative to that real project root, and this policy never authorizes, adds or searches any folder, location or project by itself. The line promote-critical raw applies to the folder raw directly inside that project root whenever it exists: its files are digested in every review within the session budget and included in the recoverability map, and a raw file with no eligible copy outside a failed location or domain is reported as at risk in that scenario. A copy at a location whose domain membership is unknown is reported as uncertain, and a raw file left unhashed or seen only in a possibly incomplete listing is reported by name as not reviewed; neither is ever reported as safe or as lost. The line promote-critical raw does not apply while a current user-declared statement says that the raw folder of that same project holds regenerable files, except to a file that is a user-declared critical asset or an approved-set member, which keeps its full review. The line informational exports/previews applies only while a current user-declared statement says that exports/previews of that same project holds regenerable files, and never to a file that is a user-declared critical asset or an approved-set member; until such a statement exists, exports/previews of that project is reviewed as without this policy. An informational change is still reported with its path and digest."
+- scope: "The folders raw and exports/previews directly inside the real root of each project folder that the user names in a review and D2 resolves in that session; no other folder, location or project, and nothing outside that real root."
+- effect: ["promote-critical raw", "informational exports/previews"]
+- motivated_by: "CAS-0002-0003"
+- drafted_from: ["TST-0000-0001", "TST-0000-0002"]
+- rule_sha256: "cb236cf7ff4380c8fa2933ce885eed9c083123c479bb4bb688b2dcc650aa7032"
+- approval: "Yes. I approve POL-0004-0001."
+- supersedes: "POL-0004-0002"
+
+## RECORD OPN-0004-0002
+- type: "open-item"
+- subject: "POL-0004-0003"
+- reason: "all four kinds are now covered: origin and counterexample in development, similar and insufficient in holdout (CERBERO-TH-0000-02.md, unseen before the freeze). Limits: the holdout cases come only from project Borealis; there is no holdout counterexample; the clause that skips promote-critical raw while the user declares a raw folder regenerable is exercised by no recorded case; TST-0000-0003 to TST-0000-0005 were not replayed against version 2 and are not counted"
+- needed_to_resolve: "a holdout counterexample and a case that exercises the regenerable raw clause, if the user wants them; any change to the rule is a new version with a new evaluation"
+- supersedes: "OPN-0004-0001"

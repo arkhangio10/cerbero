@@ -1,0 +1,1 @@
+Review project Aurora: which files could I lose if the volume that holds the project failed? Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora.

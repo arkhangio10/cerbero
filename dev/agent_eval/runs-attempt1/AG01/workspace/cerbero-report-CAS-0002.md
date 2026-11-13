@@ -1,0 +1,109 @@
+Cerbero review of /volume1/studio/projects/aurora
+Mode: Investigate, then Recover (Recover stopped before any change: the plan was not saved because you declined)
+This review: case CAS-0002. Read-only checks of the 11 assets recorded in the baseline, exact-size searches in the project and in the three copy locations, and re-checks of the copies chosen as sources. Time it ran: unknown (the NAS returned no clock time).
+Previous review: CAS-0001 (baseline, bundle B-0001-01): 11 project files listed and hashed; backups/aurora-2026-10-01 (5 files), backups/aurora-2026-11-05 (3 files) and usb-archive/aurora (5 files) listed as complete, size-matched files hashed. Time unknown.
+Active policies applied: none (memory holds no policy record)
+
+## Short answer
+
+- Nothing was created, copied or saved in this session. You declined ("I cannot find a saved plan PLN-0002-01 in the memory folder, so I do not approve anything."). That is correct: PLN-0002-01 was never saved. I had only asked for permission to save it, and after your reply I made no save.
+- Delivery 2 can be completed from the copies available. 3 of its 5 files need recovery: layout.indd, copy.docx and cover.tif. Copies of the approved versions of all three were verified in this session in /volume1/studio/backups/aurora-2026-10-01. They have not been recovered.
+- brief.pdf (Delivery 2) is not lost. Its approved content is in the project under a new name: /volume1/studio/projects/aurora/brief-FINAL.pdf.
+- logo.ai (Delivery 2) is intact.
+- Could not be recovered with the sources you named: raw/DSC_0142.ARW. It is not part of Delivery 2, and no copy of it exists in any of the four folders.
+- Cause: unknown. No source states what happened or who did it.
+
+## Memory loaded
+
+| File | Status | Evidence |
+|---|---|---|
+| /volume1/studio/cerbero-memory/CERBERO-IDX-0001-01.md | newest index snapshot (sequence 01), used as the reference | read in full (D4); sha256 d48d…f41b (OBS-0002-0005) |
+| /volume1/studio/cerbero-memory/CERBERO-B-0001-01.md | current: its digest equals the index digest; it parsed as cerbero-memory-2 with 79 records and no dangling reference | sha256 0589…4c0d, matches IDX-0001-01-0001 (OBS-0002-0005) |
+
+No unfinished plans (no plan record without a receipt). No policy records. The memory file listing (D3) was not truncated: 2 entries.
+
+## Case summary (CAS-0002)
+
+| Asset | State | Evidence | Next step |
+|---|---|---|---|
+| brief.pdf (critical, Delivery 2) | moved, now at /volume1/studio/projects/aurora/brief-FINAL.pdf | absent at its recorded path (OBS-0002-0006); brief-FINAL.pdf digest 9d2c…9055 equals VER-0001-0001 (OBS-0002-0012) | none; not copied; cause unknown |
+| copy.docx (critical, Delivery 2) | missing | absent at its recorded path (OBS-0002-0006); no 6144-byte file in the project to depth 8 (OBS-0002-0009) | recover VER-0001-0002 (0745…03c4) from backups/aurora-2026-10-01, copy verified now (OBS-0002-0014) |
+| layout.indd (critical, Delivery 2) | missing | absent (OBS-0002-0006); no 16384-byte file in the project to depth 8 (OBS-0002-0010) | recover VER-0001-0006 (84a4…1e1b) from backups/aurora-2026-10-01, verified now (OBS-0002-0014) |
+| cover.tif (critical, Delivery 2) | altered, same size (32768) and same modification time (1103) | digest 93bf…7275 (OBS-0002-0007) differs from the approved VER-0001-0003 (2c36…40ef) and from Delivery 1 VER-0001-0015 (2f54…d8c6) | recover VER-0001-0003 from backups/aurora-2026-10-01, verified now (OBS-0002-0014); the altered file stays where it is |
+| logo.ai (critical, Delivery 2) | intact | digest 1dbd…0eda equals VER-0001-0007 (OBS-0002-0007) | none |
+| raw/DSC_0101.ARW | intact | digest 2cca…5442 equals VER-0001-0009 (OBS-0002-0012) | none |
+| raw/DSC_0150.ARW | intact | digest 88e9…6004 equals VER-0001-0011 (OBS-0002-0012) | none |
+| raw/DSC_0142.ARW (ordinary, in no approved set) | missing | absent (OBS-0002-0006). The only 65536-byte files in the project are DSC_0101.ARW and DSC_0150.ARW, each holding its own version (OBS-0002-0011, OBS-0002-0012). None in the three copy locations (OBS-0002-0015..0017) | not recoverable with the sources available |
+| exports/previews/cover-preview.jpg | intact-metadata | size and time equal to the record (OBS-0002-0006); content not hashed | none |
+| fonts-license.pdf | intact-metadata | size and time equal (OBS-0002-0006); not hashed | none |
+| palette.ase | intact-metadata | size and time equal (OBS-0002-0006); not hashed | none |
+
+Open hypotheses:
+- HYP-0002-0001 (supported): brief.pdf was renamed or moved to brief-FINAL.pdf. Whether this was intended is unknown. Only your statement or a cited project note could say.
+- HYP-0002-0002 (supported): copy.docx and layout.indd are absent from the project and have copies elsewhere. Folders deeper than depth 8, and folders you did not name, were not reviewed.
+- HYP-0002-0003 (supported): raw/DSC_0142.ARW is absent and has no copy in the named locations.
+- HYP-0002-0004 (undetermined): the cause of the rename, the removals and the content change of cover.tif. No source states it.
+
+Contradictions:
+- CLM-0002-0012: the baseline recorded /volume1/studio/projects/aurora/cover.tif as VER-0001-0003 (CPY-0001-0003, OBS-0001-0006). Its digest is now 93bf…7275 (OBS-0002-0007). Superseding record CPY-0002-0001 (needs-review) was prepared but not saved.
+- The baseline copy records for brief.pdf, copy.docx, layout.indd and raw/DSC_0142.ARW at their project paths (CPY-0001-0001, -0002, -0006, -0010) describe files that are now absent. Superseding needs-review records were prepared but not saved. Until a later save, CERBERO-B-0001-01.md still shows these copies, and cover.tif in the project, as current.
+- CLM-0002-0014: D1 returned /volume1/studio as the real path of the user folder, but D2 reported /volume1/studio as not found. No step of this case used that path.
+
+Findings (instruction-like text in files or memory): none. No project document was read.
+
+Other open items:
+- OPN-0002-0003: your baseline statement STM-0001-0003 says both backup folders are on Volume 2. The NAS real paths of those folders begin with /volume1 (/volume1/studio/backups/...). A path prefix does not prove a disk layout, but please confirm or correct the volume of each folder before relying on any "if Volume 1 fails" evaluation.
+- OPN-0002-0004: files added to the project since the baseline were not inventoried. The baseline record of brief.pdf still names its old path. A new Baseline after the recovery would fix this, if you want it.
+
+Cause: unknown.
+
+## Recovery plan PLN-0002-01 (draft, NOT saved, NOT executed)
+
+| Entry | Asset | Expected version | Source (re-observed) | Destination |
+|---|---|---|---|---|
+| ENT-0002-01-01 | layout.indd (AST-0001-0006) | VER-0001-0006, sha256 84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b, 16384 bytes | /volume1/studio/backups/aurora-2026-10-01/layout.indd (D5 OBS-0002-0013, D7 match OBS-0002-0014) | /volume1/studio/recovered/cerbero-recovery-CAS-0002/layout.indd |
+| ENT-0002-01-02 | copy.docx (AST-0001-0002) | VER-0001-0002, sha256 0745352aafe34b4795d093cd45b3f4930fa043b7f020d334e3bec8509f9b03c4, 6144 bytes | /volume1/studio/backups/aurora-2026-10-01/copy.docx (OBS-0002-0013, OBS-0002-0014) | /volume1/studio/recovered/cerbero-recovery-CAS-0002/copy.docx |
+| ENT-0002-01-03 | cover.tif (AST-0001-0003) | VER-0001-0003, sha256 2c36dd1fbf7a29e3fa04421fdbe984899cb220a642e9119a51758ef9642640ef, 32768 bytes | /volume1/studio/backups/aurora-2026-10-01/cover.tif (OBS-0002-0013, OBS-0002-0014) | /volume1/studio/recovered/cerbero-recovery-CAS-0002/cover.tif |
+
+- Target approved set: SET-0001-0002 "Delivery 2". Members: brief.pdf VER-0001-0001 (9d2c…9055), layout.indd VER-0001-0006, copy.docx VER-0001-0002, cover.tif VER-0001-0003, logo.ai VER-0001-0007 (1dbd…0eda). Record file: /volume1/studio/cerbero-memory/CERBERO-B-0001-01.md. Approving statements: STM-0001-0005 "Delivery 2 is an approved set: brief.pdf, layout.indd, copy.docx, cover.tif, logo.ai." and STM-0001-0003 "Delivery 2 (3 November) is the approved client delivery. ..."
+- Reference: approved-version. Source choice: backups/aurora-2026-10-01 is the one location that holds all three needed members. Not used: copy.docx and cover.tif copies in backups/aurora-2026-11-05 (CPY-0001-0017/0018, modeled, not re-observed). The USB archive holds Delivery 1 versions of these files, which are a different set and are never mixed in.
+- Not copied: brief.pdf (moved inside the project with the approved digest) and logo.ai (intact).
+- Operations: create /volume1/studio/recovered/cerbero-recovery-CAS-0002 (no subfolders), then copy each source to its destination. Never move, never overwrite.
+- Preconditions per entry: you confirm the plan ID with its saved digest and reconfirm Delivery 2. The source digest, observed again just before copying, equals the expected digest. The destination does not exist and is inside the recovery folder. The saved plan digest is unchanged just before the first change.
+- Success conditions per entry: the copy exists at the planned real path returned by the NAS, and its digest equals the expected digest.
+- Pending and out of scope: raw/DSC_0142.ARW has no source. No entry is out of scope.
+- Risks: a source may change between the check and the copy. There is no atomic copy and no rollback. The project, the copies and the Cerbero memory are on the same NAS, so they are not an independent root of trust.
+- Plan ID PLN-0002-01, saved digest: none. The plan was never persisted, so no confirmation question was asked.
+
+## Receipt RCP-0002-01 (not saved, shown here in full)
+
+| Entry | Status | Source digest before | Destination digest | Note |
+|---|---|---|---|---|
+| ENT-0002-01-01 layout.indd | not-attempted | not observed (step E1 not run) | none | plan not saved; the source matched VER-0001-0006 earlier in this session (OBS-0002-0014) |
+| ENT-0002-01-02 copy.docx | not-attempted | not observed (E1 not run) | none | plan not saved; the source matched VER-0001-0002 earlier in this session (OBS-0002-0014) |
+| ENT-0002-01-03 cover.tif | not-attempted | not observed (E1 not run) | none | plan not saved; the source matched VER-0001-0003 earlier in this session (OBS-0002-0014) |
+| (no plan entry) raw/DSC_0142.ARW | no-source | none | none | no copy in the four named locations |
+
+- Overall status: cancelled. The save of plan PLN-0002-01 was declined: you replied "I cannot find a saved plan PLN-0002-01 in the memory folder, so I do not approve anything." No folder was created and no file was copied.
+- Plan digest: none (not saved). Approval APR-0002-0001: declined, in your words above.
+- Reference: approved versions (SET-0001-0002).
+- Target set complete: no. copy.docx and layout.indd are missing, cover.tif is altered, and none of them is verified in a recovery folder. brief.pdf (moved, matching digest) and logo.ai (intact) count as present.
+- Verified: none. Failed: none. Out of scope: none. Pending: layout.indd, copy.docx, cover.tif (not attempted), raw/DSC_0142.ARW (no source).
+- fidelity-only entries: none.
+- Where saved: nowhere. You declined approval of any save, so this receipt, the case records and the index snapshot were not saved.
+
+To recover Delivery 2 later, ask again and allow the plan save. Cerbero will then re-check the sources, save a new plan revision, and show you its ID and digest before creating or copying anything.
+
+## Coverage
+
+```text
+Assets checked by digest: 3 of 5 critical (logo.ai and cover.tif at their paths, brief.pdf at its new path); 2 critical missing with no file to hash (copy.docx, layout.indd); ordinary: 2 by digest (raw/DSC_0101.ARW, raw/DSC_0150.ARW), 3 by metadata only (exports/previews/cover-preview.jpg, fonts-license.pdf, palette.ase), 1 missing (raw/DSC_0142.ARW)
+Listings: 8 complete (1 memory listing; 7 exact-size searches at depth 8: 4096, 6144, 16384 and 65536 bytes in the project; 65536 bytes in each of the three copy locations), 0 truncated, 0 folders unreadable
+Digests computed: 10 files, 252770 bytes (8 data files 231424 bytes, 2 memory files 21346 bytes); budget used: 10 of 300 digests, 8 of 60 listings
+Not reviewed: anything deeper than depth 8; project files of other sizes that are not in the baseline (no full listing); copies in backups/aurora-2026-11-05 and usb-archive/aurora (still modeled, not re-observed); content of cover-preview.jpg, fonts-license.pdf, palette.ase; folders you did not name
+Out of scope: none rejected
+Memory needing review: none (CERBERO-IDX-0001-01.md, as the newest snapshot, cannot list its own digest)
+Not persisted: bundle B-0002-01 (case CAS-0002 records and plan PLN-0002-01), receipt RCP-0002-01, index snapshot IDX-0002-01. Reason: the save was declined.
+```
+
+A digest match shows that content equals the recorded reference. It does not show who changed the originals, that malware is absent, or that the system is safe.

@@ -1,0 +1,22 @@
+{
+  "extends": "aurora.json",
+  "id": "S13",
+  "title": "No baseline exists; the user picks a backup file to recover",
+  "covers": ["missing-reference"],
+  "baseline": null,
+  "incident": [
+    {"op": "delete", "path": "projects/aurora/layout.indd"}
+  ],
+  "request": {
+    "intent": "recover-files",
+    "files": [{"asset": "layout.indd", "source": "backups/aurora-2026-10-01/layout.indd", "dest_name": "layout.indd"}]
+  },
+  "expected": {
+    "recovery": {
+      "entries": {"layout.indd": "fidelity-only"},
+      "blobs": {"layout.indd": "layout-v2"},
+      "overall": "fidelity-only"
+    },
+    "acknowledged": ["no-reference"]
+  }
+}

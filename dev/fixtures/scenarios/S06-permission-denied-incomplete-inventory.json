@@ -1,0 +1,29 @@
+{
+  "extends": "aurora.json",
+  "id": "S06",
+  "title": "An unreadable folder and listings truncated at four entries",
+  "covers": ["permission-denied", "incomplete-inventory"],
+  "incident": [
+    {"op": "rename", "path": "projects/aurora/brief.pdf", "to": "projects/aurora/old/2026/brief-final.pdf"},
+    {"op": "delete", "path": "projects/aurora/layout.indd"}
+  ],
+  "faults": [
+    {"kind": "permission_denied", "prefix": "projects/aurora/raw"},
+    {"kind": "list_limit", "limit": 4}
+  ],
+  "expected": {
+    "states": {
+      "A-brief": "moved", "A-layout": "missing", "A-copy": "intact", "A-cover": "intact", "A-logo": "intact",
+      "A-palette": "intact", "A-fonts": "intact", "A-raw0101": "unknown", "A-raw0142": "unknown",
+      "A-raw0150": "unknown", "A-preview": "intact"
+    },
+    "located_at": {"A-brief": "projects/aurora/old/2026/brief-final.pdf"},
+    "recovery": {
+      "entries": {"A-layout": "verified"},
+      "blobs": {"A-layout": "layout-v2"},
+      "overall": "verified",
+      "set_complete": true
+    },
+    "acknowledged": ["coverage-incomplete"]
+  }
+}

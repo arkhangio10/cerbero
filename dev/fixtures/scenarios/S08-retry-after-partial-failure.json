@@ -1,0 +1,25 @@
+{
+  "extends": "aurora.json",
+  "id": "S08",
+  "title": "One copy fails on the first attempt; the retry completes the set",
+  "covers": ["retry-after-partial-failure"],
+  "incident": [
+    {"op": "delete", "path": "projects/aurora/layout.indd"},
+    {"op": "delete", "path": "projects/aurora/copy.docx"},
+    {"op": "delete", "path": "projects/aurora/cover.tif"}
+  ],
+  "faults": [
+    {"kind": "copy_fail", "src": "backups/aurora-2026-10-01/copy.docx", "times": 1}
+  ],
+  "request": {"retry": true},
+  "expected": {
+    "states": {"A-layout": "missing", "A-copy": "missing", "A-cover": "missing"},
+    "recovery": {
+      "entries": {"A-layout": "already-present-verified", "A-copy": "verified", "A-cover": "already-present-verified"},
+      "blobs": {"A-layout": "layout-v2", "A-copy": "copy-v2", "A-cover": "cover-v2"},
+      "overall": "verified",
+      "set_complete": true,
+      "first_attempt": "partial"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "description": "Second synthetic project used only as a holdout case for policy evaluation.",
+  "blobs": {
+    "poster-v1": {"text": "BOREALIS poster v1 synthetic approved", "size": 20480},
+    "raw-2001": {"text": "BOREALIS raw IMG_2001 synthetic sensor data", "size": 49152},
+    "raw-2001-tampered": {"text": "BOREALIS raw IMG_2001 synthetic sensor dataX", "size": 49152},
+    "raw-2002": {"text": "BOREALIS raw IMG_2002 synthetic sensor data", "size": 49152}
+  },
+  "locations": {
+    "L-proj": {"root": "projects/borealis", "memberships": {"volume": "DOM-vol1"}, "unknown_kinds": ["storage-pool", "site"]},
+    "L-bk": {"root": "backups/borealis", "memberships": {"volume": "DOM-vol2"}, "unknown_kinds": ["storage-pool", "site"]}
+  },
+  "domains": {
+    "DOM-vol1": {"kind": "volume", "label": "Volume 1", "parent": "DOM-nas1"},
+    "DOM-vol2": {"kind": "volume", "label": "Volume 2", "parent": "DOM-nas1"},
+    "DOM-nas1": {"kind": "device", "label": "this NAS"}
+  },
+  "before": {
+    "projects/borealis/poster.pdf": {"blob": "poster-v1", "mtime": 1000},
+    "projects/borealis/raw/IMG_2001.ARW": {"blob": "raw-2001", "mtime": 900},
+    "projects/borealis/raw/IMG_2002.ARW": {"blob": "raw-2002", "mtime": 901},
+    "backups/borealis/poster.pdf": {"blob": "poster-v1", "mtime": 1100}
+  },
+  "baseline": {
+    "assets": {
+      "B-poster": {"path": "projects/borealis/poster.pdf", "importance": "critical", "current": "V-poster-1"},
+      "B-raw2001": {"path": "projects/borealis/raw/IMG_2001.ARW", "importance": "ordinary", "current": "V-raw2001"},
+      "B-raw2002": {"path": "projects/borealis/raw/IMG_2002.ARW", "importance": "ordinary", "current": "V-raw2002"}
+    },
+    "versions": {
+      "V-poster-1": {"asset": "B-poster", "blob": "poster-v1"},
+      "V-raw2001": {"asset": "B-raw2001", "blob": "raw-2001"},
+      "V-raw2002": {"asset": "B-raw2002", "blob": "raw-2002"}
+    },
+    "sets": {
+      "SET-P1": {"name": "Poster delivery", "members": {"B-poster": "V-poster-1"}}
+    }
+  },
+  "request": {
+    "intent": "review",
+    "scope": "L-proj",
+    "copy_locations": ["L-bk"],
+    "memory_root": "cerbero-memory"
+  }
+}

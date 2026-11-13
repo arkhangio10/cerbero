@@ -1,0 +1,133 @@
+# CERBERO BUNDLE B-0001-01
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0001-01"
+- case_id: "CAS-0001"
+- scope_id: null
+- supersedes: null
+
+## RECORD CAS-0001
+- type: "case"
+- scope_id: null
+- request: "Cerbero has no record of project Aurora yet. Please copy /data/studio/backups/aurora-2026-10-01/layout.indd into a new recovery folder under /data/studio/recovered, as layout.indd. Cerbero memory folder: /data/studio/cerbero-memory."
+- status: "open"
+- opened_in: "session CAS-0001; time not returned by the NAS"
+
+## RECORD STM-0001-0001
+- type: "statement"
+- text: "Cerbero has no record of project Aurora yet. Please copy /data/studio/backups/aurora-2026-10-01/layout.indd into a new recovery folder under /data/studio/recovered, as layout.indd. Cerbero memory folder: /data/studio/cerbero-memory."
+- given_in: "CAS-0001 request"
+- class: "user-declared"
+
+## RECORD STM-0001-0002
+- type: "statement"
+- text: "I have nothing to add. Continue only with what you can verify, or stop."
+- given_in: "CAS-0001 answer to the question asking for the Aurora project folder"
+- class: "user-declared"
+
+## RECORD OBS-0001-0001
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D1"
+- state: "completed"
+- result: "current user folder real path /data/studio"
+- coverage: "1 of 1 folder resolved"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0002
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D2"
+- state: "completed"
+- result: "exist, readable, real path equal to the path given: /data/studio/cerbero-memory, /data/studio/backups/aurora-2026-10-01, /data/studio/recovered, /data/studio"
+- coverage: "4 of 4 folders resolved"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0001-0003
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D3"
+- state: "completed"
+- result: "no file whose name contains CERBERO- directly inside /data/studio/cerbero-memory; empty list"
+- coverage: "0 entries, limit 200, truncated false, no unreadable subfolder named: complete"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0001-0001
+- type: "check-card"
+- doubt: "Does the chosen source exist inside /data/studio/backups/aurora-2026-10-01, with which real path and size, and is the planned recovery folder absent?"
+- decision: "whether the source can enter a recovery plan and whether the recovery folder name is free"
+- operation: "D5 to file-agent"
+- outcomes: "source real path inside the folder and size returned: hash it; missing, unreadable or outside: stop. Recovery folder present: choose another case folder; absent: plan it"
+- cost: "metadata of 2 paths, read-only"
+- budget_left: 300
+
+## RECORD OBS-0001-0004
+- type: "observation"
+- check_card: "CHK-0001-0001"
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "/data/studio/backups/aurora-2026-10-01/layout.indd exists, readable, real path /data/studio/backups/aurora-2026-10-01/layout.indd, 16384 bytes, modified 1200; /data/studio/recovered/cerbero-recovery-CAS-0001 does not exist (not_found)"
+- coverage: "2 of 2 paths reported"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0001-0002
+- type: "check-card"
+- doubt: "What is the content identity of the chosen source now?"
+- decision: "the expected digest of the plan entry (no prior reference: source-fidelity)"
+- operation: "D7 to file-agent"
+- outcomes: "digest returned with real path equal to the D5 real path: it becomes the expected digest; otherwise the source cannot be planned"
+- cost: "digest of 16384 bytes, read-only"
+- budget_left: 300
+
+## RECORD OBS-0001-0005
+- type: "observation"
+- check_card: "CHK-0001-0002"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/backups/aurora-2026-10-01/layout.indd sha256 84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b, 16384 bytes, real path /data/studio/backups/aurora-2026-10-01/layout.indd"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OPN-0001-0001
+- type: "open-item"
+- subject: "Aurora project scope and approved versions"
+- reason: "no project folder was named (STM-0001-0002) and memory holds no baseline, so no approved version of layout.indd exists to compare with"
+- needed_to_resolve: "the user names the Aurora project folder and a Baseline records the approved set with its versions"
+
+## RECORD PLN-0001-01
+- type: "plan"
+- case_id: "CAS-0001"
+- revision: 1
+- reference: "source-fidelity"
+- target_set: null
+- recovery_folder: "/data/studio/recovered/cerbero-recovery-CAS-0001"
+- goal: "copy the file the user named, /data/studio/backups/aurora-2026-10-01/layout.indd, to /data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd, faithful to the source digest observed in this session"
+- preconditions: "the user approved this plan ID and digest; the saved plan file digest is unchanged immediately before the first change; the operation exists in the capability evidence and the expert reports it allowed; the source real path lies inside /data/studio/backups/aurora-2026-10-01 and its digest, observed again immediately before copying, equals the expected digest; the destination does not exist and lies inside the recovery folder; the recovery folder does not exist before D11"
+- success_conditions: "the recovery folder is created at the planned real path; the destination exists at the planned real path returned by the NAS; its digest equals the expected digest (fidelity-only)"
+- risks: "no prior reference: the copy can only be checked against the source chosen by the user, not against an approved version; the source may change between checks; no atomic copy and no rollback; memory, source and destination are on the same NAS; failure domains of the source location are unknown; no project folder named, so no project scope is recorded"
+- pending: []
+- previous_receipt: null
+- supersedes_plan: null
+- target_kind: "chosen-files"
+- target_members: ["layout.indd"]
+- outside_target: []
+
+## RECORD ENT-0001-01-01
+- type: "plan-entry"
+- plan_id: "PLN-0001-01"
+- asset_id: null
+- name: "layout.indd"
+- version_id: null
+- expected_sha256: "84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b"
+- size_bytes: 16384
+- source_path: "/data/studio/backups/aurora-2026-10-01/layout.indd"
+- destination_path: "/data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd"

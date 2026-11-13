@@ -1,0 +1,149 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0003-02. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0003-02
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0003-02"
+- case_id: "CAS-0003"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD OBS-0003-0011
+- type: "observation"
+- check_card: null
+- agent: "knowledge-agent, file-agent"
+- delegation: "D10 D7"
+- state: "completed"
+- result: "plan bundle saved at /data/studio/cerbero-memory/CERBERO-B-0003-01.md, verified, 16015 bytes equal to the text sent, NAS approval APV-1 granted; sha256 3a8b2513b451944215d2e8a9ea859e7abbf9540074b555c067bde9d2a618de64, re-hashed equal immediately before the first change"
+- coverage: "1 of 1 plan file, hashed twice"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD APR-0003-01
+- type: "approval"
+- plan_id: "PLN-0003-01"
+- plan_sha256: "3a8b2513b451944215d2e8a9ea859e7abbf9540074b555c067bde9d2a618de64"
+- decision: "granted"
+- statement: "Yes. I confirm the approved set you showed and I approve plan PLN-0003-01 with that digest."
+
+## RECORD OBS-0003-0012
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D11"
+- state: "completed"
+- result: "created /data/studio/recovered/cerbero-rebuild-CAS-0003, equal to the planned path; NAS approval APV-2 granted"
+- coverage: "1 of 1 folder"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0013
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D5 D7 D12 D7"
+- state: "completed"
+- result: "per entry ENT-0003-01-01..05 in plan order: destination not_found before copy; source re-hashed equal to expected_sha256; copied, real destination path equal to the planned one (NAS approvals APV-3..APV-7 granted); destination hashed equal to expected_sha256"
+- coverage: "5 of 5 entries; 10 digests"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0014
+- type: "observation"
+- check_card: null
+- agent: "document-agent"
+- delegation: "D8"
+- state: "completed"
+- result: "brief.pdf opened, whole file read, first line \"AURORA brief v2 - Delivery 2\"; copy.docx opened, whole file read, first line \"AURORA copy v2 - Delivery 2\"; no instruction-like passage"
+- coverage: "2 of 2 documents read completely"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD RCP-0003-01
+- type: "receipt"
+- plan_id: "PLN-0003-01"
+- plan_sha256: "3a8b2513b451944215d2e8a9ea859e7abbf9540074b555c067bde9d2a618de64"
+- overall: "verified"
+- reference: "approved-version"
+- set_complete: true
+- coverage: "5 of 5 members: source hashed before copy, destination after; 2 documents read whole; format check not available for .tif, .indd, .ai"
+- pending: []
+- reason: null
+- outside_target: ["AST-0001-0010"]
+
+## RECORD REN-0003-01-01
+- type: "receipt-entry"
+- receipt_id: "RCP-0003-01"
+- entry_id: "ENT-0003-01-01"
+- asset_id: "AST-0001-0001"
+- version_id: "VER-0001-0001"
+- status: "verified"
+- destination_path: "/data/studio/recovered/cerbero-rebuild-CAS-0003/brief.pdf"
+- source_sha256_before: "83ba1a47e756a9d9b5642c173f1db1204a4bd6fe1fce1877e8914ad432339512"
+- destination_sha256: "83ba1a47e756a9d9b5642c173f1db1204a4bd6fe1fce1877e8914ad432339512"
+- source_sha256_after: null
+- note: "source is the approved brief.pdf found renamed as brief-FINAL.pdf"
+- name: "brief.pdf"
+- source_path: "/data/studio/projects/aurora/brief-FINAL.pdf"
+- checks: {"bytes": "equal to the source read before copying", "version": "equal to VER-0001-0001", "format": "opened by document-agent, whole file", "provenance": "original in the project, moved to brief-FINAL.pdf"}
+
+## RECORD REN-0003-01-02
+- type: "receipt-entry"
+- receipt_id: "RCP-0003-01"
+- entry_id: "ENT-0003-01-02"
+- asset_id: "AST-0001-0002"
+- version_id: "VER-0001-0002"
+- status: "verified"
+- destination_path: "/data/studio/recovered/cerbero-rebuild-CAS-0003/copy.docx"
+- source_sha256_before: "8abd843fb54d553068df3a71c5f4bd85a24207ee55730aaae2f2626724ca3495"
+- destination_sha256: "8abd843fb54d553068df3a71c5f4bd85a24207ee55730aaae2f2626724ca3495"
+- source_sha256_after: null
+- note: "missing in the project"
+- name: "copy.docx"
+- source_path: "/data/studio/backups/aurora-2026-10-01/copy.docx"
+- checks: {"bytes": "equal to the source read before copying", "version": "equal to VER-0001-0002", "format": "opened by document-agent, whole file", "provenance": "copy in backups/aurora-2026-10-01"}
+
+## RECORD REN-0003-01-03
+- type: "receipt-entry"
+- receipt_id: "RCP-0003-01"
+- entry_id: "ENT-0003-01-03"
+- asset_id: "AST-0001-0003"
+- version_id: "VER-0001-0003"
+- status: "verified"
+- destination_path: "/data/studio/recovered/cerbero-rebuild-CAS-0003/cover.tif"
+- source_sha256_before: "a9337b1da249a4f4815a2282959b6f5ce517903a89e4314d3ae819dd863c3911"
+- destination_sha256: "a9337b1da249a4f4815a2282959b6f5ce517903a89e4314d3ae819dd863c3911"
+- source_sha256_after: null
+- note: "altered in the project, left in place"
+- name: "cover.tif"
+- source_path: "/data/studio/backups/aurora-2026-10-01/cover.tif"
+- checks: {"bytes": "equal to the source read before copying", "version": "equal to VER-0001-0003", "format": "format check not available for .tif", "provenance": "copy in backups/aurora-2026-10-01"}
+
+## RECORD REN-0003-01-04
+- type: "receipt-entry"
+- receipt_id: "RCP-0003-01"
+- entry_id: "ENT-0003-01-04"
+- asset_id: "AST-0001-0006"
+- version_id: "VER-0001-0006"
+- status: "verified"
+- destination_path: "/data/studio/recovered/cerbero-rebuild-CAS-0003/layout.indd"
+- source_sha256_before: "84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b"
+- destination_sha256: "84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b"
+- source_sha256_after: null
+- note: "missing in the project"
+- name: "layout.indd"
+- source_path: "/data/studio/backups/aurora-2026-10-01/layout.indd"
+- checks: {"bytes": "equal to the source read before copying", "version": "equal to VER-0001-0006", "format": "format check not available for .indd", "provenance": "copy in backups/aurora-2026-10-01"}
+
+## RECORD REN-0003-01-05
+- type: "receipt-entry"
+- receipt_id: "RCP-0003-01"
+- entry_id: "ENT-0003-01-05"
+- asset_id: "AST-0001-0007"
+- version_id: "VER-0001-0007"
+- status: "verified"
+- destination_path: "/data/studio/recovered/cerbero-rebuild-CAS-0003/logo.ai"
+- source_sha256_before: "1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda"
+- destination_sha256: "1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda"
+- source_sha256_after: null
+- note: "intact in the project"
+- name: "logo.ai"
+- source_path: "/data/studio/projects/aurora/logo.ai"
+- checks: {"bytes": "equal to the source read before copying", "version": "equal to VER-0001-0007", "format": "format check not available for .ai", "provenance": "original in the project"}

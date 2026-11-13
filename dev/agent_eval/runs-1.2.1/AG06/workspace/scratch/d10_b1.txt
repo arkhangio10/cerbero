@@ -1,0 +1,438 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0002-01. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0002-01
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0002-01"
+- case_id: "CAS-0002"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD CAS-0002
+- type: "case"
+- scope_id: "SCP-0001"
+- request: "layout.indd is missing from project Aurora. Recover the Delivery 2 version. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the recovery folder under /data/studio/recovered."
+- status: "open"
+- opened_in: "this session"
+
+## RECORD STM-0002-0001
+- type: "statement"
+- text: "Recover the available members of the target set as a partial recovery."
+- given_in: "this session, answer to the choice for incomplete set SET-0001-0002"
+- class: "user-declared"
+
+## RECORD OBS-0002-0001
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D1"
+- state: "completed"
+- result: "user folder real path /data/studio"
+- coverage: "1 of 1"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0002
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D2"
+- state: "completed"
+- result: "real paths returned: /data/studio/projects/aurora, /data/studio/cerbero-memory, /data/studio/backups/aurora-2026-11-05, /data/studio/usb-archive/aurora, /data/studio/recovered, /data/studio; /data/studio/backups/aurora-2026-10-01 exists and readable but no real path returned"
+- coverage: "7 of 7 folders answered; 1 without real path"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0003
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D3"
+- state: "completed"
+- result: "memory listing: CERBERO-B-0001-01.md 16684 bytes, CERBERO-B-0001-02.md 4403 bytes, CERBERO-IDX-0001-01.md 611 bytes"
+- coverage: "3 entries, truncated false, no unreadable subfolder: complete"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0004
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D4"
+- state: "completed"
+- result: "read CERBERO-IDX-0001-01.md, CERBERO-B-0001-01.md, CERBERO-B-0001-02.md in full; 79 records parsed, no missing reference"
+- coverage: "3 of 3 files read, none partial"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0005
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "CERBERO-B-0001-01.md 8056343e9b83127a3cfa50579196f5d4787f2ac405c42be8b2a44bb186af1931 and CERBERO-B-0001-02.md bd00bb36e319d96ffd5a0b49353544a3d74c09d8d7f9fe7706b8c0e14d99d758 match IDX-0001-01"
+- coverage: "2 memory files hashed (counted apart)"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0001
+- type: "check-card"
+- doubt: "Are the 11 recorded assets of SCP-0001 present at their recorded paths with recorded size and time?"
+- decision: "which assets need a digest or a search"
+- operation: "D5 file-agent"
+- outcomes: "missing: test relocation and copies; size or time differs: D7; same: D7 for critical and set members, ordinary stay intact-metadata"
+- cost: "metadata of 11 paths, read-only"
+- budget_left: 300
+
+## RECORD OBS-0002-0006
+- type: "observation"
+- check_card: "CHK-0002-0001"
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "brief.pdf 4096/1100, copy.docx 6144/1102, cover.tif 32768/1103, exports/previews/cover-preview.jpg 4096/1104, fonts-license.pdf 2048/900, logo.ai 8192/900, palette.ase 512/900 as recorded; layout.indd not_found; raw/DSC_0101.ARW, raw/DSC_0142.ARW, raw/DSC_0150.ARW permission_denied"
+- coverage: "11 of 11 paths answered"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0002
+- type: "check-card"
+- doubt: "Do brief.pdf, copy.docx, cover.tif and logo.ai still hold their Delivery 2 versions?"
+- decision: "whether these members need recovery"
+- operation: "D7 file-agent with expected digests"
+- outcomes: "equal: intact; differs: altered"
+- cost: "4 digests, 51200 bytes, read-only"
+- budget_left: 300
+
+## RECORD OBS-0002-0007
+- type: "observation"
+- check_card: "CHK-0002-0002"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "brief.pdf 9d2c7216d83c2676cfa5c3b52519f94136a0223b751966a1fdcda27848ae9055, copy.docx 0745352aafe34b4795d093cd45b3f4930fa043b7f020d334e3bec8509f9b03c4, cover.tif 2c36dd1fbf7a29e3fa04421fdbe984899cb220a642e9119a51758ef9642640ef, logo.ai 1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda: all match"
+- coverage: "4 of 4 hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0003
+- type: "check-card"
+- doubt: "Was layout.indd (VER-0001-0006, 16384 bytes) moved or renamed inside the project?"
+- decision: "whether layout.indd is moved or needs a source"
+- operation: "D6 file-agent under /data/studio/projects/aurora, size exactly 16384"
+- outcomes: "candidate: D7; none in a complete listing: moved refuted"
+- cost: "one size-filtered listing, read-only"
+- budget_left: 296
+
+## RECORD OBS-0002-0008
+- type: "observation"
+- check_card: "CHK-0002-0003"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "no file of 16384 bytes; truncated false; unreadable subfolder /data/studio/projects/aurora/raw"
+- coverage: "possibly incomplete (raw unreadable), depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0004
+- type: "check-card"
+- doubt: "Can the project search be completed subfolder by subfolder?"
+- decision: "coverage of the moved hypothesis"
+- operation: "D13 file-agent on the project, then D6 size 16384 in each subfolder"
+- outcomes: "subfolder searches complete: moved refuted there"
+- cost: "one listing plus one per subfolder, read-only"
+- budget_left: 296
+
+## RECORD OBS-0002-0009
+- type: "observation"
+- check_card: "CHK-0002-0004"
+- agent: "file-agent"
+- delegation: "D13"
+- state: "completed"
+- result: "subfolders /data/studio/projects/aurora/exports and /data/studio/projects/aurora/raw"
+- coverage: "2 entries, truncated false, none unreadable: complete"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0010
+- type: "observation"
+- check_card: "CHK-0002-0004"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "exports: no file of 16384 bytes"
+- coverage: "truncated false, no unreadable subfolder: complete, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0011
+- type: "observation"
+- check_card: "CHK-0002-0004"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "failed"
+- result: "raw: permission_denied"
+- coverage: "raw not reviewed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0005
+- type: "check-card"
+- doubt: "Can the real path of /data/studio/backups/aurora-2026-10-01 be resolved, so its recorded copy CPY-0001-0015 can be checked?"
+- decision: "whether CPY-0001-0015 can be a source"
+- operation: "D2 file-agent for that folder"
+- outcomes: "real path returned: D5 and D7 on the copy; none: location out of scope"
+- cost: "one resolution, read-only"
+- budget_left: 296
+
+## RECORD OBS-0002-0012
+- type: "observation"
+- check_card: "CHK-0002-0005"
+- agent: "file-agent"
+- delegation: "D2"
+- state: "completed"
+- result: "/data/studio/backups/aurora-2026-10-01 exists and readable; no real path returned again"
+- coverage: "1 of 1 answered without real path"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0006
+- type: "check-card"
+- doubt: "Does /data/studio/backups/aurora-2026-11-05 hold a 16384-byte candidate for VER-0001-0006?"
+- decision: "source for layout.indd"
+- operation: "D6 file-agent size exactly 16384"
+- outcomes: "candidate: D7; none in a complete listing: no copy there"
+- cost: "one size-filtered listing, read-only"
+- budget_left: 296
+
+## RECORD OBS-0002-0013
+- type: "observation"
+- check_card: "CHK-0002-0006"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "no file of 16384 bytes"
+- coverage: "truncated false, no unreadable subfolder: complete, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0007
+- type: "check-card"
+- doubt: "Does /data/studio/usb-archive/aurora hold a 16384-byte candidate for VER-0001-0006?"
+- decision: "source for layout.indd"
+- operation: "D6 file-agent size exactly 16384"
+- outcomes: "candidate: D7; none in a complete listing: no copy there"
+- cost: "one size-filtered listing, read-only"
+- budget_left: 296
+
+## RECORD OBS-0002-0014
+- type: "observation"
+- check_card: "CHK-0002-0007"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "no file of 16384 bytes"
+- coverage: "truncated false, no unreadable subfolder: complete, depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CLM-0002-0001
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0001"
+- asset_state: "intact"
+- located_at: "/data/studio/projects/aurora/brief.pdf"
+- statement: "brief.pdf at its recorded path equals VER-0001-0001 (Delivery 2)"
+- class: "observed"
+- supports: ["OBS-0002-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0001", "OBS-0002-0007"]
+- status: "current"
+
+## RECORD CLM-0002-0002
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0002"
+- asset_state: "intact"
+- located_at: "/data/studio/projects/aurora/copy.docx"
+- statement: "copy.docx at its recorded path equals VER-0001-0002 (Delivery 2)"
+- class: "observed"
+- supports: ["OBS-0002-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0002", "OBS-0002-0007"]
+- status: "current"
+
+## RECORD CLM-0002-0003
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0003"
+- asset_state: "intact"
+- located_at: "/data/studio/projects/aurora/cover.tif"
+- statement: "cover.tif at its recorded path equals VER-0001-0003 (Delivery 2)"
+- class: "observed"
+- supports: ["OBS-0002-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0003", "OBS-0002-0007"]
+- status: "current"
+
+## RECORD CLM-0002-0004
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0007"
+- asset_state: "intact"
+- located_at: "/data/studio/projects/aurora/logo.ai"
+- statement: "logo.ai at its recorded path equals VER-0001-0007 (Delivery 2)"
+- class: "observed"
+- supports: ["OBS-0002-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0007", "OBS-0002-0007"]
+- status: "current"
+
+## RECORD CLM-0002-0005
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0006"
+- asset_state: "missing"
+- located_at: null
+- statement: "layout.indd is missing at its recorded path; no 16384-byte file in the project outside raw; raw unreadable, so the in-scope search is incomplete; cause unknown"
+- class: "observed"
+- supports: ["OBS-0002-0006", "OBS-0002-0008", "OBS-0002-0010", "OBS-0002-0011"]
+- contradicts: []
+- depends_on: ["AST-0001-0006", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0006
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0004"
+- asset_state: "intact-metadata"
+- located_at: "/data/studio/projects/aurora/exports/previews/cover-preview.jpg"
+- statement: "cover-preview.jpg size and time as recorded; content not hashed"
+- class: "observed"
+- supports: ["OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["AST-0001-0004", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0007
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0005"
+- asset_state: "intact-metadata"
+- located_at: "/data/studio/projects/aurora/fonts-license.pdf"
+- statement: "fonts-license.pdf size and time as recorded; content not hashed"
+- class: "observed"
+- supports: ["OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["AST-0001-0005", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0008
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0008"
+- asset_state: "intact-metadata"
+- located_at: "/data/studio/projects/aurora/palette.ase"
+- statement: "palette.ase size and time as recorded; content not hashed"
+- class: "observed"
+- supports: ["OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["AST-0001-0008", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0009
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0009"
+- asset_state: "unknown"
+- located_at: null
+- statement: "raw/DSC_0101.ARW not visible: permission_denied"
+- class: "observed"
+- supports: ["OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["AST-0001-0009", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0010
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0010"
+- asset_state: "unknown"
+- located_at: null
+- statement: "raw/DSC_0142.ARW not visible: permission_denied"
+- class: "observed"
+- supports: ["OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["AST-0001-0010", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0011
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0011"
+- asset_state: "unknown"
+- located_at: null
+- statement: "raw/DSC_0150.ARW not visible: permission_denied"
+- class: "observed"
+- supports: ["OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["AST-0001-0011", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0012
+- type: "claim"
+- kind: "recoverability"
+- subject: "VER-0001-0006"
+- statement: "VER-0001-0006 (layout.indd, Delivery 2) has no eligible source in this session: its only recorded copy CPY-0001-0015 lies in a location whose real path the NAS did not return, so it is out of scope; the resolved locations hold no 16384-byte file (complete listings, depth 8)"
+- class: "inferred"
+- supports: ["OBS-0002-0002", "OBS-0002-0012", "OBS-0002-0013", "OBS-0002-0014"]
+- contradicts: []
+- depends_on: ["CPY-0001-0015", "CPY-0001-0022", "OBS-0002-0002", "OBS-0002-0012", "OBS-0002-0013", "OBS-0002-0014"]
+- status: "current"
+
+## RECORD HYP-0002-0001
+- type: "hypothesis"
+- subject: "AST-0001-0006"
+- text: "layout.indd was moved or renamed inside the project"
+- status: "open"
+- for: []
+- against: ["OBS-0002-0008", "OBS-0002-0010"]
+- next_check: "refuted outside raw; needs read access to /data/studio/projects/aurora/raw and a D6 size search there"
+
+## RECORD HYP-0002-0002
+- type: "hypothesis"
+- subject: "AST-0001-0006"
+- text: "layout.indd is absent with a copy of VER-0001-0006 elsewhere"
+- status: "undetermined"
+- for: ["CPY-0001-0015"]
+- against: ["OBS-0002-0013", "OBS-0002-0014"]
+- next_check: "real path of /data/studio/backups/aurora-2026-10-01 from D2, then D5 and D7 on its layout.indd"
+
+## RECORD HYP-0002-0003
+- type: "hypothesis"
+- subject: "AST-0001-0006"
+- text: "layout.indd is absent without any copy"
+- status: "open"
+- for: ["OBS-0002-0013", "OBS-0002-0014"]
+- against: ["CPY-0001-0015"]
+- next_check: "same as HYP-0002-0002"
+
+## RECORD HYP-0002-0004
+- type: "hypothesis"
+- subject: "AST-0001-0006"
+- text: "layout.indd is present but not visible to Cerbero"
+- status: "open"
+- for: ["OBS-0002-0011"]
+- against: []
+- next_check: "read access to /data/studio/projects/aurora/raw"
+
+## RECORD OPN-0002-0001
+- type: "open-item"
+- subject: "LOC-0001-0002 /data/studio/backups/aurora-2026-10-01"
+- reason: "D2 reported the folder as existing and readable but returned no real path, twice; containment cannot be shown, so no path inside it is read (rule 12)"
+- needed_to_resolve: "a D2 result with the real path of that folder"
+
+## RECORD OPN-0002-0002
+- type: "open-item"
+- subject: "/data/studio/projects/aurora/raw"
+- reason: "permission_denied on D5 and D6: DSC_0101.ARW, DSC_0142.ARW, DSC_0150.ARW unknown; relocation of layout.indd into raw not tested"
+- needed_to_resolve: "read access to that subfolder, then D5, D6 and D7"

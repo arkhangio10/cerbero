@@ -1,0 +1,451 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0002-01. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0002-01
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0002-01"
+- case_id: "CAS-0002"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD STM-0002-0001
+- type: "statement"
+- text: "Files are missing or moved in project Aurora. Find what happened and recover the Delivery 2 versions you can. Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora. Create the recovery folder under /data/studio/recovered."
+- given_in: "this session"
+- class: "user-declared"
+
+## RECORD CAS-0002
+- type: "case"
+- scope_id: "SCP-0001"
+- request: "Investigate missing or moved files in Aurora and recover the Delivery 2 versions available (STM-0002-0001)"
+- status: "open"
+- opened_in: "this session"
+
+## RECORD CHK-0002-0001
+- type: "check-card"
+- doubt: "Are the 11 recorded assets at their recorded paths with recorded size and time?"
+- decision: "which assets need a digest, a search or an open item"
+- operation: "D5 file-agent, 11 recorded paths"
+- outcomes: "equal metadata: digest for set members, intact-metadata otherwise; changed: digest; missing: search; unreadable: unknown"
+- cost: "11 metadata reads"
+- budget_left: 300
+
+## RECORD OBS-0002-0001
+- type: "observation"
+- check_card: "CHK-0002-0001"
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "brief.pdf not_found; layout.indd not_found; copy.docx 6144 B mtime 1102; cover.tif 32768 B mtime 1103; logo.ai 8192 B mtime 900; exports/previews/cover-preview.jpg 4096 B mtime 1104; fonts-license.pdf 2048 B mtime 900; palette.ase 512 B mtime 900; raw/DSC_0101.ARW, raw/DSC_0142.ARW and raw/DSC_0150.ARW permission_denied"
+- coverage: "11 of 11 paths answered"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0002
+- type: "check-card"
+- doubt: "Do copy.docx, cover.tif and logo.ai hold their Delivery 2 versions?"
+- decision: "whether these members need recovery"
+- operation: "D7 file-agent, 3 files"
+- outcomes: "digest equal: intact; different: altered"
+- cost: "3 digests, 47104 B"
+- budget_left: 300
+
+## RECORD OBS-0002-0002
+- type: "observation"
+- check_card: "CHK-0002-0002"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "copy.docx 0745352aafe34b4795d093cd45b3f4930fa043b7f020d334e3bec8509f9b03c4 6144 B matches VER-0001-0002; cover.tif 2c36dd1fbf7a29e3fa04421fdbe984899cb220a642e9119a51758ef9642640ef 32768 B matches VER-0001-0003; logo.ai 1dbd46163c5360d54c5df100c27933b7ebd5741fa06deb62ec3d06defe840eda 8192 B matches VER-0001-0007"
+- coverage: "3 of 3 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0003
+- type: "check-card"
+- doubt: "Which files are in the project now, and which are new?"
+- decision: "new files to compare with asset records"
+- operation: "D6 file-agent, project, any size, depth 8, limit 200"
+- outcomes: "unrecorded files are new; a new note is read with D8"
+- cost: "1 listing"
+- budget_left: 297
+
+## RECORD OBS-0002-0003
+- type: "observation"
+- check_card: "CHK-0002-0003"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "4 files: copy.docx, cover.tif, exports/previews/cover-preview.jpg, fonts-license.pdf; truncated true; unreadable /data/studio/projects/aurora/raw"
+- coverage: "possibly incomplete: truncated and raw unreadable"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0004
+- type: "check-card"
+- doubt: "Which subfolders split the incomplete listing?"
+- decision: "where to repeat the listing"
+- operation: "D13 file-agent, project"
+- outcomes: "one D6 per subfolder returned"
+- cost: "1 listing"
+- budget_left: 297
+
+## RECORD OBS-0002-0004
+- type: "observation"
+- check_card: "CHK-0002-0004"
+- agent: "file-agent"
+- delegation: "D13"
+- state: "completed"
+- result: "1 subfolder: /data/studio/projects/aurora/exports; truncated true; no unreadable subfolder named"
+- coverage: "possibly incomplete: truncated"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0005
+- type: "check-card"
+- doubt: "Is brief.pdf (4096 B) elsewhere in the project?"
+- decision: "moved or needs recovery"
+- operation: "D6 file-agent, project, size exactly 4096 bytes"
+- outcomes: "candidates: D7; none: copies"
+- cost: "1 listing"
+- budget_left: 297
+
+## RECORD OBS-0002-0005
+- type: "observation"
+- check_card: "CHK-0002-0005"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "2 files: /data/studio/projects/aurora/exports/previews/cover-preview.jpg 4096 B mtime 1104; /data/studio/projects/aurora/old/2026/brief-final.pdf 4096 B mtime 1100; truncated false; unreadable subfolder /data/studio/projects/aurora/raw"
+- coverage: "possibly incomplete: raw unreadable"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0006
+- type: "check-card"
+- doubt: "Is layout.indd (16384 B) elsewhere in the project?"
+- decision: "moved or needs recovery"
+- operation: "D6 file-agent, project, size exactly 16384 bytes"
+- outcomes: "candidates: D7; none: copies"
+- cost: "1 listing"
+- budget_left: 297
+
+## RECORD OBS-0002-0006
+- type: "observation"
+- check_card: "CHK-0002-0006"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "0 files; truncated false; unreadable subfolder /data/studio/projects/aurora/raw"
+- coverage: "possibly incomplete: raw unreadable"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0007
+- type: "check-card"
+- doubt: "Is old/2026/brief-final.pdf VER-0001-0001?"
+- decision: "brief.pdf moved or missing"
+- operation: "D7 file-agent, 1 file"
+- outcomes: "equal: moved; different: missing"
+- cost: "1 digest, 4096 B"
+- budget_left: 297
+
+## RECORD OBS-0002-0007
+- type: "observation"
+- check_card: "CHK-0002-0007"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/projects/aurora/old/2026/brief-final.pdf 9d2c7216d83c2676cfa5c3b52519f94136a0223b751966a1fdcda27848ae9055 4096 B matches VER-0001-0001"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0008
+- type: "check-card"
+- doubt: "Which files are in the exports subfolder?"
+- decision: "split the incomplete project listing"
+- operation: "D6 file-agent, project/exports, any size"
+- outcomes: "unrecorded files: new"
+- cost: "1 listing"
+- budget_left: 296
+
+## RECORD OBS-0002-0008
+- type: "observation"
+- check_card: "CHK-0002-0008"
+- agent: "file-agent"
+- delegation: "D6"
+- state: "completed"
+- result: "1 file: exports/previews/cover-preview.jpg 4096 B mtime 1104; truncated false; no unreadable subfolder"
+- coverage: "complete to depth 8"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CHK-0002-0009
+- type: "check-card"
+- doubt: "Does copy CPY-0001-0015 still hold VER-0001-0006 inside its location?"
+- decision: "source of the layout.indd plan entry"
+- operation: "D5 then D7 file-agent, 1 file, expected VER-0001-0006"
+- outcomes: "equal: source; different or absent: contradiction, search other locations"
+- cost: "1 metadata read, 1 digest, 16384 B"
+- budget_left: 296
+
+## RECORD OBS-0002-0009
+- type: "observation"
+- check_card: "CHK-0002-0009"
+- agent: "file-agent"
+- delegation: "D5"
+- state: "completed"
+- result: "/data/studio/backups/aurora-2026-10-01/layout.indd exists, real path /data/studio/backups/aurora-2026-10-01/layout.indd, 16384 B, mtime 1200"
+- coverage: "1 of 1 paths answered"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0002-0010
+- type: "observation"
+- check_card: "CHK-0002-0009"
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/backups/aurora-2026-10-01/layout.indd 84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b 16384 B matches VER-0001-0006"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CLM-0002-0001
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0001"
+- asset_state: "moved"
+- located_at: "/data/studio/projects/aurora/old/2026/brief-final.pdf"
+- statement: "brief.pdf is absent at its recorded path; old/2026/brief-final.pdf holds approved version VER-0001-0001; cause unknown"
+- class: "observed"
+- supports: ["OBS-0002-0001", "OBS-0002-0005", "OBS-0002-0007"]
+- contradicts: []
+- depends_on: ["VER-0001-0001", "OBS-0002-0007"]
+- status: "current"
+
+## RECORD CLM-0002-0002
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0006"
+- asset_state: "missing"
+- statement: "layout.indd missing at its recorded path; no 16384 B file in the readable project; raw unreadable: in-scope search incomplete; cause unknown"
+- class: "observed"
+- supports: ["OBS-0002-0001", "OBS-0002-0006"]
+- contradicts: []
+- depends_on: ["VER-0001-0006", "OBS-0002-0006"]
+- status: "current"
+
+## RECORD CLM-0002-0003
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0002"
+- asset_state: "intact"
+- statement: "copy.docx holds approved version VER-0001-0002"
+- class: "observed"
+- supports: ["OBS-0002-0002"]
+- contradicts: []
+- depends_on: ["VER-0001-0002", "OBS-0002-0002"]
+- status: "current"
+
+## RECORD CLM-0002-0004
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0003"
+- asset_state: "intact"
+- statement: "cover.tif holds approved version VER-0001-0003"
+- class: "observed"
+- supports: ["OBS-0002-0002"]
+- contradicts: []
+- depends_on: ["VER-0001-0003", "OBS-0002-0002"]
+- status: "current"
+
+## RECORD CLM-0002-0005
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0007"
+- asset_state: "intact"
+- statement: "logo.ai holds approved version VER-0001-0007"
+- class: "observed"
+- supports: ["OBS-0002-0002"]
+- contradicts: []
+- depends_on: ["VER-0001-0007", "OBS-0002-0002"]
+- status: "current"
+
+## RECORD CLM-0002-0006
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0004"
+- asset_state: "intact-metadata"
+- statement: "exports/previews/cover-preview.jpg recorded size and time; not hashed"
+- class: "observed"
+- supports: ["OBS-0002-0001"]
+- contradicts: []
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CLM-0002-0007
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0005"
+- asset_state: "intact-metadata"
+- statement: "fonts-license.pdf recorded size and time; not hashed"
+- class: "observed"
+- supports: ["OBS-0002-0001"]
+- contradicts: []
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CLM-0002-0008
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0008"
+- asset_state: "intact-metadata"
+- statement: "palette.ase recorded size and time; not hashed"
+- class: "observed"
+- supports: ["OBS-0002-0001"]
+- contradicts: []
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CLM-0002-0009
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0009"
+- asset_state: "unknown"
+- statement: "raw/DSC_0101.ARW permission_denied; state unknown"
+- class: "observed"
+- supports: ["OBS-0002-0001"]
+- contradicts: []
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CLM-0002-0010
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0010"
+- asset_state: "unknown"
+- statement: "raw/DSC_0142.ARW permission_denied; state unknown"
+- class: "observed"
+- supports: ["OBS-0002-0001"]
+- contradicts: []
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CLM-0002-0011
+- type: "claim"
+- kind: "asset-state"
+- subject: "AST-0001-0011"
+- asset_state: "unknown"
+- statement: "raw/DSC_0150.ARW permission_denied; state unknown"
+- class: "observed"
+- supports: ["OBS-0002-0001"]
+- contradicts: []
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CLM-0002-0012
+- type: "claim"
+- kind: "contradiction"
+- subject: "CPY-0001-0001 CPY-0001-0006"
+- statement: "recorded copies at project brief.pdf and layout.indd are not_found now"
+- class: "contradicted"
+- supports: ["OBS-0002-0001"]
+- contradicts: ["CPY-0001-0001", "CPY-0001-0006"]
+- depends_on: ["OBS-0002-0001"]
+- status: "current"
+
+## RECORD CPY-0002-0001
+- type: "copy"
+- version_id: "VER-0001-0001"
+- real_path: "/data/studio/projects/aurora/old/2026/brief-final.pdf"
+- location_id: "LOC-0001-0001"
+- sha256: "9d2c7216d83c2676cfa5c3b52519f94136a0223b751966a1fdcda27848ae9055"
+- observation: "OBS-0002-0007"
+- access: "readable"
+- status: "current"
+
+## RECORD CPY-0002-0002
+- type: "copy"
+- version_id: "VER-0001-0001"
+- real_path: "/data/studio/projects/aurora/brief.pdf"
+- location_id: "LOC-0001-0001"
+- sha256: null
+- observation: "OBS-0002-0001"
+- access: "unknown"
+- status: "needs-review"
+- supersedes: "CPY-0001-0001"
+
+## RECORD CPY-0002-0003
+- type: "copy"
+- version_id: "VER-0001-0006"
+- real_path: "/data/studio/projects/aurora/layout.indd"
+- location_id: "LOC-0001-0001"
+- sha256: null
+- observation: "OBS-0002-0001"
+- access: "unknown"
+- status: "needs-review"
+- supersedes: "CPY-0001-0006"
+
+## RECORD HYP-0002-0001
+- type: "hypothesis"
+- subject: "AST-0001-0006"
+- text: "layout.indd was moved or renamed inside the project"
+- status: "open"
+- for: []
+- against: ["OBS-0002-0006"]
+- next_check: "with read access to raw: D6 size 16384 bytes there, D7 on candidates"
+
+## RECORD HYP-0002-0002
+- type: "hypothesis"
+- subject: "AST-0001-0006"
+- text: "layout.indd absent from the project, with a copy elsewhere"
+- status: "supported"
+- for: ["OBS-0002-0010"]
+- against: []
+- next_check: "none"
+
+## RECORD OPN-0002-0001
+- type: "open-item"
+- subject: "/data/studio/projects/aurora/raw"
+- reason: "permission_denied: 3 recorded raw files and any other file in raw not checked"
+- needed_to_resolve: "the user restores read access to raw, then D5 and D7"
+
+## RECORD OPN-0002-0002
+- type: "open-item"
+- subject: "/data/studio/projects/aurora"
+- reason: "project listing and subfolder listing truncated; only exports listed completely; new files elsewhere cannot be ruled out; no note read"
+- needed_to_resolve: "a complete listing of the project folder"
+
+## RECORD OPN-0002-0003
+- type: "open-item"
+- subject: "cause"
+- reason: "no source states why brief.pdf moved or layout.indd is absent"
+- needed_to_resolve: "a user statement or a project document that states it"
+
+## RECORD PLN-0002-01
+- type: "plan"
+- case_id: "CAS-0002"
+- revision: 1
+- reference: "approved-version"
+- target_set: "SET-0001-0002"
+- recovery_folder: "/data/studio/recovered/cerbero-recovery-CAS-0002"
+- goal: "Recover missing member layout.indd (VER-0001-0006) of SET-0001-0002 Delivery 2 (record file /data/studio/cerbero-memory/CERBERO-B-0001-01.md, statement STM-0001-0005); brief.pdf moved in the project with matching digest and copy.docx, cover.tif, logo.ai intact: not copied"
+- preconditions: "user confirms PLN-0002-01, its saved digest and set Delivery 2; plan digest unchanged before the first change; source real path inside /data/studio/backups/aurora-2026-10-01 and its digest re-observed equal before copying; destination absent and inside the recovery folder; NAS approvals answered by the user"
+- success_conditions: "the destination exists at the planned real path returned by the NAS and its digest equals the expected digest"
+- risks: "raw unreadable and project listing truncated: layout.indd may exist in an unreviewed part; source may change between check and copy; no atomic copy; the recovered file is not a new backup copy"
+- pending: []
+- previous_receipt: null
+- supersedes_plan: null
+- target_kind: "approved-set"
+- target_members: ["AST-0001-0001", "AST-0001-0006", "AST-0001-0002", "AST-0001-0003", "AST-0001-0007"]
+- outside_target: ["AST-0001-0009", "AST-0001-0010", "AST-0001-0011"]
+
+## RECORD ENT-0002-01-01
+- type: "plan-entry"
+- plan_id: "PLN-0002-01"
+- asset_id: "AST-0001-0006"
+- name: "layout.indd"
+- version_id: "VER-0001-0006"
+- expected_sha256: "84a443e4aef7b06d2bab8f71152d3964a73d2ee51b0bbe10cdfeff731cab1e1b"
+- size_bytes: 16384
+- source_path: "/data/studio/backups/aurora-2026-10-01/layout.indd"
+- destination_path: "/data/studio/recovered/cerbero-recovery-CAS-0002/layout.indd"

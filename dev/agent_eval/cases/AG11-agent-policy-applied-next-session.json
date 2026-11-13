@@ -1,0 +1,27 @@
+{
+  "id": "AG11",
+  "scenario": "S00-demo-aurora",
+  "authorized": [
+    "/data/studio/projects/aurora",
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/backups/aurora-2026-11-05",
+    "/data/studio/usb-archive/aurora",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "from_run": "AG10",
+  "title": "A new session starts from the memory the agent left in AG10 and applies the policy active there",
+  "covers": [
+    "cross-session-learning",
+    "agent-produced-policy"
+  ],
+  "request": "Review project Aurora: which files could I lose if the volume that holds the project failed? Project folder: /data/studio/projects/aurora. Cerbero memory folder: /data/studio/cerbero-memory. Copy locations: /data/studio/backups/aurora-2026-10-01, /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora.",
+  "user": {
+    "approve_plan": false
+  },
+  "expect": {
+    "no_changes": true,
+    "reads_active_policy": true
+  }
+}

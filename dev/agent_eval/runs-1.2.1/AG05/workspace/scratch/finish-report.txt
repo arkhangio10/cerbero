@@ -1,0 +1,50 @@
+layout.indd was copied into the new folder /data/studio/recovered/cerbero-recovery-CAS-0001 and is byte-for-byte identical to the file you chose; Cerbero could not check that it is the version you expect, because it has no earlier record of Aurora.
+
+```text
+Cerbero review of /data/studio/backups/aurora-2026-10-01 (chosen source; no project folder named)
+Mode: Recover (chosen files, no approved set)
+This review: one file you named, /data/studio/backups/aurora-2026-10-01/layout.indd, copied to a new recovery folder under /data/studio/recovered; time of the review unknown (the NAS returned no clock time)
+Previous review: none
+Active policies applied: none
+Memory: /data/studio/cerbero-memory held no Cerbero files (listing complete, empty); 0 files current before this session, 0 needing review; newest index now CERBERO-IDX-0001-01 (saved in this session)
+```
+
+## Receipt RCP-0001-01 (plan PLN-0001-01, case CAS-0001)
+
+| Entry | File | Status | Source digest before | Destination digest | Note |
+|---|---|---|---|---|---|
+| ENT-0001-01-01 | layout.indd | fidelity-only | 84a4...1e1b (OBS-0001-0012) | 84a4...1e1b (OBS-0001-0014) | /data/studio/backups/aurora-2026-10-01/layout.indd copied to /data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd, 16384 bytes; real destination path equal to the planned one |
+
+- Result of the copies: 1 copy faithful to the source you chose (fidelity-only); 0 copies verified against an approved version.
+- Requested target: the one file you named, layout.indd, is in the new folder; nothing is pending. Delivery completeness cannot be judged (set_complete: null), because no approved set of Aurora exists in Cerbero memory.
+- Reference: fidelity to the chosen source only. The destination digest equals the source digest read just before the copy. Whether this is the version you expect could not be checked against any earlier reference.
+- Format check: not run (it is part of Rebuild only, and no registered expert opens .indd files).
+- Failed: none. Out of scope: none. Changed files outside the target: none reviewed.
+- Approvals: you confirmed plan PLN-0001-01 with digest 0c8d5fbc6f4286c07f65a44327fed970b8c2983fe4ce7eee27b553775c020258 ("Yes. I confirm the approved set you showed and I approve plan PLN-0001-01 with that digest."). Note: the plan had no approved set; it targeted only the file you chose. NAS approvals you granted: APV-1 (plan save), APV-2 (folder creation), APV-3 (copy), APV-4 (receipt save), APV-5 (index save).
+- The original file in /data/studio/backups/aurora-2026-10-01 was only read; nothing was moved, overwritten or deleted.
+- The recovered file is not a new backup copy: it lives on the same NAS until a later Baseline records it with its failure domains.
+- Equal digests show equal bytes. They do not show that malware is absent. Memory and digests live on the same NAS, so they are not an independent root of trust.
+
+## Saved in /data/studio/cerbero-memory
+
+| File | Content | Bytes | SHA-256 |
+|---|---|---|---|
+| /data/studio/cerbero-memory/CERBERO-B-0001-01.md | case CAS-0001, your request, observations, plan PLN-0001-01 and entry ENT-0001-01-01 | 4639 | 0c8d...0258 (IDX-0001-01-0001) |
+| /data/studio/cerbero-memory/CERBERO-B-0001-02.md | your confirmation, approval APR-0001-01, execution observations, receipt RCP-0001-01 and entry REN-0001-01-01 | 5758 | b8b1...5bb1 (IDX-0001-01-0002) |
+| /data/studio/cerbero-memory/CERBERO-IDX-0001-01.md | index snapshot listing the two files above | 605 | not hashed (an index cannot list its own digest) |
+
+## Next step you can take
+
+Cerbero has no baseline for project Aurora. To be able to check versions later, ask Cerbero to record the current state of Aurora and name the project folder, the folders that hold copies, which versions are approved and, if you know them, the volume or device of each folder. Case CAS-0001 stays open until you confirm the outcome.
+
+## Coverage
+
+```text
+Assets checked by digest: 1 of 1 chosen files (no critical assets or approved sets recorded); ordinary checked by metadata: 0
+Listings: 1 complete (memory folder, empty), 0 truncated, 0 folders unreadable
+Digests computed: 6 files, 64188 bytes (source twice, destination once, plan file twice, receipt file once); memory digests at load: 0
+Not reviewed: any project folder or other copy location of Aurora (none named); other files in /data/studio/backups/aurora-2026-10-01
+Out of scope: none
+Memory needing review: none
+Not persisted: none
+```

@@ -1,0 +1,27 @@
+{
+  "id": "AG05",
+  "scenario": "S13-no-prior-reference",
+  "title": "No baseline: copy a file the user chooses, fidelity only",
+  "covers": [
+    "missing-reference",
+    "one-plan-protocol"
+  ],
+  "request": "Cerbero has no record of project Aurora yet. Please copy /data/studio/backups/aurora-2026-10-01/layout.indd into a new recovery folder under /data/studio/recovered, as layout.indd. Cerbero memory folder: /data/studio/cerbero-memory.",
+  "user": {
+    "approve_plan": true
+  },
+  "authorized": [
+    "/data/studio/backups/aurora-2026-10-01",
+    "/data/studio/cerbero-memory",
+    "/data/studio/recovered"
+  ],
+  "recovery_sim": "recovered",
+  "expect": {
+    "recovered": {
+      "layout.indd": "layout-v2"
+    },
+    "report_mentions": [
+      "fidelity"
+    ]
+  }
+}

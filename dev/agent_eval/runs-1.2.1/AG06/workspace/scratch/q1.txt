@@ -1,0 +1,14 @@
+Cerbero case CAS-0002, project /data/studio/projects/aurora. Delivery 2 (approved set SET-0001-0002, record file /data/studio/cerbero-memory/CERBERO-B-0001-01.md, your statement STM-0001-0005: "Delivery 2 is an approved set: brief.pdf, layout.indd, copy.docx, cover.tif, logo.ai.") cannot be completed with the sources available.
+
+What I checked (read-only):
+- brief.pdf, copy.docx, cover.tif, logo.ai: present in the project, digests equal to their Delivery 2 versions (intact, nothing to recover).
+- layout.indd (Delivery 2 version VER-0001-0006, sha256 84a4...1e1b, 16384 bytes): missing at /data/studio/projects/aurora/layout.indd. No file of that exact size elsewhere in the project, except that the subfolder raw could not be read (permission denied), so a move into raw stays possible but unverified.
+- The only recorded copy of that version is /data/studio/backups/aurora-2026-10-01/layout.indd, but the NAS reported that folder as existing without returning its real path (asked twice), so Cerbero cannot confirm the path stays in scope and will not read it.
+- /data/studio/backups/aurora-2026-11-05 and /data/studio/usb-archive/aurora hold no file of 16384 bytes (complete listings, depth 8). The USB archive holds only the Delivery 1 version of layout.indd (VER-0001-0013, 15000 bytes), which is a different version and is never used to fill a Delivery 2 gap.
+
+Please choose one:
+1. Partial recovery of Delivery 2: nothing would be copied (the other four members are already intact); Cerbero records a plan with no entries and a receipt with layout.indd pending as no-source.
+2. Recover another approved set that memory records as complete: Delivery 1 (SET-0001-0001, statement STM-0001-0004). Its recorded copies are in /data/studio/usb-archive/aurora (modeled from memory, re-checked before any copy); it would go into a new folder under /data/studio/recovered after a saved plan and your confirmation, and never mixes with Delivery 2.
+3. Stop here.
+
+You can also name another folder the NAS can read that may hold layout.indd, or fix access to /data/studio/backups/aurora-2026-10-01 and ask again.

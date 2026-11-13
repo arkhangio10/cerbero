@@ -1,0 +1,121 @@
+# CERBERO BUNDLE B-0003-02
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0003-02"
+- case_id: "CAS-0003"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD OBS-0003-0003
+- type: "observation"
+- check_card: null
+- agent: "knowledge-agent"
+- delegation: "D10"
+- state: "completed"
+- result: "saved /data/studio/cerbero-memory/CERBERO-B-0003-01.md, verified true, 3515 bytes (equal to the bytes sent); NAS approval APV-1 granted by the user"
+- coverage: "1 save"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0004
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "/data/studio/cerbero-memory/CERBERO-B-0003-01.md digest ce6421faa799f7132426e5f455c27f178e228046e65a2b9c17ab0dc56e96e9f7, 3515 bytes"
+- coverage: "1 of 1 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0005
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D3"
+- state: "completed"
+- result: "after the freeze: 10 CERBERO- files, truncated false; new since OBS-0003-0001: CERBERO-B-0003-01.md and CERBERO-TH-0000-01.md (1390 bytes)"
+- coverage: "complete: 10 entries below the limit of 200, not truncated, no unreadable folder named"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0006
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D4"
+- state: "completed"
+- result: "read CERBERO-TH-0000-01.md in full after the freeze: TST-0000-0003 holdout similar, TST-0000-0004 holdout insufficient, TST-0000-0005 holdout similar"
+- coverage: "1 of 1 files, 1390 of 1390 bytes"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD OBS-0003-0007
+- type: "observation"
+- check_card: null
+- agent: "file-agent"
+- delegation: "D7"
+- state: "completed"
+- result: "CERBERO-TH-0000-01.md digest da4f37783be68d2831d0e810b9289c15afb4fa2a75736094759360b9e71f11dd, 1390 bytes; CERBERO-IDX-0002-01.md digest 0b7856e0d00f38d246f1947e8bf5bf1ba3dcbde0fa3b23da33246cc5f3f960f8, 1542 bytes"
+- coverage: "2 of 2 files hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD CLM-0003-0002
+- type: "claim"
+- kind: "memory-trust"
+- subject: "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md"
+- statement: "TH-0000-01 is not listed in IDX-0002-01; it first appeared in the listing after the freeze of POL-0003-0001 and was accepted as user-authorized synthetic test data on the user words in STM-0003-0001; the user did not name the file"
+- class: "user-declared"
+- supports: ["STM-0003-0001", "OBS-0003-0005", "OBS-0003-0007"]
+- contradicts: []
+- depends_on: ["STM-0003-0001", "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md@da4f37783be68d2831d0e810b9289c15afb4fa2a75736094759360b9e71f11dd"]
+- status: "current"
+
+## RECORD EVL-0003-0001
+- type: "evaluation"
+- policy_id: "POL-0003-0001"
+- rule_sha256: "ce6421faa799f7132426e5f455c27f178e228046e65a2b9c17ab0dc56e96e9f7"
+- cases: ["TST-0000-0001 development origin pass", "TST-0000-0002 development counterexample pass", "TST-0000-0003 holdout similar fail", "TST-0000-0004 holdout insufficient pass", "TST-0000-0005 holdout similar pass"]
+- verdict: "rejected"
+
+## RECORD CLM-0003-0003
+- type: "claim"
+- kind: "evaluation-note"
+- subject: "EVL-0003-0001"
+- statement: "Guard passed on all 8 rules. Holdout cases were unseen before the freeze. TST-0000-0003 fails: it describes project Borealis, outside the frozen scope SCP-0001, so v1 does not apply; raw/IMG_2001.ARW with unchanged size and time stays intact-metadata instead of altered, and raw/IMG_2002.ARW is not reported at risk. Expected: IMG_2001 altered, IMG_2002 at risk."
+- class: "inferred"
+- supports: ["EVL-0003-0001"]
+- contradicts: []
+- depends_on: ["POL-0003-0001", "TST-0000-0003"]
+- status: "current"
+
+## RECORD POL-0003-0002
+- type: "policy"
+- version: "v1"
+- status: "rejected"
+- condition: "A review (Investigate, Baseline or What-if) of scope SCP-0001, project /data/studio/projects/aurora. The informational line applies only to a folder that a current user-declared statement records as regenerable; at freeze time no such statement exists for SCP-0001."
+- scope: "SCP-0001"
+- effect: ["promote-critical raw", "add-recoverability-check project-volume", "informational exports/previews"]
+- motivated_by: "CAS-0002-0003"
+- drafted_from: ["TST-0000-0001", "TST-0000-0002"]
+- rule_sha256: "ce6421faa799f7132426e5f455c27f178e228046e65a2b9c17ab0dc56e96e9f7"
+- approval: null
+- supersedes: "POL-0003-0001"
+
+## RECORD POL-0003-0003
+- type: "policy"
+- version: "v2"
+- status: "candidate"
+- condition: "A review (Investigate, Baseline or What-if) of a project folder that the user authorizes in that review; effect folders are relative to its project root as resolved by D2 then. The policy authorizes no folder. The informational line applies only to a folder that a current user-declared statement records as regenerable for that project; at freeze time no such statement exists for SCP-0001."
+- scope: "any project folder the user authorizes in the review"
+- effect: ["promote-critical raw", "add-recoverability-check project-volume", "informational exports/previews"]
+- motivated_by: "CAS-0002-0003"
+- drafted_from: ["TST-0000-0001", "TST-0000-0002", "TST-0000-0003"]
+- rule_sha256: null
+- approval: null
+
+## RECORD OPN-0003-0002
+- type: "open-item"
+- subject: "POL-0003-0003"
+- reason: "v2 was drafted after the holdout cases of TH-0000-01 were read, so none of them can serve as holdout for v2. Development replay of v2: TST-0000-0001 pass, TST-0000-0002 pass. Guard: pass. Kinds similar and insufficient have no usable record for v2, and v2 has no holdout case."
+- needed_to_resolve: "the user adds new synthetic test cases of kinds similar and insufficient in a new CERBERO-TH- bundle after the freeze of v2; a later session lists and reads them, replays v2 and asks for approval"

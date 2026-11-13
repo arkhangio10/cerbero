@@ -1,0 +1,52 @@
+Save the Markdown text below as a new text file in the folder /data/studio/cerbero-memory, using the file name hint CERBERO-B-0002-02. Never replace or append to an existing file; if that name is taken, stop and report it. Return the saved file path exactly as the NAS reports it, whether the save was verified and the saved byte count. Text: # CERBERO BUNDLE B-0002-02
+- schema: "cerbero-memory-2"
+- bundle_id: "B-0002-02"
+- case_id: "CAS-0002"
+- scope_id: "SCP-0001"
+- supersedes: null
+
+## RECORD OBS-0002-0010
+- type: "observation"
+- check_card: null
+- agent: "knowledge-agent file-agent"
+- delegation: "D10 D7"
+- state: "completed"
+- result: "plan bundle saved as /data/studio/cerbero-memory/CERBERO-B-0002-01.md, verified, 12941 bytes; digest 7bf2fd6a0467f1016b582c4b8010501fc76db22a7b70f8e9a7741cb1e116afae"
+- coverage: "1 of 1 saved and hashed"
+- observed_at: "unknown"
+- class: "observed"
+
+## RECORD APR-0002-0001
+- type: "approval"
+- plan_id: "PLN-0002-01"
+- plan_sha256: "7bf2fd6a0467f1016b582c4b8010501fc76db22a7b70f8e9a7741cb1e116afae"
+- decision: "declined"
+- statement: "No. I do not approve plan PLN-0002-01. Do not create or copy anything."
+
+## RECORD RCP-0002-01
+- type: "receipt"
+- plan_id: "PLN-0002-01"
+- plan_sha256: "7bf2fd6a0467f1016b582c4b8010501fc76db22a7b70f8e9a7741cb1e116afae"
+- overall: "cancelled"
+- reference: "approved-version"
+- set_complete: false
+- coverage: "0 copies; no folder created; Delivery 2: brief.pdf moved in scope with matching digest, copy.docx, cover.tif, logo.ai intact by digest, layout.indd missing"
+- pending: ["AST-0001-0006"]
+- reason: "the user declined plan PLN-0002-01 at confirmation (APR-0002-0001)"
+- outside_target: ["AST-0001-0009", "AST-0001-0010", "AST-0001-0011"]
+
+## RECORD REN-0002-01-01
+- type: "receipt-entry"
+- receipt_id: "RCP-0002-01"
+- entry_id: "ENT-0002-01-01"
+- asset_id: "AST-0001-0006"
+- version_id: "VER-0001-0006"
+- status: "cancelled"
+- destination_path: null
+- source_sha256_before: null
+- destination_sha256: null
+- source_sha256_after: null
+- note: "not executed: plan declined; source equal to VER-0001-0006 when the plan was prepared (OBS-0002-0009)"
+- name: "layout.indd"
+- source_path: "/data/studio/backups/aurora-2026-10-01/layout.indd"
+- checks: {"bytes": "not-run", "version": "not-run", "format": "not-run"}

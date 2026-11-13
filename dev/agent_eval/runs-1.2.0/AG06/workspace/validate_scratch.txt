@@ -1,0 +1,34 @@
+import json,re,sys
+d=json.load(open('d4_bundles.json',encoding='utf-8'))
+req={'scope':['real_root','name','authorized_by','newest_mtime'],'asset':['scope_id','name','recorded_path','importance','declared_by','current_version','recorded_size','recorded_mtime','observation'],'version':['asset_id','sha256','size_bytes','approved_by','observation'],'approved-set':['name','members','approved_by','status'],'location':['real_root','memberships','unknown_kinds','provenance','inventory'],'domain':['kind','label','parent','provenance'],'copy':['version_id','real_path','location_id','sha256','observation','access','status'],'statement':['text','given_in','class'],'case':['scope_id','request','status','opened_in'],'check-card':['doubt','decision','operation','outcomes','cost','budget_left'],'observation':['check_card','agent','delegation','state','result','coverage','observed_at','class']}
+recs={}
+for f in d['result']['files']:
+    lines=f['text'].split('\n')
+    hdr={};cur=None;errs=[]
+    assert lines[0].startswith('# CERBERO BUNDLE ')
+    for ln in lines[1:]:
+        if not ln: continue
+        m=re.match(r'^## RECORD (\S+)$',ln)
+        if m:
+            cur=m.group(1)
+            if cur in recs: errs.append('dup '+cur)
+            recs[cur]={};continue
+        m=re.match(r'^- ([a-z0-9_]+): (.*)$',ln)
+        if not m: errs.append('bad line '+ln);continue
+        v=json.loads(m.group(2))
+        tgt=hdr if cur is None else recs[cur]
+        if m.group(1) in tgt: errs.append('dup field '+ln)
+        tgt[m.group(1)]=v
+    print(f['path'],hdr,errs)
+ids=set(recs)
+for k,r in recs.items():
+    t=r.get('type')
+    miss=[x for x in req.get(t,[]) if x not in r]
+    if t not in req or miss: print('REQ',k,t,miss)
+    for fld,v in r.items():
+        if fld in ('type',): continue
+        vals=v if isinstance(v,list) else (list(v.keys())+list(v.values()) if isinstance(v,dict) else [v])
+        for x in vals:
+            if isinstance(x,str) and re.match(r'^(SCP|AST|VER|CPY|LOC|DOM|SET|STM|CAS|CHK|OBS)-\d{4}(-\d{4})?$',x) and x not in ids:
+                print('MISSING REF',k,fld,x)
+print(len(recs),'records')

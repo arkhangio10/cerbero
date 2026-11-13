@@ -1,0 +1,125 @@
+{
+ "delegation": "D5",
+ "state": "completed",
+ "result": {
+  "paths": [
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-IDX-0004-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-IDX-0004-01.md",
+    "size_bytes": 3639,
+    "modified": 3014
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0001-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0001-01.md",
+    "size_bytes": 16678,
+    "modified": 3001
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0001-02.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0001-02.md",
+    "size_bytes": 4403,
+    "modified": 3002
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0002-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0002-01.md",
+    "size_bytes": 16317,
+    "modified": 3003
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0002-02.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0002-02.md",
+    "size_bytes": 2329,
+    "modified": 3004
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0002-03.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0002-03.md",
+    "size_bytes": 3006,
+    "modified": 3005
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0003-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0003-01.md",
+    "size_bytes": 16073,
+    "modified": 3006
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0003-02.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0003-02.md",
+    "size_bytes": 3108,
+    "modified": 3007
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0003-03.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0003-03.md",
+    "size_bytes": 6421,
+    "modified": 3008
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0004-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0004-01.md",
+    "size_bytes": 1574,
+    "modified": 3009
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0004-02.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-B-0004-02.md",
+    "size_bytes": 1084,
+    "modified": 3010
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TD-0000-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-TD-0000-01.md",
+    "size_bytes": 1157,
+    "modified": 3015
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/cerbero-memory/CERBERO-TH-0000-01.md",
+    "size_bytes": 1390,
+    "modified": 3016
+   }
+  ]
+ }
+}

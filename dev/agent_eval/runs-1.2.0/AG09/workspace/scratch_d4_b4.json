@@ -1,0 +1,16 @@
+{
+ "delegation": "D4",
+ "state": "completed",
+ "result": {
+  "files": [
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0004-01.md",
+    "text": "# CERBERO BUNDLE B-0004-01\n- schema: \"cerbero-memory-2\"\n- bundle_id: \"B-0004-01\"\n- case_id: \"CAS-0004\"\n- scope_id: \"SCP-0001\"\n- supersedes: null\n\n## RECORD CAS-0004\n- type: \"case\"\n- scope_id: \"SCP-0001\"\n- request: \"learn\"\n- status: \"open\"\n- opened_in: \"this session\"\n\n## RECORD STM-0004-0001\n- type: \"statement\"\n- text: \"The outcome of CAS-0002 is confirmed: 3 copies verified, Delivery 2 complete, raw/DSC_0142.ARW lost with no copy in the named locations.\"\n- given_in: \"this session\"\n- class: \"user-declared\"\n\n## RECORD CAS-0002-0004\n- type: \"case\"\n- scope_id: \"SCP-0001\"\n- request: \"investigate-recover\"\n- status: \"closed\"\n- opened_in: \"this session\"\n- supersedes: \"CAS-0002\"\n\n## RECORD POL-0004-0001\n- type: \"policy\"\n- status: \"rejected\"\n- version: \"v1\"\n- condition: \"every review of an authorized project\"\n- scope: \"project root\"\n- effect: [\"promote-critical .\"]\n- motivated_by: \"CAS-0002\"\n- drafted_from: [\"TST-0000-0001\", \"TST-0000-0002\"]\n- rule_sha256: null\n- approval: null\n\n## RECORD EVL-0004-0001\n- type: \"evaluation\"\n- policy_id: \"POL-0004-0001\"\n- rule_sha256: null\n- verdict: \"rejected\"\n- cases: [\"TST-0000-0001 development origin fail\", \"TST-0000-0002 development counterexample fail\"]\n\n## RECORD POL-0004-0002\n- type: \"policy\"\n- version: \"v2\"\n- condition: \"every review of an authorized project\"\n- scope: \"raw/ and exports/previews/ inside the project\"\n- effect: [\"promote-critical raw\", \"informational exports/previews\"]\n- motivated_by: \"CAS-0002\"\n- drafted_from: [\"TST-0000-0001\", \"TST-0000-0002\"]\n- rule_sha256: null\n- approval: null\n- status: \"candidate\"\n"
+   },
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-B-0004-02.md",
+    "text": "# CERBERO BUNDLE B-0004-02\n- schema: \"cerbero-memory-2\"\n- bundle_id: \"B-0004-02\"\n- case_id: \"CAS-0004\"\n- scope_id: \"SCP-0001\"\n- supersedes: null\n\n## RECORD EVL-0004-0002\n- type: \"evaluation\"\n- policy_id: \"POL-0004-0002\"\n- rule_sha256: \"c6e31f6703aecaa8f1aaba1624ee73a7194c073a9c8f594c048728fa9d158219\"\n- verdict: \"evaluated\"\n- cases: [\"TST-0000-0001 development origin pass\", \"TST-0000-0002 development counterexample pass\", \"TST-0000-0003 holdout similar pass\", \"TST-0000-0004 holdout insufficient pass\", \"TST-0000-0005 holdout similar pass\"]\n\n## RECORD POL-0004-0003\n- type: \"policy\"\n- status: \"active\"\n- supersedes: \"POL-0004-0002\"\n- version: \"v2\"\n- condition: \"every review of an authorized project\"\n- scope: \"raw/ and exports/previews/ inside the project\"\n- effect: [\"promote-critical raw\", \"informational exports/previews\"]\n- motivated_by: \"CAS-0002\"\n- drafted_from: [\"TST-0000-0001\", \"TST-0000-0002\"]\n- rule_sha256: \"c6e31f6703aecaa8f1aaba1624ee73a7194c073a9c8f594c048728fa9d158219\"\n- approval: \"Yes. I approve policy v2: raw/ is critical; exports/previews/ is informational.\"\n"
+   }
+  ]
+ }
+}

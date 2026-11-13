@@ -1,0 +1,28 @@
+Rebuild plan PLN-0003-01 (case CAS-0003) is saved and hashed. Please review it before anything is created or copied.
+
+Target: full rebuild of approved set SET-0001-0002 "Delivery 2", every member including the intact ones.
+- Record file: /data/studio/cerbero-memory/CERBERO-B-0001-01.md (SET-0001-0002, saved in the baseline CAS-0001; digest re-checked equal to the index this session).
+- Your approving statements (STM-0001-0005): "Delivery 2 is an approved set: brief.pdf, layout.indd, copy.docx, cover.tif, logo.ai." and (STM-0001-0003): "Delivery 2 (3 November) is the approved client delivery."
+- Members and versions: brief.pdf VER-0001-0001 (83ba...9512, 736 B); copy.docx VER-0001-0002 (8abd...3495, 968 B); cover.tif VER-0001-0003 (a933...3911, 9396 B); layout.indd VER-0001-0006 (84a4...1e1b, 16384 B); logo.ai VER-0001-0007 (1dbd...0eda, 8192 B).
+
+What I found now (read-only checks): brief.pdf is not at its path but the same approved bytes are at brief-FINAL.pdf (moved, digest equal); logo.ai intact (digest equal); cover.tif altered (same size and time, digest d85d...5e59 differs); copy.docx and layout.indd missing (exact-size search of the whole project, depth 8, complete, no candidate). Cause: unknown.
+
+| Entry | File | Expected version | Source (re-checked now, digest equal) | Destination |
+|---|---|---|---|---|
+| ENT-0003-01-01 | brief.pdf | VER-0001-0001 | original in project: /data/studio/projects/aurora/brief-FINAL.pdf | /data/studio/recovered/cerbero-rebuild-CAS-0003/brief.pdf |
+| ENT-0003-01-02 | copy.docx | VER-0001-0002 | copy: /data/studio/backups/aurora-2026-10-01/copy.docx | /data/studio/recovered/cerbero-rebuild-CAS-0003/copy.docx |
+| ENT-0003-01-03 | cover.tif | VER-0001-0003 | copy: /data/studio/backups/aurora-2026-10-01/cover.tif | /data/studio/recovered/cerbero-rebuild-CAS-0003/cover.tif |
+| ENT-0003-01-04 | layout.indd | VER-0001-0006 | copy: /data/studio/backups/aurora-2026-10-01/layout.indd | /data/studio/recovered/cerbero-rebuild-CAS-0003/layout.indd |
+| ENT-0003-01-05 | logo.ai | VER-0001-0007 | original in project: /data/studio/projects/aurora/logo.ai | /data/studio/recovered/cerbero-rebuild-CAS-0003/logo.ai |
+
+backups/aurora-2026-10-01 was chosen because it is the one named location that holds all three needed versions. The altered cover.tif in the project is left where it is. The USB archive holds Delivery 1 versions of brief, copy, cover and layout, which are never mixed in.
+
+Operations: create the new folder /data/studio/recovered/cerbero-rebuild-CAS-0003 (no subfolders); copy each source to its destination, never move, never overwrite. The NAS will ask your approval for the folder and for each copy.
+Preconditions: plan file unchanged right before the first change; each source re-hashed equal to its expected version just before copying; destination absent.
+Success per file: copy at the planned path with a digest equal to the source read before copying and to the approved version; brief.pdf and copy.docx then read completely by document-agent as a format check (no format check is available for .tif, .indd, .ai). The delivery is complete only if all 5 are verified in the new folder.
+Pending now: none. Outside the target: raw/DSC_0142.ARW is missing; no copy of its version is recorded in the named locations; it is not part of this plan.
+Risks: no atomic copy; a source may change between check and copy; approvals may be declined; equal digests do not show that malware is absent; the rebuilt files sit on the same NAS and are not a new backup.
+
+Plan ID: PLN-0003-01. Saved file: /data/studio/cerbero-memory/CERBERO-B-0003-01.md. Saved digest: 3a8b2513b451944215d2e8a9ea859e7abbf9540074b555c067bde9d2a618de64
+
+Do you confirm approved set Delivery 2 and approve plan PLN-0003-01 with digest 3a8b2513b451944215d2e8a9ea859e7abbf9540074b555c067bde9d2a618de64?

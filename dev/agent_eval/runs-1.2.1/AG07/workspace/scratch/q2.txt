@@ -1,0 +1,16 @@
+Cerbero (Learn, CAS-0003): evaluation of candidate POL-0003-0001 version 1, frozen in CERBERO-B-0003-01.md, frozen rule digest 7e02...b80d (full value in this file, by the NAS).
+Effect lines: promote-critical raw; informational exports/previews (only while you declare that folder regenerable). Scope written in the rule: SCP-0001, project /data/studio/projects/aurora only.
+
+| Case | Split | Kind | Expected | Replayed | Result |
+| TST-0000-0001 | development | origin | 3 raw originals at risk under a Volume 1 failure; preview not at risk | raw files reviewed as critical, digested, in the map, no copy outside Volume 1: at risk; preview not promoted, not in the map | pass |
+| TST-0000-0002 | development | counterexample | preview change informational; no incident, recovery or at-risk flag | the case states the folder was declared regenerable, so it is reported as informational-change, no incident | pass |
+| TST-0000-0003 | holdout | similar | Borealis: IMG_2001 altered; IMG_2002 at risk | Borealis is not SCP-0001, so the rule does not apply: IMG_2001 stays intact-metadata (not digested), IMG_2002 is not in the map | FAIL |
+| TST-0000-0004 | holdout | insufficient | 3 raw originals unknown with open items | raw files reviewed as critical; permission denied: unknown with an open item each; no intact or missing claim | pass |
+| TST-0000-0005 | holdout | similar | DSC_0150 missing but not at risk; DSC_0101 and DSC_0142 at risk; preview not at risk | DSC_0150 missing, eligible copy on the USB device: not at risk; the other two have no copy: at risk; preview not in the map | pass |
+
+Invariant guard: passed. Development: 2 of 2 passed. Holdout: 2 of 3 passed, 1 failed. Holdout unseen before the freeze: yes (CERBERO-TH-0000-01.md did not exist in the first listing; it appeared after the freeze and was read only then).
+Verdict: rejected. Version 1 cannot be approved and no later review will apply it. Records are only shown here; nothing has been saved about this evaluation yet.
+
+Two questions:
+1) CERBERO-TH-0000-01.md (SHA-256 da4f...11dd, cases TST-0000-0003 to TST-0000-0005) is not in any index. Do you confirm it is holdout data you placed?
+2) A version 2 would change only the scope: the raw folder of any project you authorize in a review, not only Aurora. TST-0000-0003 to TST-0000-0005 are now seen and cannot be its holdout cases, so it would need new holdout cases that you add after its freeze. Do you want me to draft version 2 now, or stop with version 1 rejected?

@@ -1,0 +1,1 @@
+Cerbero has no record of project Aurora yet. Please copy /data/studio/backups/aurora-2026-10-01/layout.indd into a new recovery folder under /data/studio/recovered, as layout.indd. Cerbero memory folder: /data/studio/cerbero-memory.

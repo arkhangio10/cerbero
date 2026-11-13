@@ -1,0 +1,39 @@
+{
+  "extends": "aurora.json",
+  "id": "P5-similar-copy-exists",
+  "title": "A raw original has an external copy; the others do not",
+  "case": {
+    "split": "holdout",
+    "kind": "similar",
+    "facts": "Project Aurora: raw/DSC_0150.ARW is missing; an identical copy exists on the external USB archive (device usb-1); the other raw originals have no copy.",
+    "expected_text": "DSC_0150 is reported missing but not at risk; DSC_0101 and DSC_0142 are at risk; the preview is not at risk."
+  },
+  "before": {
+    "usb-archive/aurora/raw/DSC_0150.ARW": {
+      "blob": "raw-0150",
+      "mtime": 850
+    }
+  },
+  "incident": [
+    {
+      "op": "delete",
+      "path": "projects/aurora/raw/DSC_0150.ARW"
+    }
+  ],
+  "request": {
+    "intent": "review"
+  },
+  "expected": {
+    "states": {
+      "A-raw0150": "missing"
+    },
+    "at_risk_includes": [
+      "A-raw0101",
+      "A-raw0142"
+    ],
+    "at_risk_excludes": [
+      "A-raw0150",
+      "A-preview"
+    ]
+  }
+}

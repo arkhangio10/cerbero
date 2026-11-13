@@ -1,0 +1,26 @@
+{
+ "delegation": "D6",
+ "state": "completed",
+ "result": {
+  "files": [
+   {
+    "real_path": "/data/studio/backups/aurora-2026-11-05/copy.docx",
+    "size_bytes": 968,
+    "modified": 1500
+   },
+   {
+    "real_path": "/data/studio/backups/aurora-2026-11-05/cover.tif",
+    "size_bytes": 9396,
+    "modified": 1500
+   },
+   {
+    "real_path": "/data/studio/backups/aurora-2026-11-05/layout.indd",
+    "size_bytes": 16900,
+    "modified": 1500
+   }
+  ],
+  "truncated": false,
+  "unreadable_subfolders": [],
+  "empty": false
+ }
+}

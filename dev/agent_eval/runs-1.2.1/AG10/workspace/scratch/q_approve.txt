@@ -1,0 +1,17 @@
+Evaluation of candidate POL-0004-0001 version 2 (frozen in /data/studio/cerbero-memory/CERBERO-B-0004-01.md, rule digest cb23...7032 as returned by the NAS).
+Effect lines: promote-critical raw, informational exports/previews. Scope: the raw and exports/previews folders directly inside each project folder you name in a review; no other folder, location or project.
+
+| Case | Split | Kind | Expected | Replayed | Result |
+|---|---|---|---|---|---|
+| TST-0000-0001 | development | origin | Aurora: the three raw originals at risk under a Volume 1 failure; the preview not at risk | raw files digested and mapped, no eligible copy outside Volume 1, so at risk; previews declared regenerable, so informational, not at risk | pass |
+| TST-0000-0002 | development | counterexample | regenerated preview informational; no incident, recovery or at-risk flag | informational exports/previews applies (your statement in the facts), change reported as informational with path and digest | pass |
+| TST-0000-0006 | holdout | similar | Borealis: IMG_2002 altered; IMG_2001 at risk | raw of Borealis promoted, IMG_2002 digested despite equal size and time, digest differs, so altered; IMG_2001 has no copy outside Volume 1, so at risk | pass |
+| TST-0000-0007 | holdout | insufficient | the two raw originals unknown with open items; no intact, altered or missing claim | permission denied on every check, so each raw file is unknown with an open item and named as not reviewed; no state claimed | pass |
+
+Invariant guard: passed (no new capability or location, no confirmation removed, no overwrite, source and destination checks kept, no lowering of critical or approved-set files, no text taken as authority, coverage never shortened).
+Development: 2 of 2 pass. Holdout: 2 of 2 pass.
+Holdout file: /data/studio/cerbero-memory/CERBERO-TH-0000-02.md (964 bytes, NAS digest 44d0...c4a5). It was not in the memory listing before the freeze and I first read it after the freeze, so these holdout cases were unseen before the freeze. You confirmed it as synthetic data you placed. Its modification time (10000) is earlier than that of the frozen file (10001); modification times do not show when a file was written, so I report this without drawing a conclusion.
+Limits: TST-0000-0003 to TST-0000-0005 were seen before and informed this revision, so they are not counted. The holdout cases cover only similar and insufficient, both from project Borealis. The clause that skips promote-critical raw when you declare a raw folder regenerable is not exercised by any recorded case. Passing these cases shows consistency with them, not a guarantee for future incidents. In the replays I assumed that Borealis is a project folder you would name in that review.
+If you approve, I will save the evaluation, an evaluated record and an active record of version 2 with your words, then a new index snapshot; a later review applies it only after re-checking those saved records.
+
+Do you approve policy POL-0004-0001 version 2?

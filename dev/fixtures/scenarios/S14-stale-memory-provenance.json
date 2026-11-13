@@ -1,0 +1,27 @@
+{
+  "extends": "aurora.json",
+  "id": "S14",
+  "title": "A recorded copy was overwritten after the baseline; dependent conclusions must be revised",
+  "covers": ["memory-provenance", "dependency-revalidation", "recent-wrong-copy"],
+  "baseline": {
+    "claims": [
+      {"id": "CLM-0000-0001", "statement": "Delivery 2 is recoverable if Volume 1 fails", "set": "SET-D2"},
+      {"id": "CLM-0000-0002", "statement": "A Delivery 2 recovery can start without new copies", "depends_on": ["CLM-0000-0001"]}
+    ]
+  },
+  "incident": [
+    {"op": "replace", "path": "backups/aurora-2026-10-01/cover.tif", "blob": "cover-v1", "mtime": 1700},
+    {"op": "replace", "path": "projects/aurora/cover.tif", "blob": "cover-tampered", "keep_mtime": true}
+  ],
+  "expected": {
+    "states": {"A-cover": "altered"},
+    "recovery": {
+      "entries": {"A-cover": "verified"},
+      "blobs": {"A-cover": "cover-v2"},
+      "overall": "verified",
+      "set_complete": true
+    },
+    "contradictions_min": 1,
+    "revalidated": ["CLM-0000-0001", "CLM-0000-0002"]
+  }
+}

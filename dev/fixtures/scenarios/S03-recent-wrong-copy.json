@@ -1,0 +1,18 @@
+{
+  "extends": "aurora.json",
+  "id": "S03",
+  "title": "The most recent copy holds the wrong version; an older copy holds the approved one",
+  "covers": ["recent-wrong-copy"],
+  "incident": [
+    {"op": "delete", "path": "projects/aurora/layout.indd"}
+  ],
+  "expected": {
+    "states": {"A-layout": "missing", "A-brief": "intact", "A-copy": "intact", "A-cover": "intact", "A-logo": "intact"},
+    "recovery": {
+      "entries": {"A-layout": "verified"},
+      "blobs": {"A-layout": "layout-v2"},
+      "overall": "verified",
+      "set_complete": true
+    }
+  }
+}

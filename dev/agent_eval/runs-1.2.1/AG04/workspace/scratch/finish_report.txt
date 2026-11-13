@@ -1,0 +1,60 @@
+Nothing was created or copied: you declined plan PLN-0002-01. Delivery 2 is still incomplete in the project: layout.indd is missing, although a copy with the approved digest exists in /data/studio/backups/aurora-2026-10-01; brief.pdf was found, moved to old/2026/brief-final.pdf.
+
+Cerbero review of /data/studio/projects/aurora
+Mode: Investigate, then Recover (cancelled at plan confirmation)
+This review: case CAS-0002; the 11 recorded assets, the 5 members of Delivery 2, an in-project search for the 2 missing members, and 1 recorded copy re-checked. Time: unknown (the NAS returned no clock time).
+Previous review: CAS-0001 (baseline: 11 project files; 4 locations listed complete)
+Active policies applied: none (memory holds no policy records)
+Memory: 2 bundles current (digests equal to index IDX-0001-01), 0 needing review; listing of the memory folder complete (3 files). New index this session: IDX-0002-01.
+
+WHAT CHANGED (case CAS-0002)
+
+| Asset | State | Evidence | Next step |
+|---|---|---|---|
+| brief.pdf (critical, Delivery 2) | moved, now at /data/studio/projects/aurora/old/2026/brief-final.pdf | digest equal to Delivery 2 version 9d2c...9055 (VER-0001-0001; OBS-0002-0007) | none needed for the delivery; Cerbero does not move files back; cause unknown |
+| layout.indd (critical, Delivery 2) | missing at /data/studio/projects/aurora/layout.indd | not_found (OBS-0002-0003); no 16384-byte file in the readable project (OBS-0002-0006); raw folder unreadable, so the in-project search is incomplete | recover from /data/studio/backups/aurora-2026-10-01/layout.indd (re-checked now: 84a4...1e1b equal to VER-0001-0006, OBS-0002-0009) if you approve a new plan |
+| copy.docx (critical, Delivery 2) | intact | digest equal to 0745...03c4 (VER-0001-0002; OBS-0002-0004) | none |
+| cover.tif (critical, Delivery 2) | intact | digest equal to 2c36...40ef (VER-0001-0003; OBS-0002-0004) | none |
+| logo.ai (critical, Delivery 2) | intact | digest equal to 1dbd...0eda (VER-0001-0007; OBS-0002-0004) | none |
+| exports/previews/cover-preview.jpg | intact-metadata | same size and time (OBS-0002-0003); not hashed | none |
+| fonts-license.pdf | intact-metadata | same size and time (OBS-0002-0003); not hashed | none |
+| palette.ase | intact-metadata | same size and time (OBS-0002-0003); not hashed | none |
+| raw/DSC_0101.ARW, raw/DSC_0142.ARW, raw/DSC_0150.ARW | unknown | permission_denied (OBS-0002-0003) | restore read access to raw, then review again |
+
+Open hypotheses:
+- HYP-0002-0001: layout.indd was moved or renamed into the unreadable raw folder. Check that resolves it: an exact-size search (16384 bytes) under raw once it is readable.
+
+Contradictions between memory and current observations: none beyond the changes above. All memory records used matched their index digests.
+
+Findings from documents: none. No document was read; no new note was identified (see coverage).
+
+Cause: unknown. No source states who or what moved brief.pdf, removed layout.indd or changed access to raw.
+
+RECOVERY PLAN AND RECEIPT
+
+Plan PLN-0002-01, saved as /data/studio/cerbero-memory/CERBERO-B-0002-01.md, digest 7bf2...afae (full value in APR-0002-0001 and RCP-0002-01). Target: approved set Delivery 2 (SET-0001-0002), record file /data/studio/cerbero-memory/CERBERO-B-0001-01.md, your statement STM-0001-0005. Your answer: "No. I do not approve plan PLN-0002-01. Do not create or copy anything." (APR-0002-0001, declined).
+
+| Entry | File | Status | Source digest before | Destination digest | Note |
+|---|---|---|---|---|---|
+| ENT-0002-01-01 | layout.indd | cancelled | not run | none | plan declined; the source equalled VER-0001-0006 when the plan was prepared (OBS-0002-0009) |
+
+- Result of the copies: 0 copies made; overall cancelled. No folder was created under /data/studio/recovered.
+- Delivery: incomplete. Pending: layout.indd (missing at its path; recovery cancelled). brief.pdf is satisfied at its new path inside the project; copy.docx, cover.tif and logo.ai are intact.
+- Reference: approved versions of Delivery 2.
+- Changed files outside the requested target: raw/DSC_0101.ARW, raw/DSC_0142.ARW, raw/DSC_0150.ARW, state unknown; the baseline recorded no copy of their versions in the three copy locations (memory only, not re-checked this session).
+- Receipt saved as /data/studio/cerbero-memory/CERBERO-B-0002-02.md (RCP-0002-01, digest cbd3...23ee in IDX-0002-01).
+
+If you later want layout.indd recovered, ask again: Cerbero will prepare a new plan revision, re-check the source, and ask for your confirmation before creating anything.
+
+COVERAGE
+
+Assets checked by digest: 4 of 5 critical (layout.indd missing); ordinary checked by metadata: 3; not checked: 3 (raw, permission denied)
+Listings: 6 of 60 used. Memory listing complete (3 files). Project exact-size searches (4096 and 16384 bytes, depth 8): not truncated, raw unreadable, so possibly incomplete. Project listing of any size: truncated (4 entries returned). Project subfolder listing: truncated (1 subfolder returned). exports: complete to depth 8 (1 file).
+Folders unreadable: /data/studio/projects/aurora/raw
+Digests computed: 5 project and copy files, 67584 bytes; 3 memory-folder files after saves (plan 12941, receipt 1959, previous index 611 bytes); plus 2 memory files at load (21087 bytes)
+Not reviewed: /data/studio/projects/aurora/raw; files at the project root and in subfolders other than exports beyond the truncated listing, so new or unrecorded files may exist; the three copy locations were not listed this session (only the recorded copy of layout.indd was re-checked)
+Out of scope: none
+Memory needing review: none
+Not persisted: none (3 saves persisted: CERBERO-B-0002-01, CERBERO-B-0002-02, CERBERO-IDX-0002-01)
+
+Digests stored on this NAS detect differences from the recorded reference; they are not an independent root of trust if the same party could alter the NAS, the memory folder and the copies.

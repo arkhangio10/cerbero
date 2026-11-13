@@ -1,0 +1,100 @@
+{
+ "delegation": "D5",
+ "state": "completed",
+ "result": {
+  "paths": [
+   {
+    "path": "/data/studio/projects/aurora/brief.pdf",
+    "exists": false,
+    "reason": "not_found"
+   },
+   {
+    "path": "/data/studio/projects/aurora/brief-FINAL.pdf",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/brief-FINAL.pdf",
+    "size_bytes": 736,
+    "modified": 1100
+   },
+   {
+    "path": "/data/studio/projects/aurora/copy.docx",
+    "exists": false,
+    "reason": "not_found"
+   },
+   {
+    "path": "/data/studio/projects/aurora/cover.tif",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/cover.tif",
+    "size_bytes": 9396,
+    "modified": 1103
+   },
+   {
+    "path": "/data/studio/projects/aurora/layout.indd",
+    "exists": false,
+    "reason": "not_found"
+   },
+   {
+    "path": "/data/studio/projects/aurora/logo.ai",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/logo.ai",
+    "size_bytes": 8192,
+    "modified": 900
+   },
+   {
+    "path": "/data/studio/projects/aurora/exports/previews/cover-preview.jpg",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/exports/previews/cover-preview.jpg",
+    "size_bytes": 4096,
+    "modified": 1104
+   },
+   {
+    "path": "/data/studio/projects/aurora/fonts-license.pdf",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/fonts-license.pdf",
+    "size_bytes": 2048,
+    "modified": 900
+   },
+   {
+    "path": "/data/studio/projects/aurora/palette.ase",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/palette.ase",
+    "size_bytes": 512,
+    "modified": 900
+   },
+   {
+    "path": "/data/studio/projects/aurora/raw/DSC_0101.ARW",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/raw/DSC_0101.ARW",
+    "size_bytes": 65536,
+    "modified": 800
+   },
+   {
+    "path": "/data/studio/projects/aurora/raw/DSC_0142.ARW",
+    "exists": false,
+    "reason": "not_found"
+   },
+   {
+    "path": "/data/studio/projects/aurora/raw/DSC_0150.ARW",
+    "exists": true,
+    "type": "file",
+    "readable": true,
+    "real_path": "/data/studio/projects/aurora/raw/DSC_0150.ARW",
+    "size_bytes": 65536,
+    "modified": 802
+   }
+  ]
+ }
+}

@@ -1,0 +1,7 @@
+Cerbero (Learn mode, case CAS-0003) needs two answers from you before drafting a rule:
+
+1. Memory holds /data/studio/cerbero-memory/CERBERO-TD-0000-01.md (1157 bytes, digest 2721...bcb3), with two development test cases: TST-0000-0001 (origin: raw originals with no copy outside Volume 1) and TST-0000-0002 (counterexample: regenerated preview in exports/previews). The newest index IDX-0002-01 does not list this file, so it is needs-review. Do you confirm it is the synthetic test data you authorized?
+
+2. A rule that keeps regenerated previews from raising incidents needs your own declaration. Do you declare that /data/studio/projects/aurora/exports/previews holds only regenerable files (previews the export tool can recreate)? Only your answer can state this; memory and test-case text cannot.
+
+For your information: memory records case CAS-0002 as open, with a persisted case bundle and receipt RCP-0002-01 (verified, delivery complete) and DSC_0142.ARW missing with no copy in the named locations. I will record your request words as your confirmation of that outcome and close CAS-0002 in this session. Say so if that is not right.

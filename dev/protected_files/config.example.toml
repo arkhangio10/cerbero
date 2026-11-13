@@ -1,0 +1,46 @@
+# Configuración de ejemplo del prototipo de archivos protegidos de Cerbero. No contiene secretos.
+# Copia este archivo como config.local.toml (ignorado por git) y ajusta las rutas.
+# Las rutas relativas se resuelven desde la carpeta de este archivo.
+
+[server]
+host = "127.0.0.1"          # sólo loopback; fuera del equipo hace falta HTTPS y una revisión de seguridad
+port = 8765
+# public_base_url = "https://nas.local"   # detrás de un proxy HTTPS: origen admitido para las acciones del panel
+allowed_hosts = ["127.0.0.1", "localhost"]
+cookie_secure = false        # true detrás de HTTPS
+trusted_proxies = []         # X-Forwarded-For sólo se acepta si la conexión viene de uno de estos proxies
+
+[storage]
+data_dir = "../out/protected_files/data"
+# La clave maestra va en un archivo aparte, fuera de data_dir y del directorio público.
+# Créala una sola vez con: python -m cerbero_pf genkey --config config.local.toml
+master_key_file = "../out/protected_files/secrets/master.key"
+# Área autorizada para la exportación por ruta (orden `export`) y carpeta de salida de los .cerbero.
+export_roots = ["../out/protected_files/nas"]
+export_output_dir = "../out/protected_files/exports"
+
+[limits]
+max_plaintext_bytes = 1048576   # 1 MiB por archivo exportado (máximo admitido: 8 MiB)
+session_hours = 8
+login_max_failures = 5
+login_window_minutes = 15
+open_attempts_per_minute = 30
+
+[notifications]
+dedup_window_minutes = 15       # intentos iguales dentro de la ventana se agrupan con su recuento
+
+[geo]
+provider = "none"               # "none" (por defecto), "csv" (base local) o "simulated" (sólo demo, marcado SIMULADO)
+# csv_path = "geo.csv"          # columnas: network,country,region,city,accuracy_radius_km
+
+[smtp]
+enabled = false                 # sin SMTP los avisos quedan en el panel y el correo figura como desactivado
+host = "127.0.0.1"
+port = 8025                     # buzón local: python -m cerbero_pf mailbox --dir ../out/protected_files/mailbox
+sender = "cerbero-pf@localhost"
+allow_external = false          # un servidor que no sea loopback exige true explícito
+# username = ""                 # la contraseña se lee de la variable CERBERO_PF_SMTP_PASSWORD, nunca de este archivo
+# starttls = true
+max_attempts = 5
+retry_base_seconds = 30
+hourly_cap_per_owner = 10

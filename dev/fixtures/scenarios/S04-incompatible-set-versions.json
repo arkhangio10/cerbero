@@ -1,0 +1,37 @@
+{
+  "extends": "aurora.json",
+  "id": "S04",
+  "title": "Newest copies belong to different sets; the target set can only be partially rebuilt",
+  "covers": ["set-coherence"],
+  "before": {
+    "backups/aurora-2026-10-01/brief.pdf": {"blob": "brief-v1", "mtime": 1200},
+    "backups/aurora-2026-10-01/layout.indd": {"blob": "layout-v1", "mtime": 1200},
+    "backups/aurora-2026-10-01/copy.docx": {"blob": "copy-v1", "mtime": 1200},
+    "backups/aurora-2026-10-01/cover.tif": {"blob": "cover-v1", "mtime": 1200},
+    "usb-archive/aurora/brief.pdf": null,
+    "usb-archive/aurora/layout.indd": null,
+    "usb-archive/aurora/copy.docx": null,
+    "usb-archive/aurora/cover.tif": null,
+    "usb-archive/aurora/logo.ai": null
+  },
+  "locations": {"L-usb": null},
+  "request": {"copy_locations": ["L-bk-old", "L-bk-new"]},
+  "incident": [
+    {"op": "delete", "path": "projects/aurora/layout.indd"},
+    {"op": "delete", "path": "projects/aurora/copy.docx"},
+    {"op": "delete", "path": "projects/aurora/cover.tif"}
+  ],
+  "answers": {"on_partial": "proceed-partial"},
+  "expected": {
+    "states": {"A-layout": "missing", "A-copy": "missing", "A-cover": "missing", "A-brief": "intact", "A-logo": "intact"},
+    "recovery": {
+      "entries": {"A-layout": "no-source", "A-copy": "verified", "A-cover": "verified"},
+      "blobs": {"A-copy": "copy-v2", "A-cover": "cover-v2"},
+      "overall": "verified",
+      "set_complete": false
+    },
+    "no_source": ["A-layout"],
+    "alternatives": ["SET-D1"],
+    "acknowledged": ["partial-set"]
+  }
+}

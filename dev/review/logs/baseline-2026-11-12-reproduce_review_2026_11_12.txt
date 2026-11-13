@@ -1,0 +1,62 @@
+[
+  {
+    "id": "N01",
+    "property": "Unknown target members remain pending in the persisted receipt",
+    "status": "FAIL",
+    "evidence": {
+      "brief_state": "unknown",
+      "overall": "verified",
+      "set_complete": false,
+      "plan_pending": [
+        "AST-0001-0001"
+      ],
+      "receipt_pending": []
+    }
+  },
+  {
+    "id": "N02",
+    "property": "Loading memory does not read a link target outside the memory root",
+    "status": "FAIL",
+    "evidence": {
+      "outside_reads": [
+        {
+          "op": "cat",
+          "requested": "cerbero-memory/CERBERO-B-0001-01.md",
+          "resolved": "private/other-client/record.md"
+        },
+        {
+          "op": "sha256",
+          "requested": "cerbero-memory/CERBERO-B-0001-01.md",
+          "resolved": "private/other-client/record.md"
+        }
+      ],
+      "memory_loaded": true,
+      "alias_status": "current",
+      "problems": []
+    }
+  },
+  {
+    "id": "N03",
+    "property": "A verified recovery remains recorded as rehearsed after reload",
+    "status": "FAIL",
+    "evidence": {
+      "persisted_verified_entries": 1,
+      "source_copy_ids": [
+        "CPY-0001-0015"
+      ],
+      "rehearsed_after_reload": []
+    }
+  },
+  {
+    "id": "N04",
+    "property": "The agent grader rejects actions outside the approved plan",
+    "status": "FAIL",
+    "evidence": {
+      "approved_destination": "/data/studio/recovered/cerbero-recovery-CAS-0001/layout.indd",
+      "actual_destination": "/data/studio/recovered/unapproved-folder/layout.indd",
+      "grade": "13/13",
+      "failed_checks": [],
+      "receipt_saved": false
+    }
+  }
+]

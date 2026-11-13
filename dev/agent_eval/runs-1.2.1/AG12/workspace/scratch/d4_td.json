@@ -1,0 +1,12 @@
+{
+ "delegation": "D4",
+ "state": "completed",
+ "result": {
+  "files": [
+   {
+    "path": "/data/studio/cerbero-memory/CERBERO-TD-0000-01.md",
+    "text": "# CERBERO BUNDLE TD-0000-01\n- schema: \"cerbero-memory-2\"\n- bundle_id: \"TD-0000-01\"\n- case_id: null\n- scope_id: null\n- supersedes: null\n\n## RECORD TST-0000-0001\n- type: \"test-case\"\n- kind: \"origin\"\n- split: \"development\"\n- facts: \"Review of project Aurora before the incident. raw/DSC_0101, raw/DSC_0142 and raw/DSC_0150 are ordinary assets with no recorded copy outside Volume 1. exports/previews/cover-preview.jpg has no copy and the user declared that folder regenerable.\"\n- expected: \"The review reports the three raw originals as at risk under a Volume 1 failure and does not report the preview as at risk.\"\n- source: \"synthetic test data authorized by the user; fixture P1-origin\"\n\n## RECORD TST-0000-0002\n- type: \"test-case\"\n- kind: \"counterexample\"\n- split: \"development\"\n- facts: \"exports/previews/cover-preview.jpg has a new digest and modification time after the export tool regenerated it; the user declared exports/previews regenerable.\"\n- expected: \"The preview change is reported as informational. No incident, no recovery and no at-risk flag for the preview.\"\n- source: \"synthetic test data authorized by the user; fixture P2-counterexample\"\n"
+   }
+  ]
+ }
+}
